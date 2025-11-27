@@ -1,0 +1,539 @@
+---
+/**
+ * INTEGRATIONS GALLERY V3.1 - LOGOS ARREGLADOS
+ * FIX: Logos visibles en fondo oscuro con filtros correctos
+ */
+
+import { Plug2, ExternalLink } from 'lucide-react';
+import { baseUrl } from '../../lib/base-url';
+
+const integrations = [
+  // CRM
+  {
+    name: 'Salesforce',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/salesforce.svg',
+    category: 'CRM',
+    description: 'Actualiza leads, oportunidades y contactos automáticamente',
+    color: '#00A1E0'
+  },
+  {
+    name: 'HubSpot',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/hubspot.svg',
+    category: 'CRM',
+    description: 'Sincroniza deals, contactos y pipelines en tiempo real',
+    color: '#FF7A59'
+  },
+  {
+    name: 'Zoho CRM',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/zoho.svg',
+    category: 'CRM',
+    description: 'Gestiona módulos, leads y campañas automáticamente',
+    color: '#E42527'
+  },
+  
+  // E-commerce
+  {
+    name: 'Shopify',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/shopify.svg',
+    category: 'E-commerce',
+    description: 'Procesa pedidos, actualiza inventario y gestiona pagos',
+    color: '#96BF48'
+  },
+  {
+    name: 'WooCommerce',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/woocommerce.svg',
+    category: 'E-commerce',
+    description: 'Automatiza ventas, stock y fulfillment de WordPress',
+    color: '#96588A'
+  },
+  {
+    name: 'Mercado Libre',
+    logo: 'https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/logo__large_plus.png',
+    category: 'E-commerce',
+    description: 'Gestiona publicaciones, ventas y mensajes MELI',
+    color: '#FFE600'
+  },
+  
+  // ERP
+  {
+    name: 'SAP',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/sap.svg',
+    category: 'ERP',
+    description: 'Integra finanzas, compras y logística empresarial',
+    color: '#0FAAFF'
+  },
+  {
+    name: 'Oracle NetSuite',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/oracle.svg',
+    category: 'ERP',
+    description: 'Conecta contabilidad, inventario y operaciones',
+    color: '#F80000'
+  },
+  {
+    name: 'Microsoft Dynamics',
+    logo: 'https://img.icons8.com/color/96/microsoft.png',
+    category: 'ERP',
+    description: 'Automatiza procesos de negocio y recursos',
+    color: '#00A4EF'
+  },
+  
+  // Pagos
+  {
+    name: 'Stripe',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/stripe.svg',
+    category: 'Pagos',
+    description: 'Procesa pagos, suscripciones y facturación',
+    color: '#635BFF'
+  },
+  {
+    name: 'PayPal',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/paypal.svg',
+    category: 'Pagos',
+    description: 'Gestiona transacciones y reembolsos globales',
+    color: '#00457C'
+  },
+  {
+    name: 'Mercado Pago',
+    logo: 'https://http2.mlstatic.com/frontend-assets/ml-web-navigation/ui-navigation/5.21.22/mercadolibre/logo_mp_small.png',
+    category: 'Pagos',
+    description: 'Integra pagos LATAM y checkouts',
+    color: '#009EE3'
+  },
+  
+  // Comunicación
+  {
+    name: 'WhatsApp Business',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/whatsapp.svg',
+    category: 'Comunicación',
+    description: 'Envía mensajes, notificaciones y automatiza chats',
+    color: '#25D366'
+  },
+  {
+    name: 'Slack',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/slack.svg',
+    category: 'Comunicación',
+    description: 'Notifica equipos y automatiza workflows',
+    color: '#4A154B'
+  },
+  {
+    name: 'Gmail',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg',
+    category: 'Comunicación',
+    description: 'Envía emails, follow-ups y campañas',
+    color: '#EA4335'
+  },
+  
+  // Almacenamiento
+  {
+    name: 'Google Drive',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/googledrive.svg',
+    category: 'Storage',
+    description: 'Almacena documentos y archivos automáticamente',
+    color: '#4285F4'
+  },
+  {
+    name: 'Dropbox',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/dropbox.svg',
+    category: 'Storage',
+    description: 'Sincroniza y comparte archivos en la nube',
+    color: '#0061FF'
+  },
+  {
+    name: 'AWS S3',
+    logo: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/amazons3.svg',
+    category: 'Storage',
+    description: 'Gestiona buckets y objetos cloud',
+    color: '#569A31'
+  },
+];
+
+// Agrupar por categoría
+const categories = [...new Set(integrations.map(i => i.category))];
+---
+
+<section class="integrations-gallery-section section">
+  <div class="ab-container">
+    
+    <!-- Header -->
+    <div class="section-header">
+      <div class="section-badge">
+        <Plug2 size={18} strokeWidth={2.5} />
+        <span>+30 Integraciones</span>
+      </div>
+      <h2 class="section-title">
+        Se conecta con <span class="text-gradient-gold">tus herramientas</span>
+      </h2>
+      <p class="section-subtitle">
+        Integración sin código con los sistemas que ya usas. Listo en minutos.
+      </p>
+    </div>
+
+    <!-- Categories Filter -->
+    <div class="categories-filter">
+      <button class="category-btn active" data-category="all">
+        Todas
+      </button>
+      {categories.map((category) => (
+        <button class="category-btn" data-category={category.toLowerCase()}>
+          {category}
+        </button>
+      ))}
+    </div>
+
+    <!-- Integrations Grid -->
+    <div class="integrations-grid">
+      {integrations.map((integration) => (
+        <div 
+          class="integration-card" 
+          data-category={integration.category.toLowerCase()}
+        >
+          <div class="integration-logo-wrapper">
+            <img 
+              src={integration.logo} 
+              alt={integration.name}
+              class="integration-logo"
+              loading="lazy"
+            />
+          </div>
+          <h4 class="integration-name">{integration.name}</h4>
+          
+          <!-- Tooltip (appears on hover) -->
+          <div class="integration-tooltip">
+            <div class="tooltip-header">
+              <strong>{integration.name}</strong>
+              <span class="tooltip-category">{integration.category}</span>
+            </div>
+            <p class="tooltip-description">{integration.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="integrations-cta">
+      <p class="cta-text">
+        ¿No ves tu herramienta? Podemos integrarla.
+      </p>
+      <a href={`${baseUrl}/contacto`} class="cta-link">
+        Consultar integración personalizada
+        <ExternalLink size={16} strokeWidth={2.5} />
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .integrations-gallery-section {
+    background: linear-gradient(180deg, #080818 0%, #0d0d1f 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .integrations-gallery-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(200, 152, 40, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 72px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 24px;
+  }
+
+  /* Categories Filter */
+  .categories-filter {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .category-btn {
+    padding: 11px 22px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 0.5px solid rgba(255, 255, 255, 0.08);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.65);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .category-btn:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.85);
+    transform: translateY(-2px);
+  }
+
+  .category-btn.active {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  /* Grid - MORE SPACING */
+  .integrations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 24px;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* Integration Card - REFINED */
+  .integration-card {
+    position: relative;
+    padding: 28px;
+    background: rgba(8, 8, 24, 0.4);
+    border: 0.5px solid rgba(255, 255, 255, 0.06);
+    border-radius: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .integration-card:hover {
+    background: rgba(8, 8, 24, 0.7);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateY(-6px);
+    box-shadow: 
+      0 2px 4px rgba(0, 0, 0, 0.05),
+      0 8px 16px rgba(0, 0, 0, 0.08),
+      0 16px 32px rgba(200, 152, 40, 0.04);
+  }
+
+  .integration-card:hover .integration-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-10px);
+  }
+
+  .integration-logo-wrapper {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent; /* CAMBIO: De rgba oscuro a transparente */
+    border-radius: 14px;
+    padding: 14px;
+  }
+
+  /* CORREGIDO: Logos visibles en fondo oscuro */
+  .integration-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* FIX: brightness(0) invierte colores, luego agregamos color */
+    filter: brightness(0) invert(1) opacity(0.6);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .integration-card:hover .integration-logo {
+    /* En hover: logos con más brillo y opacidad */
+    filter: brightness(0) invert(1) opacity(1);
+  }
+
+  .integration-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  /* Tooltip - REFINED */
+  .integration-tooltip {
+    position: absolute;
+    bottom: calc(100% + 16px);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    padding: 18px;
+    background: rgba(8, 8, 24, 0.98);
+    border: 0.5px solid rgba(200, 152, 40, 0.3);
+    border-radius: 14px;
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 16px 64px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+    pointer-events: none;
+  }
+
+  .integration-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: rgba(8, 8, 24, 0.98);
+  }
+
+  .tooltip-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .tooltip-header strong {
+    font-size: 15px;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+
+  .tooltip-category {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 8px;
+    background: rgba(200, 152, 40, 0.15);
+    border: 0.5px solid rgba(200, 152, 40, 0.3);
+    border-radius: 4px;
+    color: #C89828;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .tooltip-description {
+    font-size: 13px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+  }
+
+  /* CTA - SUBTLE */
+  .integrations-cta {
+    text-align: center;
+    padding: 36px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 0.5px solid rgba(255, 255, 255, 0.06);
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 0 16px 0;
+  }
+
+  .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #C89828;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .cta-link:hover {
+    color: #E0B84E;
+    gap: 12px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .integrations-grid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 16px;
+    }
+
+    .integration-card {
+      padding: 24px 20px;
+    }
+
+    .integration-logo-wrapper {
+      width: 56px;
+      height: 56px;
+    }
+
+    .integration-name {
+      font-size: 13px;
+    }
+
+    .integration-tooltip {
+      width: 220px;
+    }
+
+    .categories-filter {
+      gap: 8px;
+    }
+
+    .category-btn {
+      padding: 9px 18px;
+      font-size: 13px;
+    }
+  }
+</style>
+
+<script>
+  // Category Filter Logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const integrationCards = document.querySelectorAll('.integration-card');
+
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category');
+
+        // Update active button
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        // Filter cards
+        integrationCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          
+          if (category === 'all' || cardCategory === category) {
+            card.style.display = 'flex';
+            card.style.animation = 'fadeInScale 0.4s ease forwards';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>

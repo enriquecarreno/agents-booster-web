@@ -1,0 +1,280 @@
+---
+/**
+ * TRUST BAR - Security & Social Proof
+ * Aparece justo después del hero
+ * Aumenta credibilidad con badges y stats
+ */
+
+import { Shield, Lock, Zap, TrendingUp } from 'lucide-react';
+---
+
+<section class="trust-bar-section">
+  <div class="ab-container">
+    <div class="trust-bar-content">
+      
+      <!-- Social Proof Stat -->
+      <div class="trust-stat">
+        <TrendingUp size={24} strokeWidth={2.5} className="stat-icon" client:load />
+        <div class="stat-details">
+          <span class="stat-number">8</span>
+          <span class="stat-label">Empresas LATAM</span>
+        </div>
+      </div>
+
+      <!-- Divider -->
+      <div class="trust-divider"></div>
+
+      <!-- Security Badges -->
+      <div class="trust-badges">
+        
+        <div class="trust-badge">
+          <Shield size={18} strokeWidth={2.5} />
+          <span>GDPR Compliant</span>
+        </div>
+
+        <div class="trust-badge">
+          <Lock size={18} strokeWidth={2.5} />
+          <span>AES-256 Encryption</span>
+        </div>
+
+        <div class="trust-badge badge-progress">
+          <Zap size={18} strokeWidth={2.5} />
+          <span>SOC 2 <em>(In Progress)</em></span>
+        </div>
+
+        <div class="trust-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+          </svg>
+          <span>99.9% Uptime SLA</span>
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div class="trust-divider hide-mobile"></div>
+
+      <!-- CTA Link -->
+      <a href="/seguridad" class="trust-link hide-mobile">
+        <span>Ver detalles de seguridad</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-bar-section {
+    position: relative;
+    background: rgba(8, 8, 24, 0.6);
+    border-top: 1px solid rgba(200, 152, 40, 0.2);
+    border-bottom: 1px solid rgba(200, 152, 40, 0.2);
+    padding: 24px 0;
+    margin: 0;
+    backdrop-filter: blur(16px);
+    z-index: 10;
+  }
+
+  .trust-bar-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  /* ============================================
+     SOCIAL PROOF STAT
+     ============================================ */
+
+  .trust-stat {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .trust-stat :global(.stat-icon) {
+    color: #C89828;
+    flex-shrink: 0;
+  }
+
+  .stat-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .stat-number {
+    font-size: 28px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ============================================
+     DIVIDER
+     ============================================ */
+
+  .trust-divider {
+    width: 1px;
+    height: 48px;
+    background: rgba(200, 152, 40, 0.2);
+  }
+
+  /* ============================================
+     BADGES
+     ============================================ */
+
+  .trust-badges {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+
+  .trust-badge:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .trust-badge svg {
+    color: #C89828;
+    flex-shrink: 0;
+  }
+
+  .trust-badge span {
+    white-space: nowrap;
+  }
+
+  .badge-progress em {
+    font-style: normal;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 11px;
+  }
+
+  /* ============================================
+     CTA LINK
+     ============================================ */
+
+  .trust-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #C89828;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: rgba(200, 152, 40, 0.05);
+  }
+
+  .trust-link:hover {
+    background: rgba(200, 152, 40, 0.1);
+    color: #F4D56E;
+  }
+
+  .trust-link svg {
+    transition: transform 0.3s ease;
+  }
+
+  .trust-link:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+
+  @media (max-width: 1024px) {
+    .trust-bar-content {
+      gap: 32px;
+    }
+
+    .trust-badges {
+      gap: 16px;
+    }
+
+    .hide-mobile {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .trust-bar-section {
+      padding: 20px 0;
+    }
+
+    .trust-bar-content {
+      flex-direction: column;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .trust-stat {
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .trust-divider {
+      width: 80px;
+      height: 1px;
+    }
+
+    .trust-badges {
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .trust-badge {
+      padding: 8px 14px;
+      font-size: 12px;
+    }
+
+    .trust-badge svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
+  /* ============================================
+     ACCESSIBILITY
+     ============================================ */
+
+  @media (prefers-reduced-motion: reduce) {
+    .trust-badge,
+    .trust-link {
+      transition: none;
+    }
+  }
+</style>

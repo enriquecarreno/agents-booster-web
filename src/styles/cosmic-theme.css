@@ -1,0 +1,382 @@
+/**
+ * AGENTS BOOSTER - COSMIC THEME
+ * Sistema de diseño con colores de marca
+ * Navy: #080818, Dark: #0B0D0E, Gold: #C89828
+ */
+
+:root {
+  /* Brand Colors */
+  --color-brand-navy: #080818;
+  --color-brand-dark: #0B0D0E;
+  --color-brand-gold: #C89828;
+  --color-brand-gold-light: #E0B84E;
+  --color-brand-gold-bright: #F4D56E;
+
+  /* Semantic Colors */
+  --color-bg: #0B0D0E;
+  --color-bg-elevated: #12141A;
+  --color-bg-card: rgba(8, 8, 24, 0.4);
+  
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: rgba(255, 255, 255, 0.8);
+  --color-text-tertiary: rgba(255, 255, 255, 0.6);
+
+  /* Accent Colors */
+  --color-accent-cyan: #00F5FF;
+  --color-accent-purple: #B026FF;
+  --color-accent-green: #00FF88;
+  --color-accent-blue: #4A9EFF;
+  --color-accent-red: #FF6B6B;
+
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, #C89828 0%, #E0B84E 50%, #F4D56E 100%);
+  --gradient-navy: linear-gradient(135deg, #080818 0%, #12141A 100%);
+  --gradient-depth: radial-gradient(ellipse at 50% 0%, #080818 0%, #0B0D0E 50%, #060608 100%);
+  
+  /* Glow Effects */
+  --glow-gold: 0 0 20px rgba(200, 152, 40, 0.4);
+  --glow-gold-strong: 0 0 40px rgba(200, 152, 40, 0.6);
+  --glow-navy: 0 0 30px rgba(8, 8, 24, 0.6);
+
+  /* Spacing (8px base) */
+  --space-xs: 4px;
+  --space-s: 8px;
+  --space-m: 16px;
+  --space-l: 24px;
+  --space-xl: 32px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+  --space-4xl: 96px;
+  --space-5xl: 128px;
+
+  /* Border Radius */
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  /* Timing */
+  --timing-fast: 200ms;
+  --timing-medium: 300ms;
+  --timing-slow: 500ms;
+  --easing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Z-index scale */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+  --z-tooltip: 700;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Text Gradients */
+.text-gradient-gold {
+  background: var(--gradient-gold);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.text-gradient-navy {
+  background: var(--gradient-navy);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism */
+.glass {
+  background-color: rgba(8, 8, 24, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(200, 152, 40, 0.2);
+}
+
+.glass-strong {
+  background-color: rgba(8, 8, 24, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(200, 152, 40, 0.3);
+}
+
+/* Card Base */
+.cosmic-card {
+  background: rgba(8, 8, 24, 0.4);
+  border: 1px solid rgba(200, 152, 40, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-md);
+  transition: all var(--timing-medium) var(--easing);
+}
+
+.cosmic-card:hover {
+  background: rgba(8, 8, 24, 0.6);
+  border-color: rgba(200, 152, 40, 0.4);
+  transform: translateY(-4px);
+  box-shadow: var(--glow-gold);
+}
+
+/* Buttons */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--timing-medium) var(--easing);
+  border: none;
+  text-decoration: none;
+  background: var(--gradient-gold);
+  color: var(--color-brand-navy);
+  box-shadow: var(--glow-gold);
+}
+
+.btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-gold-strong);
+  color: var(--color-brand-navy);
+}
+
+.btn-outline-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: var(--radius-md);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--timing-medium) var(--easing);
+  text-decoration: none;
+  background-color: rgba(200, 152, 40, 0.1);
+  border: 2px solid rgba(200, 152, 40, 0.3);
+  color: var(--color-brand-gold);
+}
+
+.btn-outline-gold:hover {
+  background-color: rgba(200, 152, 40, 0.2);
+  border-color: var(--color-brand-gold);
+  transform: translateY(-2px);
+}
+
+/* Badges */
+.badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  background: rgba(200, 152, 40, 0.15);
+  border: 1px solid rgba(200, 152, 40, 0.3);
+  color: var(--color-brand-gold);
+}
+
+.badge-navy {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  background: rgba(8, 8, 24, 0.6);
+  border: 1px solid rgba(200, 152, 40, 0.2);
+  color: var(--color-text-secondary);
+}
+
+/* Section Spacing */
+.section-cosmic {
+  padding: var(--space-5xl) 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .section-cosmic {
+    padding: var(--space-4xl) 0;
+  }
+}
+
+/* Glow Effects */
+.glow-gold {
+  box-shadow: var(--glow-gold);
+}
+
+.glow-gold-strong {
+  box-shadow: var(--glow-gold-strong);
+}
+
+/* Animations */
+@keyframes float-cosmic {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-cosmic {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer-cosmic {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-float-cosmic {
+  animation: float-cosmic 3s ease-in-out infinite;
+}
+
+.animate-pulse-cosmic {
+  animation: pulse-cosmic 2s ease-in-out infinite;
+}
+
+.animate-shimmer-cosmic {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(200, 152, 40, 0.2),
+    transparent
+  );
+  background-size: 1000px 100%;
+  animation: shimmer-cosmic 2s linear infinite;
+}
+
+/* Depth Layers */
+.depth-layer-1 {
+  position: relative;
+  z-index: 1;
+}
+
+.depth-layer-2 {
+  position: relative;
+  z-index: 2;
+}
+
+.depth-layer-3 {
+  position: relative;
+  z-index: 3;
+}
+
+/* Perspective Grid */
+.perspective-grid {
+  background-image:
+    linear-gradient(rgba(200, 152, 40, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 152, 40, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  opacity: 0.5;
+}
+
+/* Scanlines Effect */
+.scanlines {
+  position: relative;
+}
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(200, 152, 40, 0.02) 2px,
+    rgba(200, 152, 40, 0.02) 4px
+  );
+  pointer-events: none;
+}
+
+/* Vignette Effect */
+.vignette {
+  position: relative;
+}
+
+.vignette::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 0%,
+    transparent 50%,
+    rgba(6, 6, 8, 0.4) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Responsive */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Print */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}

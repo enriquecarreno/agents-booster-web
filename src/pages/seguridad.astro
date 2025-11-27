@@ -1,0 +1,1363 @@
+---
+/**
+ * PÁGINA SEGURIDAD & PRIVACIDAD V2
+ * FASE 3: Lucide Icons implementados
+ */
+
+import MainLayout from '../layouts/Main.astro';
+import Navbar from '../components/global/Navbar.astro';
+import Footer from '../components/global/Footer.astro';
+import { 
+  Lock, Shield, FileText, Zap, Key, Eye, HardDrive, Building,
+  Check, ChevronDown, ArrowRight, Activity
+} from 'lucide-react';
+---
+
+<MainLayout 
+  title="Seguridad & Privacidad - Agents Booster" 
+  description="Seguridad enterprise-grade. Encriptación end-to-end, compliance GDPR, SOC 2 roadmap, 99.9% SLA. Tus datos están protegidos con los más altos estándares."
+>
+  <Navbar />
+  
+  <div class="seguridad-page">
+    
+    <!-- Hero -->
+    <section class="seg-hero">
+      <div class="ab-container">
+        <div class="breadcrumbs">
+          <a href="/">Inicio</a>
+          <span class="separator">→</span>
+          <span class="current">Seguridad</span>
+        </div>
+        
+        <div class="hero-content">
+          <span class="hero-badge">
+            <Lock size={16} strokeWidth={2.5} client:load />
+            <span>Enterprise-Grade Security</span>
+          </span>
+          
+          <h1 class="hero-title">
+            Tus Datos,<br />
+            <span class="text-gradient-gold">Nuestra Prioridad #1</span>
+          </h1>
+          
+          <p class="hero-lead">
+            Seguridad no es una característica opcional. Es el <strong>fundamento</strong> de todo 
+            lo que construimos. Encriptación end-to-end, compliance GDPR, monitoring 24/7.
+          </p>
+          
+          <div class="hero-badges">
+            <div class="security-badge">
+              <Lock size={24} strokeWidth={2} className="badge-icon" client:load />
+              <span class="badge-text">AES-256 Encryption</span>
+            </div>
+            <div class="security-badge">
+              <Shield size={24} strokeWidth={2} className="badge-icon" client:load />
+              <span class="badge-text">GDPR Compliant</span>
+            </div>
+            <div class="security-badge">
+              <FileText size={24} strokeWidth={2} className="badge-icon" client:load />
+              <span class="badge-text">SOC 2 Roadmap</span>
+            </div>
+            <div class="security-badge">
+              <Zap size={24} strokeWidth={2} className="badge-icon" client:load />
+              <span class="badge-text">99.9% SLA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- 6 Capas de Seguridad -->
+    <section class="capas-section">
+      <div class="ab-container">
+        <div class="section-header">
+          <h2 class="section-title">6 Capas de Seguridad</h2>
+          <p class="section-subtitle">
+            Protección en profundidad: múltiples capas que trabajan juntas
+          </p>
+        </div>
+        
+        <div class="capas-grid">
+          
+          <!-- Capa 1: Encriptación -->
+          <div class="capa-card">
+            <div class="capa-number">01</div>
+            <div class="capa-icon-wrapper">
+              <Lock size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="capa-title">Encriptación Total</h3>
+            <p class="capa-description">
+              Todos tus datos están encriptados en <strong>reposo</strong>, en <strong>tránsito</strong>, 
+              y durante el <strong>procesamiento</strong>.
+            </p>
+            
+            <div class="capa-details">
+              <div class="detail-box">
+                <div class="detail-label">At-Rest</div>
+                <div class="detail-value">AES-256</div>
+                <div class="detail-info">Base de datos, backups, logs</div>
+              </div>
+              <div class="detail-box">
+                <div class="detail-label">In-Transit</div>
+                <div class="detail-value">TLS 1.3</div>
+                <div class="detail-info">Todas las comunicaciones</div>
+              </div>
+              <div class="detail-box">
+                <div class="detail-label">End-to-End</div>
+                <div class="detail-value">E2EE</div>
+                <div class="detail-info">Datos sensibles de clientes</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Capa 2: Access Control -->
+          <div class="capa-card">
+            <div class="capa-number">02</div>
+            <div class="capa-icon-wrapper">
+              <Key size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="capa-title">Control de Acceso</h3>
+            <p class="capa-description">
+              Principio de <strong>mínimo privilegio</strong>. Cada usuario solo tiene acceso a 
+              lo que necesita, nada más.
+            </p>
+            
+            <div class="capa-features">
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>RBAC</strong> (Role-Based Access Control)</span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>MFA</strong> (Multi-Factor Authentication)</span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>API Key Rotation</strong> automática</span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>Session Management</strong> seguro</span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>OAuth 2.0</strong> / SAML SSO</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Capa 3: Data Isolation -->
+          <div class="capa-card">
+            <div class="capa-number">03</div>
+            <div class="capa-icon-wrapper">
+              <Building size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="capa-title">Aislamiento de Datos</h3>
+            <p class="capa-description">
+              Tus datos están <strong>completamente aislados</strong> de otros clientes a 
+              nivel de base de datos, aplicación y red.
+            </p>
+            
+            <div class="capa-features">
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>Tenant-level partitioning</strong></span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>Database isolation</strong></span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>Network segmentation</strong></span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>Resource isolation</strong></span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>Zero cross-contamination</strong></span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Capa 4: Compliance -->
+          <div class="capa-card">
+            <div class="capa-number">04</div>
+            <div class="capa-icon-wrapper">
+              <FileText size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="capa-title">Compliance</h3>
+            <p class="capa-description">
+              Cumplimos (o estamos trabajando en) las <strong>certificaciones</strong> más 
+              exigentes de la industria.
+            </p>
+            
+            <div class="compliance-badges">
+              <div class="compliance-badge active">
+                <div class="badge-status">
+                  <Check size={14} strokeWidth={3} client:load />
+                  <span>ACTIVO</span>
+                </div>
+                <div class="badge-name">GDPR</div>
+                <div class="badge-desc">General Data Protection Regulation</div>
+              </div>
+              <div class="compliance-badge roadmap">
+                <div class="badge-status">
+                  <Activity size={14} strokeWidth={2.5} client:load />
+                  <span>ROADMAP 2025</span>
+                </div>
+                <div class="badge-name">SOC 2 Type II</div>
+                <div class="badge-desc">Security, Availability, Confidentiality</div>
+              </div>
+              <div class="compliance-badge roadmap">
+                <div class="badge-status">
+                  <Activity size={14} strokeWidth={2.5} client:load />
+                  <span>ROADMAP 2026</span>
+                </div>
+                <div class="badge-name">ISO 27001</div>
+                <div class="badge-desc">Information Security Management</div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Capa 5: Monitoring -->
+          <div class="capa-card">
+            <div class="capa-number">05</div>
+            <div class="capa-icon-wrapper">
+              <Eye size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="capa-title">Monitoring 24/7</h3>
+            <p class="capa-description">
+              Nuestro equipo y sistemas automatizados <strong>monitorean constantemente</strong> 
+              en busca de amenazas.
+            </p>
+            
+            <div class="capa-features">
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>SIEM</strong> (Security Information & Event Management)</span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>Intrusion Detection System</strong> (IDS)</span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>DDoS Protection</strong> (CloudFlare)</span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>Automated alerts</strong> en tiempo real</span>
+              </div>
+              <div class="feature-item">
+                <Check size={18} strokeWidth={2.5} client:load />
+                <span><strong>Incident response</strong> team dedicado</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Capa 6: Backups -->
+          <div class="capa-card">
+            <div class="capa-number">06</div>
+            <div class="capa-icon-wrapper">
+              <HardDrive size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="capa-title">Backups & Recovery</h3>
+            <p class="capa-description">
+              Tus datos están respaldados constantemente. Si algo falla, <strong>recuperamos 
+              todo</strong> en minutos.
+            </p>
+            
+            <div class="backup-schedule">
+              <div class="schedule-item">
+                <div class="schedule-freq">Cada 6h</div>
+                <div class="schedule-type">Automated Backups</div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-freq">Multi-region</div>
+                <div class="schedule-type">Replication</div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-freq">30 días</div>
+                <div class="schedule-type">Point-in-time Recovery</div>
+              </div>
+              <div class="schedule-item">
+                <div class="schedule-freq">&lt;1h</div>
+                <div class="schedule-type">Recovery Time</div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- Audit Logs -->
+    <section class="audit-section">
+      <div class="ab-container">
+        <div class="audit-content">
+          <div class="audit-text">
+            <h2 class="section-title">Audit Logs Completos</h2>
+            <p class="text-large">
+              Cada acción en el sistema queda registrada. <strong>Trazabilidad total</strong> 
+              para compliance y debugging.
+            </p>
+            
+            <div class="audit-features">
+              <div class="audit-feature">
+                <div class="feature-icon-wrapper">
+                  <FileText size={32} strokeWidth={2} client:load />
+                </div>
+                <div class="feature-content">
+                  <h4 class="feature-title">Registro Inmutable</h4>
+                  <p class="feature-desc">Cada evento queda grabado permanentemente</p>
+                </div>
+              </div>
+              
+              <div class="audit-feature">
+                <div class="feature-icon-wrapper">
+                  <Eye size={32} strokeWidth={2} client:load />
+                </div>
+                <div class="feature-content">
+                  <h4 class="feature-title">Búsqueda Avanzada</h4>
+                  <p class="feature-desc">Filtra por usuario, acción, fecha, recurso</p>
+                </div>
+              </div>
+              
+              <div class="audit-feature">
+                <div class="feature-icon-wrapper">
+                  <Activity size={32} strokeWidth={2} client:load />
+                </div>
+                <div class="feature-content">
+                  <h4 class="feature-title">Reportes Automáticos</h4>
+                  <p class="feature-desc">Exporta logs para compliance o auditorías</p>
+                </div>
+              </div>
+              
+              <div class="audit-feature">
+                <div class="feature-icon-wrapper">
+                  <Zap size={32} strokeWidth={2} client:load />
+                </div>
+                <div class="feature-content">
+                  <h4 class="feature-title">Alertas Custom</h4>
+                  <p class="feature-desc">Notificaciones en eventos críticos</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="audit-visual">
+            <div class="log-example">
+              <div class="log-header">
+                <span class="log-title">
+                  <FileText size={16} strokeWidth={2} client:load />
+                  <span>Audit Log</span>
+                </span>
+                <span class="log-live">
+                  <span class="live-indicator"></span>
+                  <span>LIVE</span>
+                </span>
+              </div>
+              <div class="log-entries">
+                <div class="log-entry">
+                  <span class="log-time">2025-01-24 14:32:15</span>
+                  <span class="log-user">user@empresa.com</span>
+                  <span class="log-action success">LOGIN_SUCCESS</span>
+                </div>
+                <div class="log-entry">
+                  <span class="log-time">2025-01-24 14:32:28</span>
+                  <span class="log-user">user@empresa.com</span>
+                  <span class="log-action info">VIEW_DASHBOARD</span>
+                </div>
+                <div class="log-entry">
+                  <span class="log-time">2025-01-24 14:33:02</span>
+                  <span class="log-user">user@empresa.com</span>
+                  <span class="log-action info">API_KEY_ROTATED</span>
+                </div>
+                <div class="log-entry">
+                  <span class="log-time">2025-01-24 14:35:47</span>
+                  <span class="log-user">admin@empresa.com</span>
+                  <span class="log-action warning">PERMISSION_CHANGED</span>
+                </div>
+                <div class="log-entry">
+                  <span class="log-time">2025-01-24 14:40:12</span>
+                  <span class="log-user">system</span>
+                  <span class="log-action info">BACKUP_COMPLETED</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Políticas & Documentos -->
+    <section class="policies-section">
+      <div class="ab-container">
+        <div class="section-header">
+          <h2 class="section-title">Políticas & Documentos Legales</h2>
+          <p class="section-subtitle">
+            Transparencia total. Lee nuestras políticas antes de firmar.
+          </p>
+        </div>
+        
+        <div class="policies-grid">
+          
+          <div class="policy-card">
+            <div class="policy-icon-wrapper">
+              <Lock size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="policy-title">Privacy Policy</h3>
+            <p class="policy-description">
+              Cómo recolectamos, usamos y protegemos tus datos personales.
+            </p>
+            <a href="#" class="policy-link">
+              <span>Leer Política</span>
+              <ArrowRight size={16} strokeWidth={2.5} client:load />
+            </a>
+          </div>
+          
+          <div class="policy-card">
+            <div class="policy-icon-wrapper">
+              <FileText size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="policy-title">Terms of Service</h3>
+            <p class="policy-description">
+              Términos y condiciones de uso de la plataforma.
+            </p>
+            <a href="#" class="policy-link">
+              <span>Leer Términos</span>
+              <ArrowRight size={16} strokeWidth={2.5} client:load />
+            </a>
+          </div>
+          
+          <div class="policy-card">
+            <div class="policy-icon-wrapper">
+              <Shield size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="policy-title">Data Processing Agreement</h3>
+            <p class="policy-description">
+              DPA compliant con GDPR para procesadores de datos.
+            </p>
+            <a href="#" class="policy-link">
+              <span>Descargar DPA</span>
+              <ArrowRight size={16} strokeWidth={2.5} client:load />
+            </a>
+          </div>
+          
+          <div class="policy-card">
+            <div class="policy-icon-wrapper">
+              <Zap size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="policy-title">Service Level Agreement</h3>
+            <p class="policy-description">
+              Garantías de uptime (99.9%), response time, y service credits.
+            </p>
+            <a href="#" class="policy-link">
+              <span>Ver SLA</span>
+              <ArrowRight size={16} strokeWidth={2.5} client:load />
+            </a>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- FAQ Seguridad -->
+    <section class="faq-section">
+      <div class="ab-container">
+        <div class="section-header">
+          <h2 class="section-title">Preguntas Frecuentes sobre Seguridad</h2>
+        </div>
+        
+        <div class="faq-list">
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>¿Dónde se almacenan mis datos?</span>
+              <ChevronDown size={20} strokeWidth={2.5} client:load />
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Tus datos se almacenan en <strong>AWS (Amazon Web Services)</strong>, en data centers 
+                certificados con ISO 27001, SOC 2, y PCI DSS. Usamos regiones en <strong>US-East, US-West, 
+                y South America</strong> con replicación automática.
+              </p>
+              <p>
+                Nunca almacenamos datos en servers propios ni en proveedores no certificados.
+              </p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>¿Pueden otros clientes ver mis datos?</span>
+              <ChevronDown size={20} strokeWidth={2.5} client:load />
+            </summary>
+            <div class="faq-answer">
+              <p>
+                <strong>No, es imposible.</strong> Usamos arquitectura multitenant con aislamiento a nivel 
+                de base de datos, aplicación y red. Tus datos están particionados y encriptados con 
+                keys únicas por tenant.
+              </p>
+              <p>
+                Ni siquiera nuestros empleados pueden acceder sin autorización explícita y auditada.
+              </p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>¿Qué pasa si se cae AWS?</span>
+              <ChevronDown size={20} strokeWidth={2.5} client:load />
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Estamos desplegados en <strong>múltiples regiones AWS</strong>. Si una región falla, 
+                el tráfico se redirecciona automáticamente a otra región en menos de 60 segundos.
+              </p>
+              <p>
+                Además, usamos <strong>CloudFlare CDN</strong> como capa adicional de redundancia. 
+                Tu operación no para.
+              </p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>¿Cómo recupero datos eliminados por error?</span>
+              <ChevronDown size={20} strokeWidth={2.5} client:load />
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Hacemos <strong>backups automáticos cada 6 horas</strong> con retención de 30 días. 
+                Puedes recuperar cualquier dato eliminado en los últimos 30 días usando 
+                <strong>point-in-time recovery</strong>.
+              </p>
+              <p>
+                El proceso toma menos de 1 hora y lo manejamos nosotros por ti.
+              </p>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>¿Son compatibles con GDPR?</span>
+              <ChevronDown size={20} strokeWidth={2.5} client:load />
+            </summary>
+            <div class="faq-answer">
+              <p>
+                <strong>Sí, 100%.</strong> Cumplimos con todos los requisitos de GDPR:
+              </p>
+              <ul>
+                <li>Derecho al olvido (data deletion)</li>
+                <li>Portabilidad de datos (export)</li>
+                <li>Consentimiento explícito</li>
+                <li>DPA (Data Processing Agreement)</li>
+                <li>Data minimization</li>
+                <li>Privacy by design</li>
+              </ul>
+            </div>
+          </details>
+          
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span>¿Pueden leer mis conversaciones o datos?</span>
+              <ChevronDown size={20} strokeWidth={2.5} client:load />
+            </summary>
+            <div class="faq-answer">
+              <p>
+                Solo con <strong>autorización explícita</strong> y para propósitos específicos 
+                (debugging, soporte técnico). Todo acceso queda registrado en audit logs.
+              </p>
+              <p>
+                Datos sensibles (como números de tarjeta, contraseñas) están encriptados con 
+                <strong>keys que ni nosotros tenemos</strong>.
+              </p>
+            </div>
+          </details>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="ab-container">
+        <div class="cta-card">
+          <div class="cta-icon-wrapper">
+            <Lock size={64} strokeWidth={2} client:load />
+          </div>
+          <h2 class="cta-title">¿Tienes Preguntas sobre Seguridad?</h2>
+          <p class="cta-description">
+            Nuestro equipo técnico puede responder cualquier pregunta específica sobre 
+            compliance, encriptación, o arquitectura de seguridad.
+          </p>
+          <div class="cta-buttons">
+            <a href="/contacto" class="btn btn-primary btn-lg">
+              <span>Hablar con el Equipo</span>
+              <ArrowRight size={20} strokeWidth={2.5} client:load />
+            </a>
+            <a href="/demo" class="btn btn-secondary btn-lg">
+              <span>Ver Demo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  
+  <Footer />
+</MainLayout>
+
+<style>
+  /* ============================================
+     SEGURIDAD PAGE V2
+     Con Lucide Icons
+     ============================================ */
+  
+  .seguridad-page {
+    background: linear-gradient(180deg, #0B0D0E 0%, #080818 50%, #0B0D0E 100%);
+    min-height: 100vh;
+  }
+  
+  /* Breadcrumbs */
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 32px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .breadcrumbs a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+  }
+  
+  .breadcrumbs a:hover {
+    color: #C89828;
+  }
+  
+  .breadcrumbs .separator {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .breadcrumbs .current {
+    color: #C89828;
+    font-weight: 600;
+  }
+  
+  /* Hero */
+  .seg-hero {
+    padding: 160px 0 80px;
+  }
+  
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(200, 152, 40, 0.15);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    color: #F4D56E;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+  
+  .hero-badge :global(svg) {
+    color: #C89828;
+  }
+  
+  .hero-title {
+    font-size: clamp(40px, 5vw, 60px);
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  
+  .hero-lead {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  
+  .hero-lead strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  .hero-badges {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .security-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  .security-badge:hover {
+    border-color: rgba(200, 152, 40, 0.4);
+    transform: translateY(-2px);
+  }
+  
+  .security-badge :global(.badge-icon) {
+    color: #C89828;
+  }
+  
+  .badge-text {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Section Headers */
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 64px;
+  }
+  
+  .section-title {
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .section-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+  
+  /* Capas */
+  .capas-section {
+    padding: 100px 0;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .capas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 32px;
+  }
+  
+  .capa-card {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    position: relative;
+    transition: all 0.4s ease;
+  }
+  
+  .capa-card:hover {
+    border-color: rgba(200, 152, 40, 0.4);
+    transform: translateY(-4px);
+  }
+  
+  .capa-number {
+    position: absolute;
+    top: -16px;
+    left: 40px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 900;
+    color: #080818;
+  }
+  
+  .capa-icon-wrapper {
+    margin-bottom: 20px;
+    margin-top: 8px;
+  }
+  
+  .capa-icon-wrapper :global(svg) {
+    color: #C89828;
+    filter: drop-shadow(0 4px 8px rgba(200, 152, 40, 0.3));
+  }
+  
+  .capa-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .capa-description {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  
+  .capa-description strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  /* Detail Boxes */
+  .capa-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  
+  .detail-box {
+    padding: 16px;
+    background: rgba(200, 152, 40, 0.1);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .detail-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  
+  .detail-value {
+    font-size: 18px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+  }
+  
+  .detail-info {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Features */
+  .capa-features {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.85);
+  }
+  
+  .feature-item :global(svg) {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #C89828;
+  }
+  
+  .feature-item strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  /* Compliance Badges */
+  .compliance-badges {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .compliance-badge {
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .compliance-badge.active {
+    background: rgba(0, 255, 136, 0.08);
+    border-color: rgba(0, 255, 136, 0.3);
+  }
+  
+  .compliance-badge.roadmap {
+    background: rgba(74, 158, 255, 0.08);
+    border-color: rgba(74, 158, 255, 0.3);
+  }
+  
+  .badge-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .compliance-badge.active .badge-status {
+    color: #00FF88;
+  }
+  
+  .compliance-badge.roadmap .badge-status {
+    color: #4A9EFF;
+  }
+  
+  .badge-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+  }
+  
+  .badge-desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Backup Schedule */
+  .backup-schedule {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .schedule-item {
+    padding: 16px;
+    background: rgba(200, 152, 40, 0.1);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .schedule-freq {
+    font-size: 20px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+  }
+  
+  .schedule-type {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+  }
+  
+  /* Audit Section */
+  .audit-section {
+    padding: 100px 0;
+  }
+  
+  .audit-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  
+  .text-large {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  
+  .text-large strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  .audit-features {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .audit-feature {
+    display: flex;
+    gap: 16px;
+  }
+  
+  .feature-icon-wrapper :global(svg) {
+    color: #C89828;
+    flex-shrink: 0;
+  }
+  
+  .feature-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 4px;
+  }
+  
+  .feature-desc {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+  
+  /* Log Example */
+  .log-example {
+    padding: 24px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 16px;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .log-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .log-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #C89828;
+  }
+  
+  .log-live {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #00FF88;
+  }
+  
+  .live-indicator {
+    width: 8px;
+    height: 8px;
+    background: #00FF88;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  
+  .log-entries {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .log-entry {
+    display: flex;
+    gap: 12px;
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  
+  .log-time {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  .log-user {
+    color: rgba(255, 255, 255, 0.7);
+    flex: 1;
+  }
+  
+  .log-action {
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 700;
+  }
+  
+  .log-action.success {
+    background: rgba(0, 255, 136, 0.2);
+    color: #00FF88;
+  }
+  
+  .log-action.info {
+    background: rgba(74, 158, 255, 0.2);
+    color: #4A9EFF;
+  }
+  
+  .log-action.warning {
+    background: rgba(255, 170, 0, 0.2);
+    color: #FFAA00;
+  }
+  
+  /* Policies */
+  .policies-section {
+    padding: 100px 0;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .policies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  
+  .policy-card {
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+  }
+  
+  .policy-card:hover {
+    border-color: rgba(200, 152, 40, 0.4);
+    transform: translateY(-4px);
+  }
+  
+  .policy-icon-wrapper {
+    margin-bottom: 20px;
+  }
+  
+  .policy-icon-wrapper :global(svg) {
+    color: #C89828;
+    filter: drop-shadow(0 4px 8px rgba(200, 152, 40, 0.3));
+  }
+  
+  .policy-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+  }
+  
+  .policy-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .policy-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #C89828;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+  
+  .policy-link:hover {
+    gap: 12px;
+  }
+  
+  /* FAQ */
+  .faq-section {
+    padding: 100px 0;
+  }
+  
+  .faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .faq-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item[open] {
+    border-color: rgba(200, 152, 40, 0.3);
+  }
+  
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 28px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #FFFFFF;
+    cursor: pointer;
+    list-style: none;
+    transition: all 0.3s ease;
+  }
+  
+  .faq-question:hover {
+    color: #C89828;
+  }
+  
+  .faq-question :global(svg) {
+    flex-shrink: 0;
+    color: #C89828;
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-item[open] .faq-question :global(svg) {
+    transform: rotate(180deg);
+  }
+  
+  .faq-answer {
+    padding: 0 28px 28px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+  }
+  
+  .faq-answer p {
+    margin-bottom: 16px;
+  }
+  
+  .faq-answer p:last-child {
+    margin-bottom: 0;
+  }
+  
+  .faq-answer strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  .faq-answer ul {
+    margin: 12px 0;
+    padding-left: 24px;
+  }
+  
+  .faq-answer li {
+    margin-bottom: 8px;
+  }
+  
+  /* CTA */
+  .cta-section {
+    padding: 100px 0;
+  }
+  
+  .cta-card {
+    padding: 64px;
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.15) 0%, rgba(200, 152, 40, 0.05) 100%);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 24px;
+    text-align: center;
+  }
+  
+  .cta-icon-wrapper {
+    margin-bottom: 24px;
+  }
+  
+  .cta-icon-wrapper :global(svg) {
+    color: #C89828;
+    filter: drop-shadow(0 8px 16px rgba(200, 152, 40, 0.3));
+  }
+  
+  .cta-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .cta-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 32px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .audit-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .seg-hero {
+      padding: 140px 0 60px;
+    }
+    
+    .capas-grid,
+    .policies-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta-card {
+      padding: 40px 24px;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .cta-buttons .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .hero-badges {
+      flex-direction: column;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    
+    .security-badge {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .capa-details,
+    .backup-schedule {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+</MainLayout>

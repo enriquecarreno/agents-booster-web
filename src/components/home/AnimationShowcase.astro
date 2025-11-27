@@ -1,0 +1,221 @@
+---
+/**
+ * ANIMATION SHOWCASE
+ * Componente de ejemplo mostrando todas las animaciones disponibles
+ * Usar como referencia para implementar en otras páginas
+ */
+
+import DashboardAnimation from './DashboardAnimation';
+import SystemsAnimation from './SystemsAnimation';
+import { Sparkles } from 'lucide-react';
+---
+
+<section class="animation-showcase section">
+  <div class="ab-container">
+    
+    <div class="showcase-header">
+      <div class="showcase-badge">
+        <Sparkles size={18} strokeWidth={2.5} className="badge-icon" client:load />
+        <span>Animaciones Disponibles</span>
+      </div>
+      <h2>Visualizaciones Abstractas del Dashboard</h2>
+      <p>Sin screenshots reales, representamos funcionalidades con animaciones profesionales</p>
+    </div>
+
+    <!-- Dashboard Animation -->
+    <div class="animation-block">
+      <div class="block-header">
+        <h3>1. Dashboard Animation</h3>
+        <p>Muestra cards de métricas, actividad en vivo, progreso y estado de agentes</p>
+      </div>
+      <DashboardAnimation client:only="react" />
+      <div class="block-code">
+        <code>{'<DashboardAnimation client:only="react" />'}</code>
+      </div>
+    </div>
+
+    <!-- Systems Animation -->
+    <div class="animation-block">
+      <div class="block-header">
+        <h3>2. Systems Animation</h3>
+        <p>Muestra conexiones entre tu hub central y los diferentes sistemas integrados</p>
+      </div>
+      <SystemsAnimation client:only="react" />
+      <div class="block-code">
+        <code>{'<SystemsAnimation client:only="react" />'}</code>
+      </div>
+    </div>
+
+    <!-- Info Grid -->
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon">⚡</div>
+        <h4>60fps constante</h4>
+        <p>Animaciones GPU accelerated para máximo rendimiento</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">🎨</div>
+        <h4>Isotipo integrado</h4>
+        <p>Tu logo gold presente en cada animación como elemento central</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">📱</div>
+        <h4>100% Responsive</h4>
+        <p>Se adapta perfectamente a desktop, tablet y mobile</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-icon">♿</div>
+        <h4>Accessible</h4>
+        <p>Soporte completo para prefers-reduced-motion</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .animation-showcase {
+    background: #080818;
+    padding: 96px 0;
+  }
+
+  .showcase-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+
+  .showcase-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(200, 152, 40, 0.12);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #C89828;
+    margin-bottom: 24px;
+  }
+
+  .showcase-badge :global(.badge-icon) {
+    color: #C89828;
+    flex-shrink: 0;
+  }
+
+  .showcase-header h2 {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+
+  .showcase-header p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Animation Blocks */
+  .animation-block {
+    margin-bottom: 64px;
+  }
+
+  .block-header {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .block-header h3 {
+    font-size: 28px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+  }
+
+  .block-header p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .block-code {
+    margin-top: 20px;
+    padding: 16px 24px;
+    background: rgba(8, 8, 24, 0.8);
+    border: 1px solid rgba(200, 152, 40, 0.2);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .block-code code {
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 14px;
+    color: #C89828;
+  }
+
+  /* Info Grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  .info-card {
+    padding: 32px 24px;
+    background: rgba(8, 8, 24, 0.6);
+    border: 1px solid rgba(200, 152, 40, 0.15);
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .info-card:hover {
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(200, 152, 40, 0.1);
+  }
+
+  .info-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+    filter: drop-shadow(0 0 10px rgba(200, 152, 40, 0.3));
+  }
+
+  .info-card h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+
+  .info-card p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .animation-showcase {
+      padding: 64px 0;
+    }
+
+    .showcase-header {
+      margin-bottom: 48px;
+    }
+
+    .animation-block {
+      margin-bottom: 48px;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+</style>

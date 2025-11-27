@@ -1,0 +1,890 @@
+---
+/**
+ * PÁGINA CASOS DE ÉXITO - SOCIAL PROOF
+ * Objetivo: Demostrar ROI real, proof social, storytelling
+ * Principios: Social Proof (Cialdini), Resultados medibles, Storytelling
+ */
+
+import MainLayout from '../layouts/Main.astro';
+import Navbar from '../components/global/Navbar.astro';
+import Footer from '../components/global/Footer.astro';
+import StatsCounter from '../components/home/StatsCounter.tsx';
+import { ShoppingBag, Factory, Laptop, Trophy, X, Lightbulb, CheckCircle, MessageCircle, ArrowRight } from 'lucide-react';
+
+// CASOS DE ÉXITO (data)
+const casos = [
+  {
+    id: 'ecommerce-col',
+    logo: ShoppingBag,
+    empresa: 'TiendaX',
+    industria: 'E-commerce de moda',
+    pais: 'Colombia',
+    tamano: '15 empleados',
+    agente: 'Ventas - Run',
+    agenteIcon: 'DollarSign',
+    problemas: [
+      'Atención solo 9am-6pm',
+      '60% leads perdidos fuera de horario',
+      '2h promedio tiempo de respuesta',
+      'Ventas manuales vía Excel'
+    ],
+    solucion: 'Implementamos Agente de Ventas nivel Run con integración directa a Shopify, WhatsApp Business API, y CRM. El agente atiende 24/7, cotiza productos del catálogo, procesa pedidos, y actualiza inventario en tiempo real.',
+    resultados: [
+      { metrica: '+250%', descripcion: 'Conversión de leads' },
+      { metrica: '<30 seg', descripcion: 'Tiempo de respuesta' },
+      { metrica: '+$80K', descripcion: 'Ventas mensuales adicionales' },
+      { metrica: '-70%', descripcion: 'Tiempo equipo en atención' },
+      { metrica: '4.9/5', descripcion: 'Satisfacción clientes' }
+    ],
+    roi: '12x en 6 meses',
+    testimonio: {
+      texto: 'Antes perdíamos ventas cada noche. Ahora el agente atiende, cotiza, procesa pedidos y actualiza nuestro CRM mientras dormimos. Es como tener un vendedor 24/7 que nunca se cansa.',
+      autor: 'María Torres',
+      cargo: 'COO, TiendaX'
+    }
+  },
+  {
+    id: 'distribuidor-ec',
+    logo: Factory,
+    empresa: 'IndustriaXYZ',
+    industria: 'Distribución Industrial B2B',
+    pais: 'Ecuador',
+    tamano: '50 empleados',
+    agente: 'Operaciones - Growth',
+    agenteIcon: 'Package',
+    problemas: [
+      'Inventario desactualizado',
+      'Quiebres de stock frecuentes',
+      'Órdenes manuales a proveedores',
+      'Sin forecast de demanda'
+    ],
+    solucion: 'Implementamos Agente de Operaciones nivel Growth con integración a su ERP (Odoo), sistema de inventario multi-bodega, y automatización de órdenes a proveedores. El agente hace forecast ML de demanda y ordena automáticamente cuando se alcanza safety stock.',
+    resultados: [
+      { metrica: '-85%', descripcion: 'Quiebres de stock' },
+      { metrica: '-40%', descripcion: 'Inventario inmovilizado' },
+      { metrica: '+30%', descripcion: 'Rotación de inventario' },
+      { metrica: '$120K', descripcion: 'Ahorrados en 8 meses' },
+      { metrica: '99.5%', descripcion: 'Fill rate actual' }
+    ],
+    roi: '15x en 8 meses',
+    testimonio: {
+      texto: 'El agente predice nuestra demanda mejor que nuestro equipo humano. Ya no ordenamos "a ojo", el sistema sabe exactamente cuánto y cuándo. Nuestro flujo de caja mejoró drásticamente.',
+      autor: 'Carlos Mendoza',
+      cargo: 'Gerente de Operaciones'
+    }
+  },
+  {
+    id: 'saas-mx',
+    logo: Laptop,
+    empresa: 'SoftwareCo',
+    industria: 'SaaS B2B',
+    pais: 'México',
+    tamano: '35 empleados',
+    agente: 'Ventas - Grow',
+    agenteIcon: 'DollarSign',
+    problemas: [
+      'SDRs saturados con tareas repetitivas',
+      '50% leads sin follow-up oportuno',
+      'Demos sin calificar (waste time)',
+      'CRM desactualizado constantemente'
+    ],
+    solucion: 'Implementamos Agente de Ventas nivel Grow con integración a HubSpot CRM, Calendly, y LinkedIn. El agente califica leads automáticamente con scoring ML, hace follow-up inmediato, agenda demos solo con leads calificados, y mantiene CRM actualizado.',
+    resultados: [
+      { metrica: '+180%', descripcion: 'Leads calificados MQL' },
+      { metrica: '-60%', descripcion: 'Tiempo SDRs en admin' },
+      { metrica: '+35%', descripcion: 'Cierre de ventas' },
+      { metrica: '<5 min', descripcion: 'Follow-up promedio' },
+      { metrica: '8x', descripcion: 'ROI en 4 meses' }
+    ],
+    roi: '8x en 4 meses',
+    testimonio: {
+      texto: 'Nuestros SDRs ahora se enfocan en cerrar, no en tareas repetitivas. El agente hace todo el trabajo pesado: califica, sigue, agenda. Es un game-changer total para nuestro pipeline.',
+      autor: 'Laura Gómez',
+      cargo: 'VP Sales'
+    }
+  }
+];
+---
+
+<MainLayout 
+  title="Casos de Éxito - Agents Booster" 
+  description="Resultados reales de empresas reales. Más de 150 empresas en LATAM ya automatizan procesos críticos con nuestros agentes de IA."
+>
+  <Navbar />
+  
+  <div class="casos-page">
+    
+    <!-- Hero -->
+    <section class="casos-hero">
+      <div class="ab-container">
+        <div class="breadcrumbs">
+          <a href="/">Inicio</a>
+          <span class="separator">→</span>
+          <span class="current">Casos de Éxito</span>
+        </div>
+        
+        <div class="hero-content">
+          <span class="hero-badge">
+            <Trophy className="inline-block w-4 h-4 mr-1" />
+            Proof Social
+          </span>
+          
+          <h1 class="hero-title">
+            Resultados Reales de<br />
+            <span class="text-gradient-gold">Empresas Reales</span>
+          </h1>
+          
+          <p class="hero-subtitle">
+            Más de 150 empresas en LATAM ya automatizan procesos críticos con Agents Booster. 
+            Estas son sus historias y resultados medibles.
+          </p>
+          
+          <div class="hero-stats">
+            <div class="stat-item">
+              <StatsCounter client:visible end={300} duration={2} suffix="%" prefix="+" />
+              <span class="stat-label">Promedio aumento conversión</span>
+            </div>
+            <div class="stat-item">
+              <StatsCounter client:visible end={70} duration={2} suffix="%" prefix="-" />
+              <span class="stat-label">Promedio reducción tiempo respuesta</span>
+            </div>
+            <div class="stat-item">
+              <StatsCounter client:visible end={50} duration={2} suffix="K+" prefix="$" />
+              <span class="stat-label">Promedio ahorrado anual</span>
+            </div>
+            <div class="stat-item">
+              <StatsCounter client:visible end={4.8} duration={2} decimals={1} suffix="/5" />
+              <span class="stat-label">Promedio satisfacción</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Filtros (placeholder - futuro enhancement) -->
+    <section class="filtros-section">
+      <div class="ab-container">
+        <div class="filtros-wrapper">
+          <span class="filtros-label">Filtrar por:</span>
+          <div class="filtros-buttons">
+            <button class="filtro-btn active" data-filter="all">Todos</button>
+            <button class="filtro-btn" data-filter="ecommerce">E-commerce</button>
+            <button class="filtro-btn" data-filter="saas">SaaS</button>
+            <button class="filtro-btn" data-filter="manufacturing">Manufactura</button>
+            <button class="filtro-btn" data-filter="b2b">B2B</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Casos Grid -->
+    <section class="casos-section">
+      <div class="ab-container">
+        {casos.map((caso, index) => {
+          const LogoIcon = caso.logo;
+          return (
+            <div class="caso-card" data-index={index}>
+              <div class="caso-header">
+                <div class="caso-logo">
+                  <LogoIcon className="w-10 h-10 text-gold-primary" />
+                </div>
+                <div class="caso-meta">
+                  <h2 class="caso-empresa">{caso.empresa}</h2>
+                  <div class="caso-info">
+                    <span class="caso-industria">{caso.industria}</span>
+                    <span class="caso-separator">•</span>
+                    <span class="caso-pais">{caso.pais}</span>
+                    <span class="caso-separator">•</span>
+                    <span class="caso-tamano">{caso.tamano}</span>
+                  </div>
+                </div>
+                <div class="caso-agente-badge">
+                  <span class="agente-name">{caso.agente}</span>
+                </div>
+              </div>
+              
+              <div class="caso-content">
+                
+                <!-- Antes -->
+                <div class="caso-before">
+                  <h3 class="section-subtitle">
+                    <X className="w-5 h-5 text-error" />
+                    <span>Antes: Los Problemas</span>
+                  </h3>
+                  <ul class="problemas-list">
+                    {caso.problemas.map(problema => (
+                      <li>{problema}</li>
+                    ))}
+                  </ul>
+                </div>
+                
+                <!-- Solución -->
+                <div class="caso-solution">
+                  <h3 class="section-subtitle">
+                    <Lightbulb className="w-5 h-5 text-info" />
+                    <span>La Solución</span>
+                  </h3>
+                  <p class="solution-text">{caso.solucion}</p>
+                </div>
+                
+                <!-- Después: Resultados -->
+                <div class="caso-after">
+                  <h3 class="section-subtitle">
+                    <CheckCircle className="w-5 h-5 text-success" />
+                    <span>Después: Los Resultados</span>
+                  </h3>
+                  <div class="resultados-grid">
+                    {caso.resultados.map(resultado => (
+                      <div class="resultado-item">
+                        <span class="resultado-metrica">{resultado.metrica}</span>
+                        <span class="resultado-desc">{resultado.descripcion}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <div class="roi-highlight">
+                    <span class="roi-label">ROI Obtenido:</span>
+                    <span class="roi-value">{caso.roi}</span>
+                  </div>
+                </div>
+                
+                <!-- Testimonio -->
+                <div class="caso-testimonio">
+                  <div class="testimonio-icon">
+                    <MessageCircle className="w-5 h-5" />
+                  </div>
+                  <blockquote class="testimonio-texto">
+                    "{caso.testimonio.texto}"
+                  </blockquote>
+                  <div class="testimonio-autor">
+                    <span class="autor-nombre">{caso.testimonio.autor}</span>
+                    <span class="autor-cargo">{caso.testimonio.cargo}</span>
+                  </div>
+                </div>
+                
+              </div>
+              
+              <div class="caso-footer">
+                <a href="/demo" class="caso-cta">
+                  <span>Ver una Demo Similar</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+    
+    <!-- Logos Wall -->
+    <section class="logos-section">
+      <div class="ab-container">
+        <h2 class="section-title">Empresas que Confían en Agents Booster</h2>
+        <p class="section-subtitle">Más de 150 empresas en 8 países de LATAM</p>
+        
+        <div class="logos-grid">
+          {Array.from({length: 24}).map((_, i) => (
+            <div class="logo-placeholder">
+              <span class="logo-text">Cliente {i + 1}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="ab-container">
+        <div class="cta-card">
+          <h2 class="cta-title">¿Quieres Resultados Como Estos?</h2>
+          <p class="cta-description">
+            Agenda una demo de 30 minutos y te mostramos casos similares a tu industria.
+          </p>
+          <div class="cta-buttons">
+            <a href="/demo" class="btn btn-primary btn-lg">
+              <span>Agendar Demo Gratis</span>
+              <ArrowRight className="inline-block w-5 h-5 ml-2" />
+            </a>
+            <a href="/planes" class="btn btn-secondary btn-lg">
+              <span>Ver Planes y Precios</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  
+  <Footer />
+</MainLayout>
+
+<style>
+  /* ============================================
+     CASOS DE ÉXITO PAGE - SOCIAL PROOF
+     ============================================ */
+  
+  .casos-page {
+    background: linear-gradient(180deg, #0B0D0E 0%, #080818 50%, #0B0D0E 100%);
+    min-height: 100vh;
+  }
+  
+  /* Breadcrumbs */
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 24px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .breadcrumbs a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+  }
+  
+  .breadcrumbs a:hover {
+    color: #C89828;
+  }
+  
+  .breadcrumbs .separator {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .breadcrumbs .current {
+    color: #C89828;
+    font-weight: 600;
+  }
+  
+  /* Hero */
+  .casos-hero {
+    padding: 160px 0 60px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 24px;
+    background: rgba(0, 255, 136, 0.15);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    border-radius: 100px;
+    color: #00FF88;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+  
+  .hero-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+    margin-bottom: 48px;
+  }
+  
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .stat-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 500;
+  }
+  
+  /* Filtros */
+  .filtros-section {
+    padding: 40px 0;
+  }
+  
+  .filtros-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 32px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .filtros-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .filtros-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .filtro-btn {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filtro-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(200, 152, 40, 0.3);
+    color: #C89828;
+  }
+  
+  .filtro-btn.active {
+    background: rgba(200, 152, 40, 0.15);
+    border-color: rgba(200, 152, 40, 0.5);
+    color: #C89828;
+  }
+  
+  /* Casos */
+  .casos-section {
+    padding: 60px 0 100px;
+  }
+  
+  .caso-card {
+    padding: 48px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    margin-bottom: 48px;
+    transition: all 0.4s ease;
+  }
+  
+  .caso-card:hover {
+    border-color: rgba(0, 255, 136, 0.3);
+    box-shadow: 0 12px 48px rgba(0, 255, 136, 0.1);
+  }
+  
+  .caso-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .caso-logo {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+  }
+  
+  .caso-meta {
+    flex: 1;
+  }
+  
+  .caso-empresa {
+    font-size: 28px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  
+  .caso-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .caso-separator {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .caso-agente-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: rgba(200, 152, 40, 0.15);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 12px;
+  }
+  
+  .agente-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #C89828;
+  }
+  
+  /* Content */
+  .caso-content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .section-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  /* Antes */
+  .caso-before {
+    padding: 28px;
+    background: rgba(255, 107, 107, 0.08);
+    border: 2px solid rgba(255, 107, 107, 0.2);
+    border-radius: 16px;
+  }
+  
+  .problemas-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .problemas-list li {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    padding-left: 24px;
+    position: relative;
+  }
+  
+  .problemas-list li::before {
+    content: '×';
+    position: absolute;
+    left: 0;
+    color: #FF6B6B;
+    font-size: 20px;
+    font-weight: 800;
+  }
+  
+  /* Solución */
+  .caso-solution {
+    padding: 28px;
+    background: rgba(74, 158, 255, 0.08);
+    border: 2px solid rgba(74, 158, 255, 0.2);
+    border-radius: 16px;
+  }
+  
+  .solution-text {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.7;
+    margin: 0;
+  }
+  
+  /* Después */
+  .caso-after {
+    padding: 28px;
+    background: rgba(0, 255, 136, 0.08);
+    border: 2px solid rgba(0, 255, 136, 0.2);
+    border-radius: 16px;
+  }
+  
+  .resultados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  
+  .resultado-item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .resultado-metrica {
+    font-size: 32px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #00FF88 0%, #00CC70 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  
+  .resultado-desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+  }
+  
+  .roi-highlight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(0, 255, 136, 0.1);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    border-radius: 12px;
+  }
+  
+  .roi-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .roi-value {
+    font-size: 24px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #00FF88 0%, #00CC70 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* Testimonio */
+  .caso-testimonio {
+    padding: 32px;
+    background: rgba(200, 152, 40, 0.08);
+    border: 2px solid rgba(200, 152, 40, 0.2);
+    border-radius: 16px;
+    position: relative;
+  }
+  
+  .testimonio-icon {
+    position: absolute;
+    top: -20px;
+    left: 32px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    border-radius: 50%;
+    color: #080818;
+  }
+  
+  .testimonio-texto {
+    font-size: 16px;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin: 0 0 20px 0;
+  }
+  
+  .testimonio-autor {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-top: 16px;
+    border-top: 2px solid rgba(200, 152, 40, 0.2);
+  }
+  
+  .autor-nombre {
+    font-size: 15px;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+  
+  .autor-cargo {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+  }
+  
+  /* Footer */
+  .caso-footer {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 2px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+  }
+  
+  .caso-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    color: #080818;
+    font-size: 15px;
+    font-weight: 800;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(200, 152, 40, 0.3);
+  }
+  
+  .caso-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 32px rgba(200, 152, 40, 0.5);
+    color: #080818;
+  }
+  
+  /* Logos Wall */
+  .logos-section {
+    padding: 100px 0;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .section-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  
+  .logos-section .section-subtitle {
+    text-align: center;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 48px;
+    display: block;
+  }
+  
+  .logos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+  }
+  
+  .logo-placeholder {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+  
+  .logo-placeholder:hover {
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateY(-2px);
+  }
+  
+  .logo-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.4);
+  }
+  
+  /* CTA */
+  .cta-section {
+    padding: 100px 0;
+  }
+  
+  .cta-card {
+    padding: 64px;
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.15) 0%, rgba(200, 152, 40, 0.05) 100%);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 24px;
+    text-align: center;
+  }
+  
+  .cta-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .cta-description {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .casos-hero {
+      padding: 140px 0 40px;
+    }
+    
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .filtros-wrapper {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .caso-card {
+      padding: 32px 24px;
+    }
+    
+    .caso-header {
+      flex-direction: column;
+    }
+    
+    .resultados-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta-card {
+      padding: 40px 24px;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .cta-buttons .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+</MainLayout>

@@ -1,0 +1,456 @@
+---
+/**
+ * FAQ SECTION - Premium Version
+ * Con categorías organizadas y contenido completo
+ */
+
+import { HelpCircle, ChevronDown, Shield, Zap, DollarSign, Wrench } from 'lucide-react';
+import { baseUrl } from '../../lib/base-url';
+
+const faqCategories = [
+  {
+    id: 'general',
+    name: 'General',
+    icon: HelpCircle,
+    questions: [
+      {
+        q: '¿Qué es Agents Booster y en qué se diferencia de un chatbot?',
+        a: 'Agents Booster son agentes de IA especializados que NO solo responden preguntas. Se conectan directamente a tus sistemas (CRM, ERP, inventario, pagos) y ejecutan acciones reales: procesan pedidos, actualizan stock, envían facturas, gestionan cotizaciones. Un chatbot responde; nuestros agentes ejecutan.'
+      },
+      {
+        q: '¿Necesito conocimientos técnicos para usar Agents Booster?',
+        a: 'No. Nosotros nos encargamos de toda la implementación. Tú solo necesitas indicarnos qué sistemas usas y qué tareas quieres automatizar. Configuramos todo, lo probamos contigo y te capacitamos en 2 sesiones de 30 minutos.'
+      },
+      {
+        q: '¿Cuánto tiempo toma implementar un agente?',
+        a: 'Implementación estándar: 48 horas. Incluye conexión a tus sistemas, configuración de flujos, pruebas y capacitación. Para integraciones complejas o personalizadas, puede tomar hasta 5 días hábiles.'
+      },
+    ]
+  },
+  {
+    id: 'integracion',
+    name: 'Integración',
+    icon: Wrench,
+    questions: [
+      {
+        q: '¿Con qué sistemas se integran los agentes?',
+        a: 'Salesforce, HubSpot, Zoho CRM, SAP, Oracle NetSuite, Microsoft Dynamics, Shopify, WooCommerce, Mercado Libre, Stripe, PayPal, Mercado Pago, WhatsApp Business, Gmail, Slack, Google Drive, AWS S3 y más. Si no ves tu herramienta, pregúntanos: probablemente podemos integrarla.'
+      },
+      {
+        q: '¿Debo cambiar mis sistemas actuales?',
+        a: 'No. Los agentes se conectan a tus sistemas existentes mediante APIs seguras. No modificamos tu infraestructura, no migramos datos, no cambiamos workflows. Solo añadimos automatización inteligente sobre lo que ya tienes.'
+      },
+      {
+        q: '¿Qué pasa si uso un sistema personalizado o propio?',
+        a: 'Si tu sistema tiene una API o webhook, podemos conectarlo. Nuestro equipo técnico evalúa la integración sin costo y te da un plan de implementación personalizado en 24 horas.'
+      },
+    ]
+  },
+  {
+    id: 'seguridad',
+    name: 'Seguridad',
+    icon: Shield,
+    questions: [
+      {
+        q: '¿Mis datos están seguros?',
+        a: 'Sí. Usamos encriptación AES-256 en tránsito y en reposo. Infraestructura en AWS con certificación SOC 2 Tipo II. No almacenamos información sensible (tarjetas, contraseñas). Cumplimos con GDPR y CCPA. Auditorías de seguridad trimestrales.'
+      },
+      {
+        q: '¿Quién tiene acceso a mi información?',
+        a: 'Solo tú y tu equipo. Los agentes procesan datos en tiempo real y los envían directamente a tus sistemas. No compartimos, vendemos ni usamos tus datos para entrenar modelos públicos. Contratos de confidencialidad firmados.'
+      },
+      {
+        q: '¿Qué pasa si hay un error o el agente comete un mistake?',
+        a: 'Todos los agentes tienen validación en múltiples capas. Si detectan algo inusual, solicitan confirmación humana antes de ejecutar. Además, tienes logs completos de todas las acciones y puedes revertir operaciones en un clic.'
+      },
+    ]
+  },
+  {
+    id: 'precios',
+    name: 'Precios',
+    icon: DollarSign,
+    questions: [
+      {
+        q: '¿Cómo funciona el pricing?',
+        a: 'Pagas por interacciones procesadas, no por mensajes. Una interacción = una acción completa (ej: procesar un pedido, enviar cotización, actualizar CRM). Planes desde 500 hasta 5000 interacciones/mes. Implementación gratis por tiempo limitado.'
+      },
+      {
+        q: '¿Qué pasa si supero mi límite de interacciones?',
+        a: 'Recibes una notificación cuando llegas al 80% de tu plan. Si superas el límite, pagas solo el excedente a precio de lista. Nunca bloqueamos tus agentes sin previo aviso.'
+      },
+      {
+        q: '¿Puedo cancelar en cualquier momento?',
+        a: 'Sí. Sin contratos anuales, sin penalizaciones. Cancelas cuando quieras y mantienes acceso hasta el final de tu período de facturación. Si cancelas en los primeros 30 días, te devolvemos el 100% de tu dinero.'
+      },
+    ]
+  },
+  {
+    id: 'soporte',
+    name: 'Soporte',
+    icon: Zap,
+    questions: [
+      {
+        q: '¿Qué tipo de soporte ofrecen?',
+        a: 'Plan Starter: Email en 24 horas. Plan Growth: WhatsApp + videollamada en 4 horas. Plan Scale: Slack dedicado + videollamada en 1 hora. Plan Enterprise: Ingeniero asignado 24/7.'
+      },
+      {
+        q: '¿Ofrecen capacitación para mi equipo?',
+        a: 'Sí. Todos los planes incluyen 2 sesiones de capacitación (30 min c/u). Plan Enterprise incluye capacitación ilimitada y materiales personalizados. También tenemos documentación completa y videos tutoriales.'
+      },
+      {
+        q: '¿Qué pasa si mi sistema se actualiza o cambia?',
+        a: 'Monitoreamos automáticamente cambios en APIs y sistemas. Si hay un breaking change, te notificamos y actualizamos la integración sin costo adicional. Nuestro SLA garantiza 99.9% uptime.'
+      },
+    ]
+  },
+];
+---
+
+<section class="faq-section section-sm">
+  <div class="ab-container">
+    
+    <!-- Header -->
+    <div class="section-header">
+      <div class="section-badge">
+        <HelpCircle size={18} strokeWidth={2.5} />
+        <span>Preguntas Frecuentes</span>
+      </div>
+      <h2 class="section-title">
+        Todo lo que necesitas <span class="text-gradient-gold">saber</span>
+      </h2>
+      <p class="section-subtitle">
+        Respuestas directas a las preguntas más comunes. ¿No encuentras lo que buscas? <a href={`${baseUrl}/contacto`} class="contact-link">Contáctanos</a>.
+      </p>
+    </div>
+
+    <!-- FAQ Categories -->
+    <div class="faq-categories">
+      {faqCategories.map((category, index) => (
+        <button 
+          class={`category-tab ${index === 0 ? 'active' : ''}`}
+          data-category={category.id}
+        >
+          <category.icon size={20} strokeWidth={2.5} />
+          <span>{category.name}</span>
+        </button>
+      ))}
+    </div>
+
+    <!-- FAQ Content -->
+    {faqCategories.map((category, catIndex) => (
+      <div 
+        class={`faq-content ${catIndex === 0 ? 'active' : ''}`}
+        data-content={category.id}
+      >
+        <div class="faq-grid">
+          {category.questions.map((faq, index) => (
+            <div class="faq-item">
+              <button class="faq-question">
+                <span class="question-text">{faq.q}</span>
+                <ChevronDown size={20} strokeWidth={2.5} class="chevron-icon" />
+              </button>
+              <div class="faq-answer">
+                <p>{faq.a}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <!-- Extra CTA -->
+    <div class="faq-cta">
+      <p class="cta-text">
+        ¿Tienes más preguntas? Hablemos directamente.
+      </p>
+      <a href={`${baseUrl}/contacto`} class="btn btn-primary">
+        Agendar llamada de 15 minutos
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    background: #080818;
+    position: relative;
+  }
+
+  /* Header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: rgba(200, 152, 40, 0.12);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #C89828;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .contact-link {
+    color: #C89828;
+    font-weight: 700;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+
+  .contact-link:hover {
+    color: #FFD700;
+  }
+
+  /* Categories */
+  .faq-categories {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .category-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .category-tab:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(200, 152, 40, 0.3);
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .category-tab.active {
+    background: rgba(200, 152, 40, 0.15);
+    border-color: rgba(200, 152, 40, 0.5);
+    color: #C89828;
+  }
+
+  /* FAQ Content */
+  .faq-content {
+    display: none;
+    animation: fadeIn 0.4s ease;
+  }
+
+  .faq-content.active {
+    display: block;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .faq-grid {
+    display: grid;
+    gap: 16px;
+    max-width: 900px;
+    margin: 0 auto 48px auto;
+  }
+
+  /* FAQ Item */
+  .faq-item {
+    background: rgba(8, 8, 24, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: rgba(200, 152, 40, 0.3);
+  }
+
+  .faq-question {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .faq-question:hover {
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .question-text {
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+    line-height: 1.4;
+  }
+
+  .chevron-icon {
+    flex-shrink: 0;
+    color: #C89828;
+    transition: transform 0.3s ease;
+  }
+
+  .faq-item.open .chevron-icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .faq-item.open .faq-answer {
+    max-height: 500px;
+  }
+
+  .faq-answer p {
+    padding: 0 28px 28px 28px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  /* CTA */
+  .faq-cta {
+    text-align: center;
+    padding: 40px;
+    background: rgba(200, 152, 40, 0.04);
+    border: 1px solid rgba(200, 152, 40, 0.2);
+    border-radius: 20px;
+  }
+
+  .cta-text {
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0 0 20px 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .faq-categories {
+      flex-direction: column;
+    }
+
+    .category-tab {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .faq-question {
+      padding: 20px;
+      gap: 12px;
+    }
+
+    .question-text {
+      font-size: 16px;
+    }
+
+    .faq-answer p {
+      padding: 0 20px 20px 20px;
+      font-size: 14px;
+    }
+
+    .faq-cta {
+      padding: 32px 24px;
+    }
+
+    .cta-text {
+      font-size: 18px;
+    }
+  }
+</style>
+
+<script>
+  // FAQ Accordion Logic
+  document.addEventListener('DOMContentLoaded', () => {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      const question = item.querySelector('.faq-question');
+      
+      question?.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        
+        // Close all items
+        faqItems.forEach(i => i.classList.remove('open'));
+        
+        // Toggle current item
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+
+    // Category Tabs Logic
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const faqContents = document.querySelectorAll('.faq-content');
+
+    categoryTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const category = tab.getAttribute('data-category');
+
+        // Update active tab
+        categoryTabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        // Show corresponding content
+        faqContents.forEach(content => {
+          const contentCategory = content.getAttribute('data-content');
+          
+          if (contentCategory === category) {
+            content.classList.add('active');
+          } else {
+            content.classList.remove('active');
+          }
+        });
+
+        // Close all FAQ items when switching categories
+        faqItems.forEach(i => i.classList.remove('open'));
+      });
+    });
+  });
+</script>

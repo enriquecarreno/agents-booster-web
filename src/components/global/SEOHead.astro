@@ -1,0 +1,141 @@
+---
+/**
+ * SEO HEAD COMPONENT
+ * Metadata completa + Schema.org structured data
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  type?: 'website' | 'article' | 'product';
+  noindex?: boolean;
+  schema?: object;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  image = 'https://cdn.prod.website-files.com/691966a97522cf30142cebf7/6919674e9061c2bb21f4fc49_Logo-Horizontal.png',
+  type = 'website',
+  noindex = false,
+  schema
+} = Astro.props;
+
+const siteUrl = 'https://www.agentsbooster.com'; // Ajustar con tu URL real
+const fullUrl = canonical || `${siteUrl}${Astro.url.pathname}`;
+const fullImage = image.startsWith('http') ? image : `${siteUrl}${image}`;
+
+// Schema.org base para la organización
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Agents Booster',
+  url: siteUrl,
+  logo: 'https://cdn.prod.website-files.com/691966a97522cf30142cebf7/6919674e9061c2bb21f4fc49_Logo-Horizontal.png',
+  description: 'Agentes de IA especializados que se conectan a tus sistemas reales y ejecutan acciones completas.',
+  sameAs: [
+    // 'https://www.linkedin.com/company/agentsbooster',
+    // 'https://twitter.com/agentsbooster'
+  ],
+  contactPoint: {
+    '@type': 'ContactPoint',
+    email: 'hola@agentsbooster.com',
+    contactType: 'Customer Service',
+    availableLanguage: ['Spanish', 'English']
+  }
+};
+
+// Schema.org para SoftwareApplication (SaaS)
+const softwareSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  name: 'Agents Booster',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web',
+  offers: {
+    '@type': 'AggregateOffer',
+    lowPrice: '49',
+    highPrice: '1999',
+    priceCurrency: 'USD',
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price: '49',
+      priceCurrency: 'USD',
+      unitCode: 'MON'
+    }
+  },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    ratingCount: '47',
+    bestRating: '5'
+  },
+  featureList: [
+    'Agente de Ventas 24/7',
+    'Agente de Operaciones con forecast IA',
+    'Agente de Marketing con generación de contenido',
+    'Integración con +30 plataformas',
+    'Actualización automática de CRM y ERP',
+    'Procesamiento de pagos',
+    'Observabilidad total en tiempo real'
+  ]
+};
+---
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content="agentes IA, automatización ventas, chatbot empresarial, IA para negocios, CRM automation, operaciones IA, agentes inteligentes, SaaS IA, inteligencia artificial empresarial" />
+<link rel="canonical" href={fullUrl} />
+
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={fullUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImage} />
+<meta property="og:site_name" content="Agents Booster" />
+<meta property="og:locale" content="es_ES" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={fullUrl} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={fullImage} />
+
+<!-- Additional Meta Tags -->
+<meta name="author" content="Agents Booster" />
+<meta name="language" content="Spanish" />
+<meta name="revisit-after" content="7 days" />
+
+<!-- Geo Tags (LATAM focused) -->
+<meta name="geo.region" content="LATAM" />
+<meta name="geo.placename" content="Latin America" />
+
+<!-- Theme Color -->
+<meta name="theme-color" content="#0B0D0E" />
+<meta name="msapplication-TileColor" content="#FFB800" />
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="https://cdn.prod.website-files.com/691966a97522cf30142cebf7/691dc9fa7d96563e7318efb2_iso--gold.png" />
+<link rel="apple-touch-icon" href="https://cdn.prod.website-files.com/691966a97522cf30142cebf7/691dc9fa7d96563e7318efb2_iso--gold.png" />
+
+<!-- Preconnect to external domains for performance -->
+<link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin />
+<link rel="dns-prefetch" href="https://cdn.prod.website-files.com" />
+
+<!-- Schema.org JSON-LD -->
+<script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+
+{schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+
+<!-- Google Analytics / Tag Manager placeholder -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script> -->

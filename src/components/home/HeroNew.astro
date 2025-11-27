@@ -1,0 +1,279 @@
+---
+/**
+ * HERO SECTION V5.0 - WORLD-CLASS
+ * Phase 1 improvements: Spacing, Staggered Animations, Visual Hierarchy
+ */
+
+import { Zap, ArrowRight, CheckCircle2, TrendingUp, Clock, Shield } from 'lucide-react';
+import { baseUrl } from '../../lib/base-url';
+import StatsCounter from './StatsCounter';
+import DeepSpaceBackground from './DeepSpaceBackground.astro';
+---
+
+<section class="hero-section">
+  <!-- Fondo Astral -->
+  <DeepSpaceBackground />
+
+  <div class="ab-container">
+    <div class="hero-content">
+      
+      <!-- Badge Superior - STAGGER 1 -->
+      <div class="hero-badge animate-fade-in-up-stagger stagger-delay-1">
+        <Zap size={16} strokeWidth={2.5} />
+        <span>Implementación gratis por tiempo limitado</span>
+      </div>
+
+      <!-- Headline Principal - STAGGER 2 -->
+      <h1 class="hero-title animate-fade-in-up-stagger stagger-delay-2">
+        Agentes de IA que <span class="title-highlight">ejecutan acciones reales</span> en tus sistemas
+      </h1>
+
+      <!-- Subtitle - STAGGER 3 -->
+      <p class="hero-subtitle animate-fade-in-up-stagger stagger-delay-3">
+        No somos un chatbot que solo responde. Somos agentes especializados que se conectan a tu CRM, ERP, inventario y procesan transacciones completas. Sin intervención humana.
+      </p>
+
+      <!-- Stats Animadas Destacadas - STAGGER 4 -->
+      <div class="hero-stats animate-fade-in-scale-stagger stagger-delay-4">
+        <StatsCounter client:only="react" />
+      </div>
+
+      <!-- CTAs Principales - STAGGER 5 -->
+      <div class="hero-ctas animate-fade-in-up-stagger stagger-delay-5">
+        <a href={`${baseUrl}/contacto`} class="btn btn-primary btn-lg">
+          Agendar demo personalizado
+          <ArrowRight size={20} strokeWidth={2.5} />
+        </a>
+        <a href={`${baseUrl}/demo`} class="btn btn-secondary btn-lg">
+          Hablar con agente ahora
+          <Zap size={20} strokeWidth={2.5} />
+        </a>
+      </div>
+
+      <!-- Trust Pills - STAGGER 6 (Only 1 main pill) -->
+      <div class="hero-trust animate-fade-in-up-stagger stagger-delay-6">
+        <div class="trust-pill trust-pill-primary">
+          <TrendingUp size={18} strokeWidth={2.5} />
+          <span>Implementación en 48 horas</span>
+        </div>
+        <div class="trust-pill">
+          <Shield size={18} strokeWidth={2.5} />
+          <span>Encriptación AES-256</span>
+        </div>
+        <div class="trust-pill">
+          <Clock size={18} strokeWidth={2.5} />
+          <span>ROI promedio: 3 meses</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 200px 0 140px 0; /* Increased from 140/80 */
+    overflow: hidden;
+  }
+
+  /* Content */
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 880px; /* Reduced from 900px for tighter focus */
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 48px; /* Increased from 32px */
+  }
+
+  /* Badge - GOLD RESERVED */
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px; /* Increased from 10/20 */
+    background: rgba(200, 152, 40, 0.12); /* Reduced from 0.15 */
+    border: 1px solid rgba(200, 152, 40, 0.4);
+    border-radius: 100px;
+    font-size: 15px; /* Increased from 14px */
+    font-weight: 700;
+    color: #C89828;
+    margin: 0 auto;
+    animation: shimmerPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes shimmerPulse {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(200, 152, 40, 0.15);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(200, 152, 40, 0.25);
+    }
+  }
+
+  /* Title - LARGER */
+  .hero-title {
+    font-size: clamp(48px, 7vw, 72px); /* Increased from 40-64px */
+    font-weight: 900;
+    line-height: 1.08; /* Tighter */
+    color: #FFFFFF;
+    letter-spacing: -0.03em; /* Tighter */
+    margin: 0;
+  }
+
+  .title-highlight {
+    background: linear-gradient(
+      127deg,
+      #B8841F 0%,
+      #C89828 25%,
+      #E0B84E 50%,
+      #F4D56E 75%,
+      #FFE89A 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+  }
+
+  /* Subtitle - IMPROVED READABILITY */
+  .hero-subtitle {
+    font-size: clamp(19px, 2.5vw, 24px); /* Increased from 18-22px */
+    line-height: 1.65; /* Increased from 1.6 */
+    color: rgba(255, 255, 255, 0.85); /* Increased from 0.8 */
+    max-width: 720px; /* Reduced from 800px */
+    margin: 0 auto;
+  }
+
+  /* Stats Animadas - MORE SPACE */
+  .hero-stats {
+    margin: 8px 0; /* Reduced from 16px to balance new gaps */
+  }
+
+  /* CTAs - IMPROVED HIERARCHY */
+  .hero-ctas {
+    display: flex;
+    gap: 20px; /* Increased from 16px */
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-lg {
+    padding: 20px 36px; /* Increased from 18/32 */
+    font-size: 18px; /* Increased from 17px */
+    border-radius: 14px; /* Increased from 12px */
+  }
+
+  .btn-primary {
+    box-shadow: 
+      0 4px 16px rgba(200, 152, 40, 0.25),
+      0 8px 32px rgba(200, 152, 40, 0.15);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 
+      0 8px 24px rgba(200, 152, 40, 0.35),
+      0 16px 48px rgba(200, 152, 40, 0.2);
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.03); /* More subtle */
+    border: 1.5px solid rgba(255, 255, 255, 0.15); /* Less prominent */
+    color: rgba(255, 255, 255, 0.95); /* Not pure white */
+  }
+
+  .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* Trust Pills - SUBTLE, ONE PRIMARY */
+  .hero-trust {
+    display: flex;
+    gap: 16px; /* Reduced from 24px */
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .trust-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px; /* Increased from 8/16 */
+    background: rgba(255, 255, 255, 0.02); /* More subtle */
+    border: 0.5px solid rgba(255, 255, 255, 0.08); /* Thinner */
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 600; /* Reduced from 700 */
+    color: rgba(255, 255, 255, 0.75); /* More muted */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* ONE primary trust pill with gold */
+  .trust-pill-primary {
+    background: rgba(200, 152, 40, 0.08);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    color: #C89828;
+  }
+
+  .trust-pill:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+
+  .trust-pill-primary:hover {
+    background: rgba(200, 152, 40, 0.12);
+    border-color: rgba(200, 152, 40, 0.4);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-section {
+      min-height: auto;
+      padding: 160px 0 80px 0; /* Increased from 120/60 */
+    }
+
+    .hero-content {
+      gap: 36px; /* Increased from 24px */
+    }
+
+    .hero-title {
+      font-size: 40px;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+    }
+
+    .hero-ctas {
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .hero-ctas .btn {
+      width: 100%;
+    }
+
+    .hero-trust {
+      flex-direction: column;
+      gap: 10px;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    .trust-pill {
+      justify-content: center;
+      width: 100%;
+    }
+  }
+</style>

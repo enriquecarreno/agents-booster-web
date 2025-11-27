@@ -1,0 +1,86 @@
+---
+/**
+ * HOME PAGE - AGENTS BOOSTER V3.4
+ * VERSIÓN WORLD-CLASS con fondo astral
+ */
+
+import MainLayout from '../layouts/Main.astro';
+import Navbar from '../components/global/Navbar.astro';
+import Footer from '../components/global/Footer.astro';
+import StickyCTA from '../components/global/StickyCTA.astro';
+import DeepSpaceBackground from '../components/home/DeepSpaceBackground.astro';
+
+// TIER 1: CRÍTICO - Captar atención
+import HeroNew from '../components/home/HeroNew.astro';
+import TrustBar from '../components/home/TrustBar.astro';
+import PainPoints from '../components/home/PainPoints.astro';
+
+// TIER 1.5: DEMO VISUAL
+import ChatDemoSection from '../components/home/ChatDemoSection.astro';
+
+// TIER 2: PRODUCTO - Mostrar qué ofrecemos
+import AgentsGrid from '../components/home/AgentsGrid.astro';
+import IntegrationsGallery from '../components/home/IntegrationsGallery.astro';
+
+// TIER 3: VALOR - Demostrar beneficios
+import ROISection from '../components/home/ROISection.astro';
+import PricingTeaser from '../components/home/PricingTeaser.astro';
+
+// TIER 4: CIERRE - Resolver objeciones y cerrar
+import HowItWorksVisual from '../components/home/HowItWorksVisual.astro';
+import FAQ from '../components/home/FAQ.astro';
+import FinalCTA from '../components/home/FinalCTA.astro';
+---
+
+<MainLayout 
+  title="Agents Booster - Agentes de IA que Ejecutan Acciones Reales"
+  description="No somos un chatbot. Somos agentes especializados de IA que se conectan a tus sistemas reales: CRM, ERP, inventario, pagos. Implementación gratis por tiempo limitado."
+>
+  <Navbar />
+
+  <!-- Sticky CTA Bar (aparece al hacer scroll) -->
+  <StickyCTA />
+
+  <!-- Contenedor con fondo astral para toda la página -->
+  <div class="home-container">
+    <DeepSpaceBackground />
+    
+    <div class="home-content">
+      <!-- TIER 1: CAPTAR ATENCIÓN -->
+      <HeroNew />
+      <TrustBar />
+      <PainPoints />
+
+      <!-- TIER 1.5: DEMO VISUAL -->
+      <ChatDemoSection />
+
+      <!-- TIER 2: MOSTRAR PRODUCTO -->
+      <AgentsGrid />
+      <IntegrationsGallery />
+
+      <!-- TIER 3: DEMOSTRAR VALOR -->
+      <ROISection />
+      <PricingTeaser />
+
+      <!-- TIER 4: CIERRE Y OBJECIONES -->
+      <HowItWorksVisual />
+      <FAQ />
+      <FinalCTA />
+    </div>
+  </div>
+
+  <Footer />
+</MainLayout>
+
+<style>
+  .home-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .home-content {
+    position: relative;
+    z-index: 1;
+  }
+</style>

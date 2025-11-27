@@ -1,0 +1,643 @@
+---
+/**
+ * NAVBAR - AGENTS BOOSTER V2.1
+ * Navbar con dropdowns para Agentes y Empresa
+ */
+
+import { baseUrl } from '../../lib/base-url';
+
+// Obtener el path actual (sin el baseUrl)
+const currentPath = Astro.url.pathname;
+
+// Helper para verificar si una ruta está activa
+const isActive = (path: string) => {
+  if (path === '/') {
+    return currentPath === '/' || currentPath === baseUrl + '/';
+  }
+  // Normalizar paths para comparación
+  const normalizedCurrent = currentPath.replace(/\/$/, '');
+  const normalizedCheck = (baseUrl + path).replace(/\/$/, '');
+  return normalizedCurrent === normalizedCheck || normalizedCurrent.startsWith(normalizedCheck + '/');
+};
+---
+
+<nav class="navbar">
+  <div class="ab-container">
+    <div class="navbar-content">
+      <!-- Logo -->
+      <a href={baseUrl || '/'} class="navbar-logo">
+        <img 
+          src={`${baseUrl}/logo-horizontal.png`}
+          alt="Agents Booster" 
+          width="180"
+          height="40"
+          class="logo-img"
+        />
+      </a>
+
+      <!-- Desktop Menu -->
+      <div class="navbar-menu hide-mobile">
+        <div class="menu-group">
+          <a href={baseUrl || '/'} class={`menu-link ${isActive('/') ? 'menu-link-active' : ''}`}>
+            Inicio
+          </a>
+          
+          <!-- Agentes Dropdown -->
+          <div class="menu-item menu-dropdown">
+            <button class={`menu-link ${isActive('/agentes') ? 'menu-link-active' : ''}`}>
+              Agentes
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="dropdown-menu">
+              <a href={`${baseUrl}/agentes/vendedor`} class="dropdown-item">
+                <div class="dropdown-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="9" cy="21" r="1"/>
+                    <circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                  </svg>
+                </div>
+                <div class="dropdown-content">
+                  <div class="dropdown-title">Agente de Ventas</div>
+                  <div class="dropdown-desc">Cierra ventas 24/7</div>
+                </div>
+              </a>
+              <a href={`${baseUrl}/agentes/operaciones`} class="dropdown-item">
+                <div class="dropdown-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                    <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                    <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                    <line x1="12" y1="22.08" x2="12" y2="12"/>
+                  </svg>
+                </div>
+                <div class="dropdown-content">
+                  <div class="dropdown-title">Agente de Operaciones</div>
+                  <div class="dropdown-desc">Automatiza logística</div>
+                </div>
+              </a>
+              <a href={`${baseUrl}/agentes/personalizado`} class="dropdown-item">
+                <div class="dropdown-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v6m0 6v6m5.2-14.2l-4.2 4.2m0 6l4.2 4.2M23 12h-6m-6 0H5m14.2 5.2l-4.2-4.2m0-6l4.2-4.2"/>
+                  </svg>
+                </div>
+                <div class="dropdown-content">
+                  <div class="dropdown-title">Agente Personalizado</div>
+                  <div class="dropdown-desc">Diseñado para ti</div>
+                </div>
+              </a>
+            </div>
+          </div>
+
+          <a href={`${baseUrl}/planes`} class={`menu-link ${isActive('/planes') ? 'menu-link-active' : ''}`}>
+            Planes
+          </a>
+          
+          <!-- Empresa Dropdown -->
+          <div class="menu-item menu-dropdown">
+            <button class={`menu-link ${isActive('/nosotros') || isActive('/arquitectura') || isActive('/seguridad') || isActive('/tecnologia') ? 'menu-link-active' : ''}`}>
+              Empresa
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+            <div class="dropdown-menu dropdown-menu-wide">
+              <a href={`${baseUrl}/nosotros`} class="dropdown-item">
+                <div class="dropdown-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                  </svg>
+                </div>
+                <div class="dropdown-content">
+                  <div class="dropdown-title">Nosotros</div>
+                  <div class="dropdown-desc">Misión y equipo</div>
+                </div>
+              </a>
+              <a href={`${baseUrl}/arquitectura`} class="dropdown-item">
+                <div class="dropdown-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"/>
+                    <rect x="14" y="3" width="7" height="7"/>
+                    <rect x="14" y="14" width="7" height="7"/>
+                    <rect x="3" y="14" width="7" height="7"/>
+                  </svg>
+                </div>
+                <div class="dropdown-content">
+                  <div class="dropdown-title">Arquitectura</div>
+                  <div class="dropdown-desc">Multitenant enterprise</div>
+                </div>
+              </a>
+              <a href={`${baseUrl}/seguridad`} class="dropdown-item">
+                <div class="dropdown-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  </svg>
+                </div>
+                <div class="dropdown-content">
+                  <div class="dropdown-title">Seguridad</div>
+                  <div class="dropdown-desc">Compliance & privacidad</div>
+                </div>
+              </a>
+              <a href={`${baseUrl}/tecnologia`} class="dropdown-item">
+                <div class="dropdown-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <circle cx="12" cy="12" r="3"/>
+                    <line x1="12" y1="2" x2="12" y2="4"/>
+                    <line x1="12" y1="20" x2="12" y2="22"/>
+                    <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"/>
+                    <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"/>
+                    <line x1="2" y1="12" x2="4" y2="12"/>
+                    <line x1="20" y1="12" x2="22" y2="12"/>
+                  </svg>
+                </div>
+                <div class="dropdown-content">
+                  <div class="dropdown-title">Tecnología RAG</div>
+                  <div class="dropdown-desc">Cómo aprenden los agentes</div>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+          <a href={`${baseUrl}/demo`} class={`menu-link ${isActive('/demo') ? 'menu-link-active' : ''}`}>
+            Demo
+          </a>
+        </div>
+
+        <div class="menu-actions">
+          <a href={`${baseUrl}/contacto`} class="btn-nav btn-nav-primary">
+            Empezar ahora
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button class="mobile-menu-btn hide-desktop" id="mobile-menu-btn" aria-label="Toggle menu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu hide-desktop" id="mobile-menu">
+    <div class="mobile-menu-content">
+      <a href={baseUrl || '/'} class={`mobile-menu-item ${isActive('/') ? 'mobile-menu-item-active' : ''}`}>Inicio</a>
+      
+      <!-- Agentes Section -->
+      <div class="mobile-menu-section">
+        <div class="mobile-section-title">Agentes</div>
+        <a href={`${baseUrl}/agentes/vendedor`} class={`mobile-menu-item ${isActive('/agentes/vendedor') ? 'mobile-menu-item-active' : ''}`}>
+          <span class="mobile-item-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"/>
+              <circle cx="20" cy="21" r="1"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+          </span>
+          <span>Agente de Ventas</span>
+        </a>
+        <a href={`${baseUrl}/agentes/operaciones`} class={`mobile-menu-item ${isActive('/agentes/operaciones') ? 'mobile-menu-item-active' : ''}`}>
+          <span class="mobile-item-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            </svg>
+          </span>
+          <span>Agente de Operaciones</span>
+        </a>
+        <a href={`${baseUrl}/agentes/personalizado`} class={`mobile-menu-item ${isActive('/agentes/personalizado') ? 'mobile-menu-item-active' : ''}`}>
+          <span class="mobile-item-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M12 1v6m0 6v6"/>
+            </svg>
+          </span>
+          <span>Agente Personalizado</span>
+        </a>
+      </div>
+
+      <div class="mobile-menu-divider"></div>
+
+      <a href={`${baseUrl}/planes`} class={`mobile-menu-item ${isActive('/planes') ? 'mobile-menu-item-active' : ''}`}>Planes</a>
+      
+      <!-- Empresa Section -->
+      <div class="mobile-menu-section">
+        <div class="mobile-section-title">Empresa</div>
+        <a href={`${baseUrl}/nosotros`} class={`mobile-menu-item ${isActive('/nosotros') ? 'mobile-menu-item-active' : ''}`}>
+          <span class="mobile-item-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+            </svg>
+          </span>
+          <span>Nosotros</span>
+        </a>
+        <a href={`${baseUrl}/arquitectura`} class={`mobile-menu-item ${isActive('/arquitectura') ? 'mobile-menu-item-active' : ''}`}>
+          <span class="mobile-item-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="7" height="7"/>
+              <rect x="14" y="3" width="7" height="7"/>
+              <rect x="14" y="14" width="7" height="7"/>
+              <rect x="3" y="14" width="7" height="7"/>
+            </svg>
+          </span>
+          <span>Arquitectura</span>
+        </a>
+        <a href={`${baseUrl}/seguridad`} class={`mobile-menu-item ${isActive('/seguridad') ? 'mobile-menu-item-active' : ''}`}>
+          <span class="mobile-item-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </span>
+          <span>Seguridad</span>
+        </a>
+        <a href={`${baseUrl}/tecnologia`} class={`mobile-menu-item ${isActive('/tecnologia') ? 'mobile-menu-item-active' : ''}`}>
+          <span class="mobile-item-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </span>
+          <span>Tecnología RAG</span>
+        </a>
+      </div>
+
+      <div class="mobile-menu-divider"></div>
+      
+      <a href={`${baseUrl}/demo`} class={`mobile-menu-item ${isActive('/demo') ? 'mobile-menu-item-active' : ''}`}>Demo</a>
+      <a href={`${baseUrl}/contacto`} class={`mobile-menu-item ${isActive('/contacto') ? 'mobile-menu-item-active' : ''}`}>Contacto</a>
+
+      <div class="mobile-menu-divider"></div>
+
+      <a href={`${baseUrl}/contacto`} class="btn-nav btn-nav-primary btn-full">
+        Empezar ahora
+      </a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 300;
+    background: rgba(8, 8, 24, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(200, 152, 40, 0.15);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    transition: opacity 0.3s ease;
+  }
+
+  .navbar-logo:hover {
+    opacity: 0.85;
+  }
+
+  .logo-img {
+    height: 32px;
+    width: auto;
+  }
+
+  .navbar-menu {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+
+  .menu-group {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+  }
+
+  .menu-item {
+    position: relative;
+  }
+
+  .menu-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 0;
+  }
+
+  .menu-link:hover {
+    color: #C89828;
+  }
+
+  .menu-link-active {
+    color: #C89828;
+    position: relative;
+  }
+
+  .menu-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #C89828 0%, #F4D56E 100%);
+    border-radius: 1px;
+  }
+
+  /* Dropdown */
+  .menu-dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: -16px;
+    min-width: 280px;
+    margin-top: 16px;
+    padding: 12px;
+    background: rgba(8, 8, 24, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(200, 152, 40, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .dropdown-menu-wide {
+    min-width: 320px;
+  }
+
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+  }
+
+  .dropdown-item:hover {
+    background: rgba(200, 152, 40, 0.1);
+  }
+
+  .dropdown-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(200, 152, 40, 0.1);
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .dropdown-icon svg {
+    stroke: #C89828;
+  }
+
+  .dropdown-content {
+    flex: 1;
+  }
+
+  .dropdown-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 2px;
+  }
+
+  .dropdown-desc {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .menu-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .btn-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-nav-primary {
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    color: #080818;
+    box-shadow: 0 4px 15px rgba(200, 152, 40, 0.3);
+  }
+
+  .btn-nav-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 152, 40, 0.5);
+    color: #080818;
+  }
+
+  /* Mobile Menu Button */
+  .mobile-menu-btn {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 8px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .hamburger-line {
+    width: 24px;
+    height: 2px;
+    background: #C89828;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-btn.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+
+  .mobile-menu-btn.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-menu-btn.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+  /* Mobile Menu Overlay */
+  .mobile-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(8, 8, 24, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+  }
+
+  .mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-content {
+    padding: 32px 24px;
+  }
+
+  .mobile-menu-section {
+    margin-bottom: 24px;
+  }
+
+  .mobile-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 16px;
+  }
+
+  .mobile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-item:hover {
+    background: rgba(200, 152, 40, 0.1);
+    color: #C89828;
+  }
+
+  .mobile-menu-item-active {
+    background: rgba(200, 152, 40, 0.15);
+    color: #C89828;
+  }
+
+  .mobile-item-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+  }
+
+  .mobile-item-icon svg {
+    stroke: #C89828;
+  }
+
+  .mobile-menu-divider {
+    height: 1px;
+    background: rgba(200, 152, 40, 0.2);
+    margin: 24px 0;
+  }
+
+  .btn-full {
+    width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    .navbar-content {
+      padding: 0.75rem 0;
+    }
+
+    .logo-img {
+      height: 28px;
+    }
+  }
+</style>
+
+<script>
+  // Mobile Menu Toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenuBtn.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Close menu when clicking outside
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Close menu on link click
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenuBtn.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+  }
+</script>
+</nav>

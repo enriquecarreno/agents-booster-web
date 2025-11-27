@@ -1,0 +1,366 @@
+---
+/**
+ * PAIN POINTS V2.1 - SPRINT 2
+ * Copy Rewrite: Más directo, menos palabrería
+ * Enfoque: Problema → Costo → Solución (rápido)
+ */
+
+import { Clock, AlertCircle, TrendingDown, TrendingUp } from 'lucide-react';
+import { baseUrl } from '../../lib/base-url';
+---
+
+<section class="pain-points-section section-sm">
+  <div class="ab-container">
+    <div class="section-header-compact">
+      <h2 class="section-title">
+        ¿Tu equipo pierde <span class="text-gradient-gold">tiempo y dinero</span> en esto?
+      </h2>
+      <p class="section-subtitle">
+        Estos problemas te cuestan más de lo que crees
+      </p>
+    </div>
+
+    <div class="pain-grid">
+      
+      <!-- Pain 1 -->
+      <div class="pain-card">
+        <div class="pain-header">
+          <Clock size={40} strokeWidth={2} className="pain-icon" client:load />
+          <h3 class="pain-title">Respuestas lentas = ventas perdidas</h3>
+        </div>
+        
+        <div class="pain-stat">
+          <span class="stat-number">60%</span>
+          <span class="stat-label">de clientes compran con quien responde primero</span>
+        </div>
+
+        <p class="pain-text">
+          Llega un lead a las 9pm. Tu equipo ya se fue. Responden a las 9am del día siguiente. 
+          <strong>Ya compraron con tu competencia.</strong>
+        </p>
+
+        <div class="pain-cost">
+          <TrendingDown size={20} strokeWidth={2.5} className="cost-icon" client:load />
+          <span>Pérdida promedio: <strong>$500-2,000/mes</strong></span>
+        </div>
+
+        <div class="pain-solution">
+          <TrendingUp size={20} strokeWidth={2.5} className="solution-icon" client:load />
+          <p><strong>Solución:</strong> Agente responde en 60 segundos, 24/7. Nunca pierdes un lead por horario.</p>
+        </div>
+      </div>
+
+      <!-- Pain 2 -->
+      <div class="pain-card">
+        <div class="pain-header">
+          <AlertCircle size={40} strokeWidth={2} className="pain-icon" client:load />
+          <h3 class="pain-title">Errores manuales = clientes molestos</h3>
+        </div>
+        
+        <div class="pain-stat">
+          <span class="stat-number">1 error</span>
+          <span class="stat-label">puede costar $3,000-10,000 en reembolsos y clientes perdidos</span>
+        </div>
+
+        <p class="pain-text">
+          Inventario desactualizado. Vendes algo que no tienes. Tienes que devolver dinero, 
+          perder el cliente, y rezar que no te dejen mala reseña.
+        </p>
+
+        <div class="pain-cost">
+          <TrendingDown size={20} strokeWidth={2.5} className="cost-icon" client:load />
+          <span>Un solo error: <strong>$3,000-10,000</strong></span>
+        </div>
+
+        <div class="pain-solution">
+          <TrendingUp size={20} strokeWidth={2.5} className="solution-icon" client:load />
+          <p><strong>Solución:</strong> Sincronización en tiempo real con tu sistema. Cero errores de inventario.</p>
+        </div>
+      </div>
+
+      <!-- Pain 3 -->
+      <div class="pain-card">
+        <div class="pain-header">
+          <Clock size={40} strokeWidth={2} className="pain-icon" client:load />
+          <h3 class="pain-title">Tareas repetitivas = equipo frustrado</h3>
+        </div>
+        
+        <div class="pain-stat">
+          <span class="stat-number">40%</span>
+          <span class="stat-label">del tiempo de tu equipo se va en copiar/pegar datos</span>
+        </div>
+
+        <p class="pain-text">
+          Copiar del WhatsApp al CRM. Enviar seguimientos manuales. Actualizar Excel. 
+          Tu equipo hace trabajo de robot en vez de vender.
+        </p>
+
+        <div class="pain-cost">
+          <TrendingDown size={20} strokeWidth={2.5} className="cost-icon" client:load />
+          <span>Costo en tiempo: <strong>100+ horas/mes desperdiciadas</strong></span>
+        </div>
+
+        <div class="pain-solution">
+          <TrendingUp size={20} strokeWidth={2.5} className="solution-icon" client:load />
+          <p><strong>Solución:</strong> El agente hace esas 100 horas. Tu equipo se enfoca en crecer el negocio.</p>
+        </div>
+      </div>
+
+      <!-- Pain 4 -->
+      <div class="pain-card">
+        <div class="pain-header">
+          <TrendingUp size={40} strokeWidth={2} className="pain-icon" client:load />
+          <h3 class="pain-title">Crecer = Contratar más gente</h3>
+        </div>
+        
+        <div class="pain-stat">
+          <span class="stat-number">$2,500+</span>
+          <span class="stat-label">cuesta cada persona nueva (sueldo + prestaciones + training)</span>
+        </div>
+
+        <p class="pain-text">
+          Para duplicar tu capacidad necesitas duplicar tu equipo. Eso significa: 
+          reclutamiento, training, supervisión, y esperar 2-3 meses para que sean productivos.
+        </p>
+
+        <div class="pain-cost">
+          <TrendingDown size={20} strokeWidth={2.5} className="cost-icon" client:load />
+          <span>Costo para escalar: <strong>$10,000-25,000/mes</strong></span>
+        </div>
+
+        <div class="pain-solution">
+          <TrendingUp size={20} strokeWidth={2.5} className="solution-icon" client:load />
+          <p><strong>Solución:</strong> Escalas 10× sin contratar. Los agentes trabajan 24/7 desde día 1.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA -->
+    <div class="pain-cta">
+      <p class="cta-text">¿Cuánto te están costando estos problemas?</p>
+      <a href={`${baseUrl}/contacto`} class="btn btn-primary">
+        <span>Calcula tu ahorro en 5 minutos</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .pain-points-section {
+    background: linear-gradient(180deg, #080818 0%, rgba(8, 8, 24, 0.95) 100%);
+  }
+
+  .section-header-compact {
+    text-align: center;
+    margin-bottom: 48px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  /* Grid */
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  /* Cards */
+  .pain-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 32px;
+    transition: all 0.3s ease;
+  }
+
+  .pain-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .pain-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .pain-header :global(.pain-icon) {
+    color: #FF6B6B;
+    flex-shrink: 0;
+  }
+
+  .pain-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0;
+    line-height: 1.3;
+  }
+
+  /* Stat destacado */
+  .pain-stat {
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    background: rgba(200, 152, 40, 0.08);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 12px;
+    margin-bottom: 16px;
+  }
+
+  .stat-number {
+    font-size: 32px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.4;
+  }
+
+  .pain-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 16px 0;
+  }
+
+  .pain-text strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+
+  /* Costo */
+  .pain-cost {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 10px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 16px;
+  }
+
+  .pain-cost :global(.cost-icon) {
+    color: #FF6B6B;
+    flex-shrink: 0;
+  }
+
+  .pain-cost strong {
+    color: #FF6B6B;
+    font-weight: 800;
+  }
+
+  /* Solución */
+  .pain-solution {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(0, 255, 136, 0.05);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 12px;
+  }
+
+  .pain-solution :global(.solution-icon) {
+    color: #00FF88;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .pain-solution p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+  }
+
+  .pain-solution strong {
+    color: #00FF88;
+    font-weight: 700;
+  }
+
+  /* CTA Final */
+  .pain-cta {
+    text-align: center;
+    padding: 40px 32px;
+    background: rgba(200, 152, 40, 0.08);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 20px;
+  }
+
+  .cta-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 24px 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .pain-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .pain-card {
+      padding: 24px;
+    }
+
+    .pain-header {
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .pain-title {
+      font-size: 18px;
+    }
+
+    .stat-number {
+      font-size: 28px;
+    }
+
+    .pain-text {
+      font-size: 14px;
+    }
+
+    .pain-cta {
+      padding: 32px 24px;
+    }
+
+    .cta-text {
+      font-size: 18px;
+    }
+  }
+</style>

@@ -1,0 +1,730 @@
+---
+/**
+ * PRICING TEASER V3.1 - SPRINT 2
+ * Copy Rewrite: Más claridad en precios y valor
+ */
+
+import { baseUrl } from '../../lib/base-url';
+import { 
+  ShoppingCart, Package, Settings, Smartphone, Users, Mic,
+  CheckCircle, Rocket, Star, Gem, TrendingUp, RefreshCw, DollarSign
+} from 'lucide-react';
+
+const agents = [
+  // FILA 1: Disponibles
+  {
+    id: 'sales',
+    name: 'Ventas',
+    icon: 'shopping-cart',
+    tagline: 'Responde, cotiza y cierra 24/7',
+    startPrice: 49,
+    available: true,
+  },
+  {
+    id: 'operations',
+    name: 'Operaciones',
+    icon: 'package',
+    tagline: 'Inventario y órdenes automáticos',
+    startPrice: 429,
+    available: true,
+  },
+  {
+    id: 'custom',
+    name: 'Personalizado',
+    icon: 'settings',
+    tagline: 'Construido 100% a tu medida',
+    startPrice: null,
+    custom: true,
+    available: true,
+  },
+  // FILA 2: Beta
+  {
+    id: 'marketing',
+    name: 'Marketing',
+    icon: 'smartphone',
+    tagline: 'Contenido y campañas automáticas',
+    startPrice: null,
+    beta: true,
+  },
+  {
+    id: 'hr',
+    name: 'RRHH',
+    icon: 'users',
+    tagline: 'Reclutamiento y onboarding',
+    startPrice: null,
+    beta: true,
+  },
+  {
+    id: 'assistant',
+    name: 'Asistente',
+    icon: 'mic',
+    tagline: 'EA ejecutivo 24/7',
+    startPrice: null,
+    beta: true,
+  },
+];
+---
+
+<section class="pricing-teaser section">
+  <div class="ab-container">
+    
+    <!-- Header -->
+    <div class="pricing-header">
+      <div class="pricing-badge">
+        <Gem size={18} strokeWidth={2.5} className="badge-icon-lucide" client:load />
+        <span>Pricing honesto</span>
+      </div>
+      <h2 class="pricing-title">
+        Precios <span class="title-highlight">sin sorpresas</span>
+      </h2>
+      <p class="pricing-subtitle">
+        Paga solo por lo que usas. Sin contratos largos. Cancela cuando quieras.
+      </p>
+    </div>
+
+    <!-- Agent Selector Grid - 2 FILAS DE 3 -->
+    <div class="agents-selector">
+      {agents.map((agent) => (
+        <div 
+          class={`agent-selector-card ${agent.beta ? 'beta' : ''} ${agent.custom ? 'custom' : ''} ${agent.available ? 'available' : ''}`}
+          data-agent={agent.id}
+        >
+          <div class="agent-header">
+            {agent.available && !agent.beta && !agent.custom && (
+              <span class="agent-status available">
+                <CheckCircle size={14} strokeWidth={2.5} client:load />
+                <span>Disponible</span>
+              </span>
+            )}
+            {agent.beta && (
+              <span class="agent-status beta">
+                <Rocket size={14} strokeWidth={2.5} client:load />
+                <span>Beta</span>
+              </span>
+            )}
+            {agent.custom && (
+              <span class="agent-status custom">
+                <Star size={14} strokeWidth={2.5} client:load />
+                <span>Custom</span>
+              </span>
+            )}
+          </div>
+
+          <div class="agent-icon-wrapper">
+            {agent.icon === 'shopping-cart' && (
+              <ShoppingCart size={56} strokeWidth={1.5} className="agent-icon-lucide" client:load />
+            )}
+            {agent.icon === 'package' && (
+              <Package size={56} strokeWidth={1.5} className="agent-icon-lucide" client:load />
+            )}
+            {agent.icon === 'settings' && (
+              <Settings size={56} strokeWidth={1.5} className="agent-icon-lucide" client:load />
+            )}
+            {agent.icon === 'smartphone' && (
+              <Smartphone size={56} strokeWidth={1.5} className="agent-icon-lucide" client:load />
+            )}
+            {agent.icon === 'users' && (
+              <Users size={56} strokeWidth={1.5} className="agent-icon-lucide" client:load />
+            )}
+            {agent.icon === 'mic' && (
+              <Mic size={56} strokeWidth={1.5} className="agent-icon-lucide" client:load />
+            )}
+          </div>
+          
+          <h3 class="agent-name">{agent.name}</h3>
+          <p class="agent-tagline">{agent.tagline}</p>
+
+          {/* PRICING LOGIC */}
+          {agent.custom ? (
+            <div class="agent-price custom-price">
+              <span class="price-custom">A cotizar</span>
+            </div>
+          ) : agent.startPrice !== null ? (
+            <div class="agent-price">
+              <span class="price-from">Desde</span>
+              <span class="price-amount">${agent.startPrice}</span>
+              <span class="price-period">/mes</span>
+            </div>
+          ) : (
+            <div class="agent-price coming-soon">
+              <span class="coming-soon-text">Pronto</span>
+            </div>
+          )}
+
+          {/* CTA BUTTON */}
+          {agent.beta ? (
+            <button class="agent-btn btn-disabled" disabled>
+              <span>Próximamente</span>
+            </button>
+          ) : agent.custom ? (
+            <a href={`${baseUrl}/contacto`} class="agent-btn">
+              <span>Solicitar cotización</span>
+              <span class="btn-arrow">→</span>
+            </a>
+          ) : (
+            <a href={`${baseUrl}/planes`} class="agent-btn">
+              <span>Ver planes</span>
+              <span class="btn-arrow">→</span>
+            </a>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Revenue Duo Bundle -->
+    <div class="bundle-highlight">
+      <div class="bundle-badge">
+        <Star size={14} strokeWidth={2.5} client:load />
+        <span>BUNDLE</span>
+      </div>
+      <div class="bundle-content">
+        <h3 class="bundle-title">Revenue Duo</h3>
+        <p class="bundle-description">
+          <strong>Ventas + Operaciones</strong> sincronizados. Vendes más rápido y entregas sin errores. <strong>15% de descuento</strong> vs planes separados.
+        </p>
+        <div class="bundle-benefits">
+          <div class="benefit-item">
+            <TrendingUp size={24} strokeWidth={2} className="benefit-icon-lucide" client:load />
+            <span>Flujo completo automatizado</span>
+          </div>
+          <div class="benefit-item">
+            <RefreshCw size={24} strokeWidth={2} className="benefit-icon-lucide" client:load />
+            <span>Sincronización en tiempo real</span>
+          </div>
+          <div class="benefit-item">
+            <DollarSign size={24} strokeWidth={2} className="benefit-icon-lucide" client:load />
+            <span>Ahorra 15%</span>
+          </div>
+        </div>
+        <a href={`${baseUrl}/planes#bundle-pricing`} class="bundle-btn">
+          Ver Revenue Duo
+        </a>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="pricing-cta">
+      <h3 class="cta-title">Setup GRATIS · Últimos 18 cupos</h3>
+      <p class="cta-text">
+        Sin permanencia. Sin letra chica. Garantía de 30 días o te devolvemos tu dinero.
+      </p>
+      <div class="cta-buttons">
+        <a href={`${baseUrl}/contacto`} class="cta-btn btn-primary">
+          Agendar demo
+        </a>
+        <a href={`${baseUrl}/planes`} class="cta-btn btn-secondary">
+          Ver todos los planes
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .pricing-teaser {
+    background: linear-gradient(180deg, #0d0d1f 0%, #080818 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .pricing-teaser::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 1200px;
+    background: radial-gradient(circle, rgba(200, 152, 40, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Header */
+  .pricing-header {
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .pricing-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(200, 152, 40, 0.12);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #C89828;
+    margin-bottom: 24px;
+  }
+
+  .pricing-badge :global(.badge-icon-lucide) {
+    color: #C89828;
+    flex-shrink: 0;
+  }
+
+  .pricing-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .title-highlight {
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .pricing-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Agent Selector Grid - 2 FILAS DE 3 */
+  .agents-selector {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .agent-selector-card {
+    padding: 28px 24px;
+    background: rgba(8, 8, 24, 0.6);
+    border: 1px solid rgba(200, 152, 40, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    min-height: 320px;
+  }
+
+  .agent-selector-card:hover {
+    background: rgba(8, 8, 24, 0.8);
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(200, 152, 40, 0.15);
+  }
+
+  .agent-selector-card.available {
+    border-color: rgba(200, 152, 40, 0.25);
+  }
+
+  .agent-selector-card.beta {
+    opacity: 0.85;
+  }
+
+  .agent-selector-card.beta:hover {
+    opacity: 1;
+    border-color: rgba(74, 158, 255, 0.3);
+  }
+
+  .agent-selector-card.custom {
+    border-color: rgba(200, 152, 40, 0.35);
+    background: rgba(200, 152, 40, 0.08);
+  }
+
+  .agent-selector-card.custom:hover {
+    border-color: rgba(200, 152, 40, 0.5);
+    box-shadow: 0 8px 32px rgba(200, 152, 40, 0.25);
+  }
+
+  .agent-header {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+
+  .agent-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .agent-status.available {
+    background: rgba(0, 255, 136, 0.12);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    color: #00FF88;
+  }
+
+  .agent-status.available :global(svg) {
+    color: #00FF88;
+  }
+
+  .agent-status.beta {
+    background: rgba(74, 158, 255, 0.15);
+    border: 1px solid rgba(74, 158, 255, 0.3);
+    color: #4A9EFF;
+  }
+
+  .agent-status.beta :global(svg) {
+    color: #4A9EFF;
+  }
+
+  .agent-status.custom {
+    background: rgba(200, 152, 40, 0.2);
+    border: 1px solid rgba(200, 152, 40, 0.4);
+    color: #C89828;
+  }
+
+  .agent-status.custom :global(svg) {
+    color: #C89828;
+  }
+
+  .agent-icon-wrapper {
+    margin-bottom: 16px;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .agent-icon-wrapper :global(.agent-icon-lucide) {
+    color: #C89828;
+    filter: drop-shadow(0 4px 8px rgba(200, 152, 40, 0.4));
+    transition: all 0.3s ease;
+  }
+
+  .agent-selector-card:hover .agent-icon-wrapper :global(.agent-icon-lucide) {
+    transform: scale(1.05);
+    filter: drop-shadow(0 6px 12px rgba(200, 152, 40, 0.6));
+  }
+
+  .agent-name {
+    font-size: 22px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+
+  .agent-tagline {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 20px;
+    min-height: 40px;
+    line-height: 1.5;
+  }
+
+  .agent-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 20px;
+    margin-top: auto;
+  }
+
+  .price-from {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 600;
+  }
+
+  .price-amount {
+    font-size: 32px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .price-period {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .custom-price {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .price-custom {
+    font-size: 16px;
+    font-weight: 700;
+    color: #C89828;
+  }
+
+  .coming-soon {
+    justify-content: center;
+  }
+
+  .coming-soon-text {
+    font-size: 14px;
+    color: #4A9EFF;
+    font-weight: 700;
+  }
+
+  .agent-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px 24px;
+    font-size: 15px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    color: #080818;
+    border: none;
+    cursor: pointer;
+  }
+
+  .agent-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 152, 40, 0.5);
+    color: #080818;
+  }
+
+  .btn-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .agent-btn:hover .btn-arrow {
+    transform: translateX(4px);
+  }
+
+  .btn-disabled {
+    background: rgba(74, 158, 255, 0.15);
+    border: 2px solid rgba(74, 158, 255, 0.3);
+    color: #4A9EFF;
+    cursor: not-allowed;
+  }
+
+  .btn-disabled:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Bundle Highlight */
+  .bundle-highlight {
+    padding: 40px;
+    background: rgba(200, 152, 40, 0.08);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 24px;
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .bundle-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    color: #080818;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 100px;
+    margin-bottom: 16px;
+  }
+
+  .bundle-badge :global(svg) {
+    color: #080818;
+  }
+
+  .bundle-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+  }
+
+  .bundle-description {
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 24px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .bundle-description strong {
+    color: #C89828;
+  }
+
+  .bundle-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .benefit-item :global(.benefit-icon-lucide) {
+    color: #C89828;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 8px rgba(200, 152, 40, 0.3));
+  }
+
+  .bundle-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    color: #080818;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .bundle-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(200, 152, 40, 0.5);
+    color: #080818;
+  }
+
+  /* CTA */
+  .pricing-cta {
+    text-align: center;
+    padding: 48px 40px;
+    background: rgba(8, 8, 24, 0.6);
+    border: 1px solid rgba(200, 152, 40, 0.2);
+    border-radius: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: #C89828;
+    margin-bottom: 12px;
+  }
+
+  .cta-text {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 28px;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    color: #080818;
+    box-shadow: 0 4px 16px rgba(200, 152, 40, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 152, 40, 0.5);
+    color: #080818;
+  }
+
+  .btn-secondary {
+    background: rgba(8, 8, 24, 0.6);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    color: #FFFFFF;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(200, 152, 40, 0.15);
+    border-color: rgba(200, 152, 40, 0.6);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .agents-selector {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .pricing-header {
+      margin-bottom: 48px;
+    }
+
+    .agents-selector {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .agent-selector-card {
+      min-height: auto;
+    }
+
+    .bundle-benefits {
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .pricing-cta {
+      padding: 32px 24px;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .cta-btn {
+      width: 100%;
+    }
+  }
+</style>

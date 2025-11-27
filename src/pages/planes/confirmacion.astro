@@ -1,0 +1,565 @@
+---
+/**
+ * CONFIRMATION PAGE V2
+ * Página de confirmación con Calendly embebido para agendar onboarding
+ */
+
+import MainLayout from '../../layouts/Main.astro';
+import Navbar from '../../components/global/Navbar.astro';
+import Footer from '../../components/global/Footer.astro';
+import { CheckCircle, Calendar, Target, Lightbulb, FileText, Rocket, MessageCircle, Mail, Phone, Bot, Star } from 'lucide-react';
+
+// Get query params
+const url = new URL(Astro.request.url);
+const quoteId = url.searchParams.get('quote') || 'AB-XXXX';
+const email = url.searchParams.get('email') || '';
+const name = url.searchParams.get('name') || 'Cliente';
+
+// Calendly link (update with your actual link)
+const calendlyLink = 'https://calendly.com/agentsbooster/onboarding-30min';
+---
+
+<MainLayout
+  title="Cotización Enviada ✅ - Agents Booster"
+  description="Tu cotización ha sido enviada exitosamente. Ahora agenda tu llamada de onboarding."
+>
+  <Navbar />
+  
+  <section class="confirmation-section">
+    <div class="ab-container">
+      <!-- Success Banner -->
+      <div class="success-banner">
+        <div class="success-icon">
+          <CheckCircle className="w-18 h-18 text-success" />
+        </div>
+        <h1 class="success-title">¡Cotización Enviada Exitosamente!</h1>
+        <p class="success-subtitle">
+          Hemos enviado tu cotización a <strong>{email}</strong>
+        </p>
+        <div class="quote-id">
+          ID de Cotización: <span>{quoteId}</span>
+        </div>
+      </div>
+      
+      <!-- Two Column Layout -->
+      <div class="confirmation-grid">
+        <!-- LEFT: Calendly -->
+        <div class="calendly-section">
+          <div class="section-header-compact">
+            <h2 class="section-title">
+              <Calendar className="inline-block w-7 h-7 mr-2" />
+              Agenda tu Onboarding Call
+            </h2>
+            <p class="section-description">
+              Selecciona un horario que te funcione para tu llamada de 30 minutos.
+              En esta sesión:
+            </p>
+          </div>
+          
+          <ul class="onboarding-benefits">
+            <li>
+              <Target className="benefit-icon w-5 h-5 text-gold-primary" />
+              <span>Demo en vivo personalizada para tu negocio</span>
+            </li>
+            <li>
+              <Lightbulb className="benefit-icon w-5 h-5 text-gold-primary" />
+              <span>Respondemos todas tus preguntas técnicas</span>
+            </li>
+            <li>
+              <FileText className="benefit-icon w-5 h-5 text-gold-primary" />
+              <span>Definimos plan de implementación detallado</span>
+            </li>
+            <li>
+              <Rocket className="benefit-icon w-5 h-5 text-gold-primary" />
+              <span>Acordamos próximos pasos y timeline</span>
+            </li>
+          </ul>
+          
+          <!-- Calendly Embed -->
+          <div class="calendly-embed-container">
+            <div 
+              class="calendly-inline-widget" 
+              data-url={`${calendlyLink}?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=c89828&name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`}
+              style="min-width:320px;height:700px;"
+            ></div>
+          </div>
+        </div>
+        
+        <!-- RIGHT: What's Next -->
+        <div class="next-steps-section">
+          <div class="section-header-compact">
+            <h2 class="section-title">
+              <Target className="inline-block w-7 h-7 mr-2" />
+              Qué Esperar
+            </h2>
+          </div>
+          
+          <div class="steps-list">
+            <div class="step-card">
+              <div class="step-number">1</div>
+              <div class="step-content">
+                <h3 class="step-title">Revisa tu Email</h3>
+                <p class="step-description">
+                  Hemos enviado tu cotización detallada a <strong>{email}</strong>. 
+                  Revisa tu bandeja de entrada (y spam, por si acaso).
+                </p>
+              </div>
+            </div>
+            
+            <div class="step-card step-highlight">
+              <div class="step-number">2</div>
+              <div class="step-content">
+                <h3 class="step-title">Agenda tu Onboarding ←</h3>
+                <p class="step-description">
+                  Usa el calendario aquí al lado para reservar tu llamada de 30 minutos.
+                  Puedes hacerlo ahora o más tarde desde el link en tu email.
+                </p>
+              </div>
+            </div>
+            
+            <div class="step-card">
+              <div class="step-number">3</div>
+              <div class="step-content">
+                <h3 class="step-title">Nuestro equipo te contacta</h3>
+                <p class="step-description">
+                  En menos de 24 horas recibirás una confirmación de nuestro equipo
+                  para coordinar los detalles de tu implementación.
+                </p>
+              </div>
+            </div>
+            
+            <div class="step-card">
+              <div class="step-number">4</div>
+              <div class="step-content">
+                <h3 class="step-title">Llamada de Onboarding</h3>
+                <p class="step-description">
+                  En la fecha agendada, te mostraremos cómo funcionarán tus agentes,
+                  responderemos preguntas y definiremos el plan de implementación.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Help Box -->
+          <div class="help-box">
+            <MessageCircle className="help-icon w-10 h-10 text-info" />
+            <div class="help-content">
+              <h3 class="help-title">¿Necesitas ayuda?</h3>
+              <p class="help-text">
+                Si tienes alguna pregunta antes de la llamada, puedes:
+              </p>
+              <ul class="help-options">
+                <li>
+                  <Mail className="inline-block w-4 h-4 mr-1" />
+                  Responder al email de cotización
+                </li>
+                <li>
+                  <Phone className="inline-block w-4 h-4 mr-1" />
+                  Contactarnos a <a href="mailto:sales@agentsbooster.com">sales@agentsbooster.com</a>
+                </li>
+                <li>
+                  <Bot className="inline-block w-4 h-4 mr-1" />
+                  <a href="/demo">Hablar con Diego</a>, nuestro Agente de Ventas 24/7
+                </li>
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Social Proof -->
+          <div class="social-proof-box">
+            <div class="social-proof-stat">
+              <div class="stat-value">
+                <Star className="inline-block w-6 h-6 mr-1" />
+                4.9/5
+              </div>
+              <div class="stat-label">Satisfacción de clientes</div>
+            </div>
+            <div class="social-proof-stat">
+              <div class="stat-value">< 48h</div>
+              <div class="stat-label">Tiempo de implementación</div>
+            </div>
+            <div class="social-proof-stat">
+              <div class="stat-value">24/7</div>
+              <div class="stat-label">Soporte disponible</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</MainLayout>
+
+<!-- Calendly Script -->
+<script is:inline src="https://assets.calendly.com/assets/external/widget.js"></script>
+
+<style>
+  .confirmation-section {
+    min-height: 100vh;
+    padding: 140px 0 64px;
+    background: linear-gradient(135deg, #080818 0%, #0B0D0E 100%);
+  }
+  
+  /* Success Banner */
+  .success-banner {
+    text-align: center;
+    padding: 48px 32px;
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.15) 0%, rgba(200, 152, 40, 0.05) 100%);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 24px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .success-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #C89828 0%, #F4D56E 100%);
+  }
+  
+  .success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    animation: bounce 1s ease infinite;
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  .success-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+  }
+  
+  .success-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+  }
+  
+  .success-subtitle strong {
+    color: #C89828;
+    font-weight: 800;
+  }
+  
+  .quote-id {
+    display: inline-block;
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    font-size: 15px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .quote-id span {
+    color: #F4D56E;
+    font-weight: 900;
+  }
+  
+  /* Grid Layout */
+  .confirmation-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 48px;
+    align-items: start;
+  }
+  
+  /* Calendly Section */
+  .calendly-section {
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 40px;
+  }
+  
+  .section-header-compact {
+    margin-bottom: 24px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .section-description {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .onboarding-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .onboarding-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px;
+    background: rgba(200, 152, 40, 0.05);
+    border: 1px solid rgba(200, 152, 40, 0.15);
+    border-radius: 12px;
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+  }
+  
+  .benefit-icon {
+    flex-shrink: 0;
+  }
+  
+  .calendly-embed-container {
+    background: #FFFFFF;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Next Steps Section */
+  .next-steps-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .step-card {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .step-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateX(-4px);
+  }
+  
+  .step-highlight {
+    background: rgba(200, 152, 40, 0.08);
+    border-color: rgba(200, 152, 40, 0.3);
+  }
+  
+  .step-number {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    color: #080818;
+    font-size: 20px;
+    font-weight: 900;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(200, 152, 40, 0.3);
+  }
+  
+  .step-content {
+    flex: 1;
+  }
+  
+  .step-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  
+  .step-description {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  .step-description strong {
+    color: #C89828;
+    font-weight: 800;
+  }
+  
+  /* Help Box */
+  .help-box {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(74, 158, 255, 0.08);
+    border: 2px solid rgba(74, 158, 255, 0.3);
+    border-radius: 16px;
+  }
+  
+  .help-icon {
+    flex-shrink: 0;
+  }
+  
+  .help-content {
+    flex: 1;
+  }
+  
+  .help-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: #4A9EFF;
+    margin-bottom: 8px;
+  }
+  
+  .help-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 12px;
+  }
+  
+  .help-options {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .help-options li {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.5;
+  }
+  
+  .help-options a {
+    color: #C89828;
+    font-weight: 700;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+  }
+  
+  .help-options a:hover {
+    color: #F4D56E;
+  }
+  
+  /* Social Proof */
+  .social-proof-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 20px;
+    background: rgba(0, 255, 136, 0.05);
+    border: 2px solid rgba(0, 255, 136, 0.2);
+    border-radius: 16px;
+  }
+  
+  .social-proof-stat {
+    text-align: center;
+  }
+  
+  .stat-value {
+    font-size: 24px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #00FF88 0%, #00CC70 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1200px) {
+    .confirmation-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .calendly-section {
+      order: 2;
+    }
+    
+    .next-steps-section {
+      order: 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .confirmation-section {
+      padding: 120px 0 48px;
+    }
+    
+    .success-banner {
+      padding: 32px 24px;
+    }
+    
+    .success-title {
+      font-size: 28px;
+    }
+    
+    .success-subtitle {
+      font-size: 16px;
+    }
+    
+    .calendly-section {
+      padding: 28px 20px;
+    }
+    
+    .section-title {
+      font-size: 24px;
+    }
+    
+    .step-card {
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .social-proof-box {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    
+    .calendly-inline-widget {
+      height: 600px !important;
+    }
+  }
+</style>

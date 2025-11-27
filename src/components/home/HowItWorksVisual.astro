@@ -1,0 +1,460 @@
+---
+/**
+ * HOW IT WORKS - Visual Timeline
+ * Proceso de implementación paso a paso
+ */
+
+import { Calendar, MessageSquare, Code, Rocket, CheckCircle2, Clock } from 'lucide-react';
+import { baseUrl } from '../../lib/base-url';
+
+const steps = [
+  {
+    number: '01',
+    icon: Calendar,
+    title: 'Agendar demo',
+    subtitle: '15 minutos',
+    description: 'Nos cuentas qué tareas quieres automatizar y qué sistemas usas. Vemos si Agents Booster es el fit correcto para ti.',
+    duration: '15 min',
+    color: '#C89828',
+  },
+  {
+    number: '02',
+    icon: MessageSquare,
+    title: 'Diseño de flujo',
+    subtitle: '24 horas',
+    description: 'Nuestro equipo diseña los flujos de automatización específicos para tu negocio. Te enviamos el plan para tu aprobación.',
+    duration: '1 día',
+    color: '#4A9EFF',
+  },
+  {
+    number: '03',
+    icon: Code,
+    title: 'Implementación técnica',
+    subtitle: '48 horas',
+    description: 'Conectamos tus sistemas, configuramos los agentes y hacemos pruebas exhaustivas. Tú no haces nada técnico.',
+    duration: '2 días',
+    color: '#00FF88',
+  },
+  {
+    number: '04',
+    icon: CheckCircle2,
+    title: 'Capacitación y pruebas',
+    subtitle: '30 minutos',
+    description: 'Te mostramos cómo funcionan tus agentes, hacemos pruebas en vivo contigo y resolvemos dudas. Todo queda documentado.',
+    duration: '30 min',
+    color: '#FFD700',
+  },
+  {
+    number: '05',
+    icon: Rocket,
+    title: 'Go live',
+    subtitle: 'Instantáneo',
+    description: 'Activas tus agentes con un clic. Empiezan a procesar interacciones en tiempo real. Tú monitoreas todo desde el dashboard.',
+    duration: 'Ahora',
+    color: '#FF6B6B',
+  },
+];
+---
+
+<section class="how-it-works-section section">
+  <div class="ab-container">
+    
+    <!-- Header -->
+    <div class="section-header">
+      <div class="section-badge">
+        <Clock size={18} strokeWidth={2.5} />
+        <span>Implementación rápida</span>
+      </div>
+      <h2 class="section-title">
+        De cero a <span class="text-gradient-gold">productivo</span> en 3 días
+      </h2>
+      <p class="section-subtitle">
+        Proceso probado con más de 50 implementaciones. Sin sorpresas, sin complejidad técnica.
+      </p>
+    </div>
+
+    <!-- Timeline Visual -->
+    <div class="timeline-container">
+      <div class="timeline-line"></div>
+      
+      {steps.map((step, index) => (
+        <div class="timeline-step" data-index={index}>
+          
+          <!-- Step Number Badge -->
+          <div class="step-number-badge" style={`--step-color: ${step.color}`}>
+            {step.number}
+          </div>
+
+          <!-- Step Card -->
+          <div class="step-card">
+            <div class="step-icon" style={`--icon-color: ${step.color}`}>
+              <step.icon size={32} strokeWidth={2.5} />
+            </div>
+            
+            <div class="step-content">
+              <div class="step-header">
+                <h3 class="step-title">{step.title}</h3>
+                <span class="step-duration" style={`--duration-color: ${step.color}`}>
+                  {step.duration}
+                </span>
+              </div>
+              <p class="step-subtitle">{step.subtitle}</p>
+              <p class="step-description">{step.description}</p>
+            </div>
+          </div>
+
+          <!-- Connector Arrow (except last) -->
+          {index < steps.length - 1 && (
+            <div class="step-connector">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke={step.color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="hiw-cta">
+      <h3 class="cta-title">¿Listo para empezar?</h3>
+      <p class="cta-subtitle">
+        Implementación gratis por tiempo limitado. Ahorra $1,200 USD.
+      </p>
+      <a href={`${baseUrl}/contacto`} class="btn btn-primary btn-lg">
+        Agendar demo ahora
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .how-it-works-section {
+    background: linear-gradient(180deg, #080818 0%, #0d0d1f 50%, #080818 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .how-it-works-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 1200px;
+    background: radial-gradient(circle, rgba(200, 152, 40, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 16px;
+    background: rgba(200, 152, 40, 0.12);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #C89828;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Timeline Container */
+  .timeline-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto 64px auto;
+    padding: 40px 0;
+  }
+
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, 
+      rgba(200, 152, 40, 0.1) 0%, 
+      rgba(200, 152, 40, 0.3) 50%, 
+      rgba(200, 152, 40, 0.1) 100%
+    );
+  }
+
+  /* Timeline Step */
+  .timeline-step {
+    position: relative;
+    margin-bottom: 60px;
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+  }
+
+  .timeline-step:nth-child(1) { animation-delay: 0.1s; }
+  .timeline-step:nth-child(2) { animation-delay: 0.2s; }
+  .timeline-step:nth-child(3) { animation-delay: 0.3s; }
+  .timeline-step:nth-child(4) { animation-delay: 0.4s; }
+  .timeline-step:nth-child(5) { animation-delay: 0.5s; }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .timeline-step:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Step Number Badge */
+  .step-number-badge {
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(8, 8, 24, 0.95);
+    border: 3px solid var(--step-color);
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--step-color);
+    z-index: 10;
+    box-shadow: 0 0 30px var(--step-color);
+  }
+
+  /* Step Card */
+  .step-card {
+    display: flex;
+    gap: 24px;
+    padding: 32px;
+    background: rgba(8, 8, 24, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+  }
+
+  .step-card:hover {
+    background: rgba(8, 8, 24, 0.95);
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateX(-4px);
+    box-shadow: 0 8px 32px rgba(200, 152, 40, 0.15);
+  }
+
+  /* Alternate sides on desktop */
+  @media (min-width: 1024px) {
+    .timeline-step[data-index="0"] .step-card,
+    .timeline-step[data-index="2"] .step-card,
+    .timeline-step[data-index="4"] .step-card {
+      margin-right: 50%;
+      padding-right: 80px;
+    }
+
+    .timeline-step[data-index="1"] .step-card,
+    .timeline-step[data-index="3"] .step-card {
+      margin-left: 50%;
+      padding-left: 80px;
+    }
+
+    .timeline-step[data-index="1"] .step-card:hover,
+    .timeline-step[data-index="3"] .step-card:hover {
+      transform: translateX(4px);
+    }
+  }
+
+  /* Step Icon */
+  .step-icon {
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.05) 0%, 
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    border: 2px solid var(--icon-color);
+    border-radius: 18px;
+    color: var(--icon-color);
+  }
+
+  /* Step Content */
+  .step-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .step-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 4px;
+  }
+
+  .step-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin: 0;
+  }
+
+  .step-duration {
+    flex-shrink: 0;
+    padding: 4px 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--duration-color);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--duration-color);
+    white-space: nowrap;
+  }
+
+  .step-subtitle {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+  }
+
+  .step-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+  }
+
+  /* Step Connector */
+  .step-connector {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    opacity: 0.6;
+  }
+
+  /* Bottom CTA */
+  .hiw-cta {
+    text-align: center;
+    padding: 48px 32px;
+    background: rgba(200, 152, 40, 0.04);
+    border: 1px solid rgba(200, 152, 40, 0.2);
+    border-radius: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+  }
+
+  .cta-subtitle {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0 24px 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 1023px) {
+    .timeline-line {
+      left: 28px;
+    }
+
+    .step-number-badge {
+      left: 28px;
+      width: 48px;
+      height: 48px;
+      font-size: 18px;
+    }
+
+    .step-card {
+      margin-left: 80px !important;
+      margin-right: 0 !important;
+      padding: 24px !important;
+    }
+
+    .step-card:hover {
+      transform: translateX(4px) !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .step-card {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .step-icon {
+      width: 64px;
+      height: 64px;
+    }
+
+    .step-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .step-title {
+      font-size: 20px;
+    }
+
+    .hiw-cta {
+      padding: 32px 24px;
+    }
+
+    .cta-title {
+      font-size: 24px;
+    }
+
+    .cta-subtitle {
+      font-size: 16px;
+    }
+  }
+</style>

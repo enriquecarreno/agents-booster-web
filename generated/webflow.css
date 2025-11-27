@@ -1,0 +1,83 @@
+/**
+GENERATED FILE
+
+webflow.css is generated automatically by webflow and is used to expose variables from your webflow design system in your app. 
+Any changes to this file will be overwritten the next time your app is loaded in the workbench.
+
+In order to override any of these variables you can redefine them in a
+css file that is imported globally after the webflow.css on your page.
+
+Font imports and @font-face declarations are in fonts.css, which should be imported before this file.
+
+You can learn more about CSS custom properties here:
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_cascading_variables/Using_CSS_custom_properties#inheritance_of_custom_properties
+*/
+
+:root {
+  --_apps---charts--chart-1: #080818;
+  --_apps---charts--chart-2: #1e1f2c;
+  --_apps---charts--chart-3: #02010e;
+  --_apps---charts--chart-4: #000003;
+  --_apps---charts--chart-5: #1f2030;
+  --_apps---charts--chart-1-dark: #82849b;
+  --_apps---charts--chart-2-dark: #b1b3c4;
+  --_apps---charts--chart-3-dark: #6c6f87;
+  --_apps---charts--chart-4-dark: #a1a3b6;
+  --_apps---charts--chart-5-dark: #5f6174;
+  --_apps---colors--background: #e5e4e4;
+  --_apps---colors--foreground: #110d04;
+  --_apps---colors--card: #ffffff;
+  --_apps---colors--card-foreground: #060606;
+  --_apps---colors--popover: #d7d7d7;
+  --_apps---colors--popover-foreground: #060606;
+  --_apps---colors--primary: #080818;
+  --_apps---colors--primary-foreground: #f7f8fd;
+  --_apps---colors--secondary: #d8d9e8;
+  --_apps---colors--secondary-foreground: #0d0d0f;
+  --_apps---colors--muted: #dedede;
+  --_apps---colors--muted-foreground: #666263;
+  --_apps---colors--accent: #cacaca;
+  --_apps---colors--accent-foreground: #0d0d0d;
+  --_apps---colors--destructive: #d74843;
+  --_apps---colors--border: #d1d1d1;
+  --_apps---colors--input: #d4d4d4;
+  --_apps---colors--ring: #080915;
+  --_apps---colors--background-dark: #0b0d0e;
+  --_apps---colors--foreground-dark: #f8f8f9;
+  --_apps---colors--card-dark: #1f2122;
+  --_apps---colors--card-foreground-dark: #f8f8f9;
+  --_apps---colors--popover-dark: #1f2122;
+  --_apps---colors--popover-foreground-dark: #f8f8f9;
+  --_apps---colors--primary-dark: #82849b;
+  --_apps---colors--primary-foreground-dark: #050608;
+  --_apps---colors--secondary-dark: #212232;
+  --_apps---colors--secondary-foreground-dark: #f7f8fd;
+  --_apps---colors--muted-dark: #040606;
+  --_apps---colors--muted-foreground-dark: #969898;
+  --_apps---colors--accent-dark: #373737;
+  --_apps---colors--accent-foreground-dark: #f8f8f8;
+  --_apps---colors--destructive-dark: #ff6f67;
+  --_apps---colors--border-dark: #1e222e;
+  --_apps---colors--input-dark: #ffffff;
+  --_apps---colors--ring-dark: #9597a8;
+  --_apps---sidebar--sidebar: #dedede;
+  --_apps---sidebar--sidebar-foreground: #060606;
+  --_apps---sidebar--sidebar-primary: #080818;
+  --_apps---sidebar--sidebar-primary-foreground: #f7f8fd;
+  --_apps---sidebar--sidebar-accent: #cacaca;
+  --_apps---sidebar--sidebar-accent-foreground: #0d0d0d;
+  --_apps---sidebar--sidebar-border: #d1d1d1;
+  --_apps---sidebar--sidebar-ring: #080915;
+  --_apps---sidebar--sidebar-dark: #111415;
+  --_apps---sidebar--sidebar-foreground-dark: #f8f8f9;
+  --_apps---sidebar--sidebar-primary-dark: #82849b;
+  --_apps---sidebar--sidebar-primary-foreground-dark: #050608;
+  --_apps---sidebar--sidebar-accent-dark: #373737;
+  --_apps---sidebar--sidebar-accent-foreground-dark: #f8f8f8;
+  --_apps---sidebar--sidebar-border-dark: #ffffff;
+  --_apps---sidebar--sidebar-ring-dark: #9597a8;
+  --_apps---sizes--radius: 20px;
+  --_apps---typography--heading-font: 'Inter Tight', sans-serif;
+  --_apps---typography--body-font: 'Inter Tight', sans-serif;
+  --_apps---typography--button-font: 'Inter Tight', sans-serif;
+}

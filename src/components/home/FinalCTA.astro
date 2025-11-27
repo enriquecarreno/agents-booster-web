@@ -1,0 +1,419 @@
+---
+/**
+ * FINAL CTA - V2 CON LUCIDE ICONS
+ * Foco: Último push de conversión con beneficios concretos
+ */
+
+import { baseUrl } from '../../lib/base-url';
+import { Zap, Check, TrendingUp, Clock, Headphones, Calendar } from 'lucide-react';
+---
+
+<section class="final-cta final-cta-section section">
+  <div class="ab-container">
+    <div class="cta-wrapper">
+      <div class="cta-content">
+        <div class="cta-badge">
+          <Zap size={18} strokeWidth={2.5} className="badge-icon-lucide" client:load />
+          <span>Últimos 18 cupos</span>
+        </div>
+        
+        <h2 class="cta-title">
+          Empieza a ahorrar tiempo <span class="text-gradient-gold">esta semana</span>
+        </h2>
+        
+        <p class="cta-subtitle">
+          Setup gratis por tiempo limitado. Sin contratos largos. Cancela cuando quieras. 
+          Tu agente operando en 3 semanas.
+        </p>
+        
+        <div class="cta-features">
+          <div class="cta-feature">
+            <div class="feature-icon-wrapper">
+              <Check size={16} strokeWidth={3} className="feature-icon-lucide" client:load />
+            </div>
+            <span>Setup incluido gratis</span>
+          </div>
+          <div class="cta-feature">
+            <div class="feature-icon-wrapper">
+              <Check size={16} strokeWidth={3} className="feature-icon-lucide" client:load />
+            </div>
+            <span>Listo en 3 semanas</span>
+          </div>
+          <div class="cta-feature">
+            <div class="feature-icon-wrapper">
+              <Check size={16} strokeWidth={3} className="feature-icon-lucide" client:load />
+            </div>
+            <span>Soporte en español 24/7</span>
+          </div>
+          <div class="cta-feature">
+            <div class="feature-icon-wrapper">
+              <Check size={16} strokeWidth={3} className="feature-icon-lucide" client:load />
+            </div>
+            <span>Sin permanencia mínima</span>
+          </div>
+        </div>
+        
+        <div class="cta-buttons">
+          <a href={`${baseUrl}/demo`} class="btn btn-primary btn-lg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2"/>
+              <path d="M10 8L16 12L10 16V8Z" fill="currentColor"/>
+            </svg>
+            Ver demo de 15 minutos
+          </a>
+          <a href={`${baseUrl}/contacto`} class="btn btn-secondary btn-lg">
+            Hablar con ventas
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M9 5L15 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+        
+        <div class="cta-trust">
+          <div class="trust-avatars">
+            <div class="avatar">CM</div>
+            <div class="avatar">AS</div>
+            <div class="avatar">RG</div>
+            <div class="avatar">+5</div>
+          </div>
+          <div class="trust-text">
+            <strong>8 empresas</strong> ya están operando con agentes de IA
+          </div>
+        </div>
+      </div>
+      
+      <div class="cta-visual">
+        <div class="stats-showcase">
+          <div class="showcase-card">
+            <div class="showcase-icon-wrapper">
+              <TrendingUp size={48} strokeWidth={2} className="showcase-icon-lucide" client:load />
+            </div>
+            <div class="showcase-value">+35%</div>
+            <div class="showcase-label">Más conversiones</div>
+          </div>
+          <div class="showcase-card">
+            <div class="showcase-icon-wrapper">
+              <Clock size={48} strokeWidth={2} className="showcase-icon-lucide" client:load />
+            </div>
+            <div class="showcase-value">24/7</div>
+            <div class="showcase-label">Sin descansos</div>
+          </div>
+          <div class="showcase-card">
+            <div class="showcase-icon-wrapper">
+              <Calendar size={48} strokeWidth={2} className="showcase-icon-lucide" client:load />
+            </div>
+            <div class="showcase-value">2-3 meses</div>
+            <div class="showcase-label">Para ROI positivo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .final-cta {
+    background: var(--color-bg-elevated);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 1200px;
+    background: radial-gradient(circle, rgba(255, 184, 0, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+    animation: pulse 8s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.3;
+      transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+      opacity: 0.6;
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+  }
+
+  .cta-wrapper {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 64px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .cta-content {
+    text-align: left;
+  }
+
+  .cta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(255, 184, 0, 0.15);
+    border: 1px solid rgba(255, 184, 0, 0.4);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-gold-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 24px;
+    animation: pulse-badge 2s ease-in-out infinite;
+  }
+
+  .cta-badge :global(.badge-icon-lucide) {
+    color: var(--color-gold-primary);
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-3px);
+    }
+  }
+
+  .cta-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+
+  .cta-subtitle {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 32px;
+    max-width: 600px;
+  }
+
+  .cta-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .cta-feature {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .feature-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 255, 136, 0.15);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .feature-icon-wrapper :global(.feature-icon-lucide) {
+    color: var(--color-success);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  .btn-lg {
+    padding: 18px 36px;
+    font-size: 17px;
+  }
+
+  .cta-trust {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .trust-avatars {
+    display: flex;
+    align-items: center;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient-gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: #000;
+    border: 2px solid var(--color-bg-elevated);
+    margin-left: -12px;
+  }
+
+  .avatar:first-child {
+    margin-left: 0;
+  }
+
+  .trust-text {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .trust-text strong {
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+
+  .cta-visual {
+    position: relative;
+  }
+
+  .stats-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .showcase-card {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 28px;
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .showcase-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 184, 0, 0.4);
+    transform: translateX(-8px) scale(1.02);
+    box-shadow: 
+      0 16px 48px rgba(0, 0, 0, 0.3),
+      0 0 60px rgba(255, 184, 0, 0.2);
+  }
+
+  .showcase-icon-wrapper {
+    margin-bottom: 16px;
+  }
+
+  .showcase-icon-wrapper :global(.showcase-icon-lucide) {
+    color: #C89828;
+    filter: drop-shadow(0 4px 12px rgba(200, 152, 40, 0.3));
+  }
+
+  .showcase-value {
+    font-size: 36px;
+    font-weight: 900;
+    background: var(--gradient-gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .showcase-label {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 1024px) {
+    .cta-wrapper {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .cta-visual {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .stats-showcase {
+      flex-direction: row;
+      gap: 16px;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-8px) scale(1.02);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .cta-content {
+      text-align: center;
+    }
+
+    .cta-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-features {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .cta-buttons .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .cta-trust {
+      justify-content: center;
+    }
+
+    .stats-showcase {
+      flex-direction: column;
+    }
+
+    .showcase-card {
+      padding: 24px;
+    }
+
+    .showcase-icon-wrapper :global(.showcase-icon-lucide) {
+      width: 40px;
+      height: 40px;
+    }
+
+    .showcase-value {
+      font-size: 30px;
+    }
+  }
+</style>

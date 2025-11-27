@@ -1,0 +1,494 @@
+---
+/**
+ * CONTACT PAGE
+ * Formulario de contacto para agendar demo o consultas
+ */
+
+import MainLayout from '../layouts/Main.astro';
+import Navbar from '../components/global/Navbar.astro';
+import Footer from '../components/global/Footer.astro';
+import LucideIcon from '../components/ui/LucideIcon.astro';
+import { baseUrl } from '../lib/base-url';
+---
+
+<MainLayout
+  title="Contacto - Agents Booster"
+  description="Agenda una demo personalizada o contacta con nuestro equipo. Respuesta en menos de 24 horas."
+>
+  <Navbar />
+  
+  <section class="contact-section section">
+    <div class="ab-container">
+      <div class="contact-layout">
+        
+        <!-- Left: Info -->
+        <div class="contact-info">
+          <div class="badge badge-success">
+            <LucideIcon name="zap" class="inline-block" size={16} />
+            Respuesta en 24h
+          </div>
+          <h1 class="contact-title">
+            Hablemos de tu <span class="text-gradient-gold">proyecto</span>
+          </h1>
+          <p class="contact-subtitle">
+            Agenda una demo de 30 minutos o déjanos un mensaje. Nuestro equipo te contactará para entender tu caso y mostrarte cómo Agents Booster puede ayudarte.
+          </p>
+          
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="method-icon">
+                <LucideIcon name="mail" size={32} />
+              </div>
+              <div>
+                <h3 class="method-title">Email</h3>
+                <a href="mailto:hola@agentsbooster.com" class="method-link">
+                  hola@agentsbooster.com
+                </a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">
+                <LucideIcon name="message-circle" size={32} />
+              </div>
+              <div>
+                <h3 class="method-title">WhatsApp</h3>
+                <a href="https://wa.me/1234567890" class="method-link" target="_blank" rel="noopener">
+                  +1 (234) 567-890
+                </a>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">
+                <LucideIcon name="calendar" size={32} />
+              </div>
+              <div>
+                <h3 class="method-title">Calendly</h3>
+                <a href="https://calendly.com/agentsbooster" class="method-link" target="_blank" rel="noopener">
+                  Agendar demo directamente
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-trust">
+            <p class="trust-text">
+              <strong>Qué esperar de la demo:</strong>
+            </p>
+            <ul class="trust-list">
+              <li>
+                <LucideIcon name="check-circle" size={16} class="check-icon" />
+                Revisión de tu caso específico
+              </li>
+              <li>
+                <LucideIcon name="check-circle" size={16} class="check-icon" />
+                Demo personalizada del agente
+              </li>
+              <li>
+                <LucideIcon name="check-circle" size={16} class="check-icon" />
+                Estimado de ROI para tu negocio
+              </li>
+              <li>
+                <LucideIcon name="check-circle" size={16} class="check-icon" />
+                Plan de implementación detallado
+              </li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Right: Form -->
+        <div class="contact-form-container">
+          <form class="contact-form ab-card" id="contact-form">
+            <h3 class="form-title">Agenda tu demo</h3>
+            <p class="form-subtitle">Completa el formulario y te contactamos en 24h</p>
+            
+            <div class="form-group">
+              <label for="name" class="form-label">
+                Nombre completo <span class="required">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="input" 
+                placeholder="Juan Pérez"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">
+                Email corporativo <span class="required">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="input" 
+                placeholder="juan@tuempresa.com"
+                required
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="company" class="form-label">
+                Empresa
+              </label>
+              <input 
+                type="text" 
+                id="company" 
+                name="company" 
+                class="input" 
+                placeholder="Tu Empresa S.A."
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="phone" class="form-label">
+                Teléfono (opcional)
+              </label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                class="input" 
+                placeholder="+1 234 567 890"
+              />
+            </div>
+            
+            <div class="form-group">
+              <label for="plan" class="form-label">
+                Plan de interés
+              </label>
+              <select id="plan" name="plan" class="select">
+                <option value="">Selecciona un plan</option>
+                <option value="entrepreneur">Entrepreneur ($49/mes)</option>
+                <option value="grow">Grow ($699/mes)</option>
+                <option value="scale">Scale ($1,499/mes)</option>
+                <option value="enterprise">Enterprise (Custom)</option>
+                <option value="no-sure">No estoy seguro</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">
+                Cuéntanos sobre tu proyecto <span class="required">*</span>
+              </label>
+              <textarea 
+                id="message" 
+                name="message" 
+                class="textarea" 
+                placeholder="Ej: Tengo una tienda online con 500 pedidos/mes y quiero automatizar atención al cliente..."
+                required
+              ></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label class="checkbox-label">
+                <input type="checkbox" name="terms" required />
+                <span>
+                  Acepto la <a href={`${baseUrl}/privacidad`} target="_blank">política de privacidad</a> y 
+                  <a href={`${baseUrl}/terminos`} target="_blank">términos de servicio</a>
+                </span>
+              </label>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-full" id="submit-btn">
+              Enviar solicitud
+            </button>
+            
+            <p class="form-note">
+              Respuesta garantizada en menos de 24 horas (días hábiles)
+            </p>
+          </form>
+          
+          <!-- Success Message (hidden by default) -->
+          <div class="success-message ab-card" id="success-message" style="display: none;">
+            <div class="success-icon">
+              <LucideIcon name="check-circle" size={64} class="success-check" />
+            </div>
+            <h3 class="success-title">¡Mensaje enviado!</h3>
+            <p class="success-text">
+              Gracias por tu interés. Nuestro equipo revisará tu solicitud y te contactará en las próximas 24 horas.
+            </p>
+            <p class="success-text">
+              Mientras tanto, puedes <a href={`${baseUrl}/demo`}>probar nuestro agente demo</a>.
+            </p>
+            <button class="btn btn-secondary" id="send-another">
+              Enviar otro mensaje
+            </button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+  
+  <Footer />
+</MainLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const successMessage = document.getElementById('success-message');
+    const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+    const sendAnotherBtn = document.getElementById('send-another');
+    
+    if (form && successMessage && submitBtn) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        // Show loading state
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Enviando...';
+        submitBtn.disabled = true;
+        
+        // Simulate sending (in real app, this would call an API)
+        await new Promise(resolve => setTimeout(resolve, 1500));
+        
+        // Show success message
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+        
+        // Reset button
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+        
+        // Reset form
+        form.reset();
+      });
+      
+      // Handle "send another" button
+      if (sendAnotherBtn) {
+        sendAnotherBtn.addEventListener('click', () => {
+          form.style.display = 'block';
+          successMessage.style.display = 'none';
+        });
+      }
+    }
+  });
+</script>
+
+<style>
+  .contact-section {
+    background: var(--color-bg);
+  }
+  
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: start;
+  }
+  
+  @media (max-width: 1024px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+      gap: var(--space-3xl);
+    }
+  }
+  
+  .contact-info {
+    position: sticky;
+    top: 120px;
+  }
+  
+  @media (max-width: 1024px) {
+    .contact-info {
+      position: static;
+    }
+  }
+  
+  .contact-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    margin: var(--space-l) 0;
+  }
+  
+  .contact-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+  }
+  
+  .contact-method {
+    display: flex;
+    gap: var(--space-l);
+    align-items: start;
+  }
+  
+  .method-icon {
+    flex-shrink: 0;
+    color: var(--color-gold-primary);
+  }
+  
+  .method-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    margin-bottom: var(--space-xs);
+    color: var(--color-text-primary);
+  }
+  
+  .method-link {
+    color: var(--color-gold-primary);
+    text-decoration: none;
+    transition: opacity var(--timing-fast) var(--easing);
+  }
+  
+  .method-link:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+  }
+  
+  .contact-trust {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+  }
+  
+  .trust-text {
+    font-size: 1rem;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-m);
+  }
+  
+  .trust-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+  
+  .trust-list li {
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+  }
+  
+  .check-icon {
+    color: var(--color-success);
+    flex-shrink: 0;
+  }
+  
+  .contact-form-container {
+    position: sticky;
+    top: 120px;
+  }
+  
+  @media (max-width: 1024px) {
+    .contact-form-container {
+      position: static;
+    }
+  }
+  
+  .contact-form {
+    padding: var(--space-3xl);
+  }
+  
+  .form-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: var(--space-s);
+    color: var(--color-text-primary);
+  }
+  
+  .form-subtitle {
+    font-size: 1rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--space-2xl);
+  }
+  
+  .form-group {
+    margin-bottom: var(--space-xl);
+  }
+  
+  .form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--space-s);
+    color: var(--color-text-primary);
+  }
+  
+  .required {
+    color: var(--color-error);
+  }
+  
+  .checkbox-label {
+    display: flex;
+    gap: var(--space-m);
+    align-items: start;
+    cursor: pointer;
+    font-size: 0.9375rem;
+    color: var(--color-text-secondary);
+  }
+  
+  .checkbox-label input[type="checkbox"] {
+    margin-top: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .checkbox-label a {
+    color: var(--color-gold-primary);
+    text-decoration: none;
+  }
+  
+  .checkbox-label a:hover {
+    text-decoration: underline;
+  }
+  
+  .form-note {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin-top: var(--space-l);
+  }
+  
+  .success-message {
+    padding: var(--space-3xl);
+    text-align: center;
+  }
+  
+  .success-icon {
+    margin-bottom: var(--space-xl);
+  }
+  
+  .success-check {
+    color: var(--color-success);
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .success-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: var(--space-m);
+    color: var(--color-text-primary);
+  }
+  
+  .success-text {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-m);
+  }
+  
+  .success-text a {
+    color: var(--color-gold-primary);
+    text-decoration: none;
+  }
+  
+  .success-text a:hover {
+    text-decoration: underline;
+  }
+</style>

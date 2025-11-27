@@ -1,0 +1,1100 @@
+---
+/**
+ * PÁGINA NOSOTROS - MISIÓN Y MANIFIESTO V2
+ * FASE 3: Lucide Icons implementados
+ */
+
+import MainLayout from '../layouts/Main.astro';
+import Navbar from '../components/global/Navbar.astro';
+import Footer from '../components/global/Footer.astro';
+import { 
+  Target, DollarSign, Rocket, CheckCircle2, Cloud, Shield, 
+  Globe, Zap, Brain, Wrench, Cpu, Database, Link2, Lock,
+  Users, Code, Monitor, HeartHandshake, ArrowRight, X, Check
+} from 'lucide-react';
+---
+
+<MainLayout 
+  title="Nosotros - Agents Booster" 
+  description="+5 años construyendo tecnología para empresas en EE.UU. Ahora la ponemos al alcance de las PYMEs de LATAM, con la misma calidad y a precio LATAM."
+>
+  <Navbar />
+  
+  <div class="nosotros-page">
+    
+    <!-- Hero -->
+    <section class="nosotros-hero">
+      <div class="ab-container">
+        <div class="breadcrumbs">
+          <a href="/">Inicio</a>
+          <span class="separator">→</span>
+          <span class="current">Nosotros</span>
+        </div>
+        
+        <div class="hero-content">
+          <h1 class="hero-title">Nosotros</h1>
+          
+          <p class="hero-lead">
+            <strong>+5 años</strong> construyendo tecnología para empresas en <strong>EE. UU.</strong> 
+            Ahora la ponemos al alcance de las <strong>PYMEs de LATAM</strong>, con la 
+            <strong>misma calidad</strong> y a <strong>precio LATAM</strong>.
+          </p>
+          
+          <p class="hero-mission">
+            Nuestra misión es <strong>cerrar la brecha</strong> entre las compañías líderes y las PYMEs: 
+            brindar herramientas de clase mundial para vender más y operar mejor, sin fricciones innecesarias.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Manifiesto -->
+    <section class="manifiesto-section">
+      <div class="ab-container">
+        <div class="section-header">
+          <h2 class="section-title">Nuestro Manifiesto</h2>
+          <p class="section-subtitle">
+            Tres principios que guían cada decisión que tomamos
+          </p>
+        </div>
+        
+        <div class="manifiesto-grid">
+          
+          <!-- Pilar 1 -->
+          <div class="manifiesto-card">
+            <div class="card-icon-wrapper">
+              <Target size={48} strokeWidth={2} className="card-icon-lucide" client:load />
+            </div>
+            <h3 class="card-title">Calidad Primero</h3>
+            <p class="card-description">
+              Traemos prácticas y arquitectura probadas en mercados exigentes. 
+              Nada de "demo"; <strong>operación real</strong>.
+            </p>
+            <div class="card-detail">
+              <div class="detail-item">
+                <CheckCircle2 size={18} strokeWidth={2.5} client:load />
+                <span>Stack enterprise-grade</span>
+              </div>
+              <div class="detail-item">
+                <CheckCircle2 size={18} strokeWidth={2.5} client:load />
+                <span>Arquitectura probada en Fortune 500</span>
+              </div>
+              <div class="detail-item">
+                <CheckCircle2 size={18} strokeWidth={2.5} client:load />
+                <span>99.9% SLA desde día 1</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pilar 2 -->
+          <div class="manifiesto-card">
+            <div class="card-icon-wrapper">
+              <DollarSign size={48} strokeWidth={2} className="card-icon-lucide" client:load />
+            </div>
+            <h3 class="card-title">Precio LATAM</h3>
+            <p class="card-description">
+              Modelos por capacidad. Inviertes en <strong>resultados</strong>, no en "mensajes".
+            </p>
+            <div class="card-detail">
+              <div class="detail-item">
+                <CheckCircle2 size={18} strokeWidth={2.5} client:load />
+                <span>Pricing transparente</span>
+              </div>
+              <div class="detail-item">
+                <CheckCircle2 size={18} strokeWidth={2.5} client:load />
+                <span>Sin costos ocultos</span>
+              </div>
+              <div class="detail-item">
+                <CheckCircle2 size={18} strokeWidth={2.5} client:load />
+                <span>Escalabilidad predecible</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Pilar 3 -->
+          <div class="manifiesto-card">
+            <div class="card-icon-wrapper">
+              <Rocket size={48} strokeWidth={2} className="card-icon-lucide" client:load />
+            </div>
+            <h3 class="card-title">Sin Intermediarios</h3>
+            <p class="card-description">
+              Implementación directa. Hablamos tu lenguaje técnico y de negocio. <strong>No ventas; partnership</strong>.
+            </p>
+            <div class="card-detail">
+              <div class="detail-item">
+                <CheckCircle2 size={18} strokeWidth={2.5} client:load />
+                <span>Implementación en 48-72h</span>
+              </div>
+              <div class="detail-item">
+                <CheckCircle2 size={18} strokeWidth={2.5} client:load />
+                <span>Soporte técnico directo</span>
+              </div>
+              <div class="detail-item">
+                <CheckCircle2 size={18} strokeWidth={2.5} client:load />
+                <span>Equipo dedicado</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- Experiencia -->
+    <section class="experiencia-section">
+      <div class="ab-container">
+        <div class="experiencia-content">
+          <div class="experiencia-text">
+            <h2 class="section-title">5 Años Construyendo para el Mercado Más Exigente</h2>
+            <p class="text-large">
+              Nuestra experiencia viene de construir sistemas críticos para empresas estadounidenses 
+              donde <strong>el downtime cuesta millones</strong> y <strong>la calidad no es negociable</strong>.
+            </p>
+            
+            <div class="experiencia-stats">
+              <div class="stat-box">
+                <span class="stat-number">5+</span>
+                <span class="stat-label">Años en USA</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">Tech in-house</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">24/7</span>
+                <span class="stat-label">Monitoreo</span>
+              </div>
+            </div>
+            
+            <p class="text-medium">
+              Ahora traemos esa misma calidad a LATAM, con <strong>pricing accesible</strong> y 
+              <strong>soporte en tu idioma</strong>. Sin comprometer en nada.
+            </p>
+          </div>
+          
+          <div class="experiencia-visual">
+            <div class="tech-badges">
+              <div class="badge-item">
+                <div class="badge-icon-wrapper">
+                  <Cloud size={32} strokeWidth={2} client:load />
+                </div>
+                <span class="badge-text">AWS Certified</span>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon-wrapper">
+                  <Shield size={32} strokeWidth={2} client:load />
+                </div>
+                <span class="badge-text">SOC 2 Roadmap</span>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon-wrapper">
+                  <Globe size={32} strokeWidth={2} client:load />
+                </div>
+                <span class="badge-text">Multi-Region</span>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon-wrapper">
+                  <Zap size={32} strokeWidth={2} client:load />
+                </div>
+                <span class="badge-text">99.9% SLA</span>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon-wrapper">
+                  <Brain size={32} strokeWidth={2} client:load />
+                </div>
+                <span class="badge-text">AI/ML Experts</span>
+              </div>
+              <div class="badge-item">
+                <div class="badge-icon-wrapper">
+                  <Wrench size={32} strokeWidth={2} client:load />
+                </div>
+                <span class="badge-text">DevOps Culture</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Por Qué Existimos -->
+    <section class="why-section">
+      <div class="ab-container">
+        <div class="why-content">
+          <h2 class="section-title">Por Qué Existimos</h2>
+          
+          <div class="why-grid">
+            <div class="why-problem">
+              <h3 class="why-subtitle">
+                <span class="why-icon-wrapper">
+                  <X size={28} strokeWidth={2.5} className="problem-icon" client:load />
+                </span>
+                <span>El Problema</span>
+              </h3>
+              <ul class="why-list problem-list">
+                <li>Las PYMEs de LATAM no pueden pagar soluciones enterprise ($50K+ setup)</li>
+                <li>Los chatbots baratos son frustrantes y no ejecutan acciones reales</li>
+                <li>Las implementaciones tardan meses y requieren equipos técnicos grandes</li>
+                <li>El soporte está en otro idioma y zona horaria</li>
+              </ul>
+            </div>
+            
+            <div class="why-solution">
+              <h3 class="why-subtitle">
+                <span class="why-icon-wrapper">
+                  <Check size={28} strokeWidth={2.5} className="solution-icon" client:load />
+                </span>
+                <span>Nuestra Solución</span>
+              </h3>
+              <ul class="why-list solution-list">
+                <li><strong>Calidad enterprise</strong> a precio accesible para PYMEs</li>
+                <li><strong>Agentes que ejecutan</strong>, no solo conversan (CRM, ERP, inventario)</li>
+                <li><strong>Implementación en 48-72h</strong>, no meses</li>
+                <li><strong>Soporte en español</strong>, en tu zona horaria, por humanos técnicos</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="why-cta">
+            <p class="why-cta-text">
+              No vendemos software. Construimos <strong>partnerships</strong> para que vendas más y operes mejor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Stack Tecnológico -->
+    <section class="stack-section">
+      <div class="ab-container">
+        <div class="section-header">
+          <h2 class="section-title">Stack Tecnológico</h2>
+          <p class="section-subtitle">
+            La misma tecnología que usan empresas Fortune 500
+          </p>
+        </div>
+        
+        <div class="stack-grid">
+          
+          <div class="stack-category">
+            <h3 class="stack-title">
+              <span class="stack-icon-wrapper">
+                <Brain size={28} strokeWidth={2} client:load />
+              </span>
+              <span>AI & Machine Learning</span>
+            </h3>
+            <ul class="stack-list">
+              <li>GPT-4 Turbo (OpenAI)</li>
+              <li>Claude 3 Opus (Anthropic)</li>
+              <li>Llama 3 (Meta)</li>
+              <li>RAG (Retrieval-Augmented Generation)</li>
+              <li>Fine-tuning custom models</li>
+              <li>Vector databases (Pinecone)</li>
+            </ul>
+          </div>
+          
+          <div class="stack-category">
+            <h3 class="stack-title">
+              <span class="stack-icon-wrapper">
+                <Cloud size={28} strokeWidth={2} client:load />
+              </span>
+              <span>Cloud Infrastructure</span>
+            </h3>
+            <ul class="stack-list">
+              <li>AWS multi-region</li>
+              <li>Kubernetes (EKS)</li>
+              <li>PostgreSQL (Aurora)</li>
+              <li>Redis (ElastiCache)</li>
+              <li>CloudFlare CDN</li>
+              <li>Auto-scaling & load balancing</li>
+            </ul>
+          </div>
+          
+          <div class="stack-category">
+            <h3 class="stack-title">
+              <span class="stack-icon-wrapper">
+                <Link2 size={28} strokeWidth={2} client:load />
+              </span>
+              <span>Integrations</span>
+            </h3>
+            <ul class="stack-list">
+              <li>100+ APIs pre-conectadas</li>
+              <li>CRMs (Salesforce, HubSpot, Zoho)</li>
+              <li>ERPs (SAP, Odoo, Oracle)</li>
+              <li>E-commerce (Shopify, WooCommerce)</li>
+              <li>Payment gateways (Stripe, PayPal)</li>
+              <li>Custom webhooks & REST APIs</li>
+            </ul>
+          </div>
+          
+          <div class="stack-category">
+            <h3 class="stack-title">
+              <span class="stack-icon-wrapper">
+                <Lock size={28} strokeWidth={2} client:load />
+              </span>
+              <span>Security & Compliance</span>
+            </h3>
+            <ul class="stack-list">
+              <li>End-to-end encryption</li>
+              <li>SOC 2 Type II (roadmap)</li>
+              <li>GDPR compliant</li>
+              <li>ISO 27001 (roadmap)</li>
+              <li>Multi-factor authentication</li>
+              <li>24/7 monitoring & alerts</li>
+            </ul>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- Equipo -->
+    <section class="team-section">
+      <div class="ab-container">
+        <div class="section-header">
+          <h2 class="section-title">El Equipo</h2>
+          <p class="section-subtitle">
+            Ingenieros y expertos en IA con experiencia en empresas tech de primer nivel
+          </p>
+        </div>
+        
+        <div class="team-grid">
+          
+          <div class="team-card">
+            <div class="team-photo">
+              <div class="photo-placeholder">
+                <Code size={48} strokeWidth={2} client:load />
+              </div>
+            </div>
+            <h3 class="team-name">Founders & Engineering</h3>
+            <p class="team-bio">
+              Ex-Google, AWS, y startups unicornio. 10+ años construyendo sistemas de ML 
+              y arquitecturas distribuidas a escala.
+            </p>
+            <div class="team-expertise">
+              <span class="expertise-tag">AI/ML</span>
+              <span class="expertise-tag">Cloud Architecture</span>
+              <span class="expertise-tag">Distributed Systems</span>
+            </div>
+          </div>
+          
+          <div class="team-card">
+            <div class="team-photo">
+              <div class="photo-placeholder">
+                <Cpu size={48} strokeWidth={2} client:load />
+              </div>
+            </div>
+            <h3 class="team-name">AI Research</h3>
+            <p class="team-bio">
+              PhDs en Computer Science con papers publicados en NLP y conversational AI. 
+              Expertos en fine-tuning y RAG systems.
+            </p>
+            <div class="team-expertise">
+              <span class="expertise-tag">NLP</span>
+              <span class="expertise-tag">RAG</span>
+              <span class="expertise-tag">LLMs</span>
+            </div>
+          </div>
+          
+          <div class="team-card">
+            <div class="team-photo">
+              <div class="photo-placeholder">
+                <Database size={48} strokeWidth={2} client:load />
+              </div>
+            </div>
+            <h3 class="team-name">DevOps & Infrastructure</h3>
+            <p class="team-bio">
+              Expertos en Kubernetes, CI/CD, y observabilidad. Garantizan 99.9% uptime 
+              y response times &lt;500ms.
+            </p>
+            <div class="team-expertise">
+              <span class="expertise-tag">Kubernetes</span>
+              <span class="expertise-tag">AWS</span>
+              <span class="expertise-tag">Monitoring</span>
+            </div>
+          </div>
+          
+          <div class="team-card">
+            <div class="team-photo">
+              <div class="photo-placeholder">
+                <HeartHandshake size={48} strokeWidth={2} client:load />
+              </div>
+            </div>
+            <h3 class="team-name">Customer Success</h3>
+            <p class="team-bio">
+              15+ años en SaaS B2B. Entienden tu negocio y aseguran que obtengas 
+              el ROI esperado desde el día 1.
+            </p>
+            <div class="team-expertise">
+              <span class="expertise-tag">B2B SaaS</span>
+              <span class="expertise-tag">Implementation</span>
+              <span class="expertise-tag">Support</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="ab-container">
+        <div class="cta-card">
+          <h2 class="cta-title">¿Listo para Ver Cómo Funciona?</h2>
+          <p class="cta-description">
+            Agenda una demo técnica de 30 minutos. Te mostramos la arquitectura, 
+            el stack, y cómo se implementaría para tu negocio específico.
+          </p>
+          <div class="cta-buttons">
+            <a href="/demo" class="btn btn-primary btn-lg">
+              <span>Agendar Demo Técnica</span>
+              <ArrowRight size={20} strokeWidth={2.5} client:load />
+            </a>
+            <a href="/arquitectura" class="btn btn-secondary btn-lg">
+              <span>Ver Arquitectura</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  
+  <Footer />
+</MainLayout>
+
+<style>
+  /* ============================================
+     NOSOTROS PAGE - MISIÓN Y MANIFIESTO V2
+     Con Lucide Icons
+     ============================================ */
+  
+  .nosotros-page {
+    background: linear-gradient(180deg, #0B0D0E 0%, #080818 50%, #0B0D0E 100%);
+    min-height: 100vh;
+  }
+  
+  /* Breadcrumbs */
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 32px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .breadcrumbs a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+  }
+  
+  .breadcrumbs a:hover {
+    color: #C89828;
+  }
+  
+  .breadcrumbs .separator {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .breadcrumbs .current {
+    color: #C89828;
+    font-weight: 600;
+  }
+  
+  /* Hero */
+  .nosotros-hero {
+    padding: 160px 0 80px;
+  }
+  
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .hero-title {
+    font-size: clamp(48px, 6vw, 64px);
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 32px;
+  }
+  
+  .hero-lead {
+    font-size: clamp(20px, 3vw, 24px);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  
+  .hero-lead strong {
+    color: #FFFFFF;
+    font-weight: 800;
+  }
+  
+  .hero-mission {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    max-width: 800px;
+  }
+  
+  .hero-mission strong {
+    color: #C89828;
+    font-weight: 700;
+  }
+  
+  /* Section Headers */
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 64px;
+  }
+  
+  .section-title {
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .section-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+  
+  /* Manifiesto */
+  .manifiesto-section {
+    padding: 100px 0;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .manifiesto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
+  }
+  
+  .manifiesto-card {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .manifiesto-card:hover {
+    border-color: rgba(200, 152, 40, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(200, 152, 40, 0.2);
+  }
+  
+  .card-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .card-icon-wrapper :global(.card-icon-lucide) {
+    color: #C89828;
+    filter: drop-shadow(0 4px 8px rgba(200, 152, 40, 0.3));
+  }
+  
+  .card-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+  
+  .card-description {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    flex: 1;
+  }
+  
+  .card-description strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  .card-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 2px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .detail-item :global(svg) {
+    flex-shrink: 0;
+    color: #C89828;
+  }
+  
+  /* Experiencia */
+  .experiencia-section {
+    padding: 100px 0;
+  }
+  
+  .experiencia-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 64px;
+    align-items: center;
+  }
+  
+  .text-large {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.7;
+    margin-bottom: 40px;
+  }
+  
+  .text-large strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  .experiencia-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  
+  .stat-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px;
+    background: rgba(200, 152, 40, 0.1);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 16px;
+    text-align: center;
+  }
+  
+  .stat-number {
+    font-size: 40px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  
+  .stat-label {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+  }
+  
+  .text-medium {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+  }
+  
+  .text-medium strong {
+    color: #C89828;
+    font-weight: 700;
+  }
+  
+  .tech-badges {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  
+  .badge-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .badge-item:hover {
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateX(4px);
+  }
+  
+  .badge-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .badge-icon-wrapper :global(svg) {
+    color: #C89828;
+    filter: drop-shadow(0 2px 4px rgba(200, 152, 40, 0.3));
+  }
+  
+  .badge-text {
+    font-size: 14px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  /* Why Section */
+  .why-section {
+    padding: 100px 0;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .why-content {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  
+  .why-problem,
+  .why-solution {
+    padding: 40px;
+    border-radius: 24px;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .why-problem {
+    background: rgba(255, 107, 107, 0.05);
+    border-color: rgba(255, 107, 107, 0.2);
+  }
+  
+  .why-solution {
+    background: rgba(0, 255, 136, 0.05);
+    border-color: rgba(0, 255, 136, 0.2);
+  }
+  
+  .why-subtitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+  }
+  
+  .why-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .why-icon-wrapper :global(.problem-icon) {
+    color: #FF6B6B;
+  }
+  
+  .why-icon-wrapper :global(.solution-icon) {
+    color: #00FF88;
+  }
+  
+  .why-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .why-list li {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.6;
+    padding-left: 28px;
+    position: relative;
+  }
+  
+  .problem-list li::before {
+    content: '×';
+    position: absolute;
+    left: 0;
+    color: #FF6B6B;
+    font-size: 24px;
+    font-weight: 800;
+  }
+  
+  .solution-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #00FF88;
+    font-size: 20px;
+    font-weight: 800;
+  }
+  
+  .why-list li strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  .why-cta {
+    text-align: center;
+    padding: 40px;
+    background: rgba(200, 152, 40, 0.1);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 20px;
+  }
+  
+  .why-cta-text {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+  }
+  
+  .why-cta-text strong {
+    color: #C89828;
+    font-weight: 800;
+  }
+  
+  /* Stack */
+  .stack-section {
+    padding: 100px 0;
+  }
+  
+  .stack-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  
+  .stack-category {
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+  }
+  
+  .stack-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+  }
+  
+  .stack-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .stack-icon-wrapper :global(svg) {
+    color: #C89828;
+    filter: drop-shadow(0 2px 4px rgba(200, 152, 40, 0.3));
+  }
+  
+  .stack-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .stack-list li {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .stack-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #C89828;
+    font-weight: 700;
+  }
+  
+  /* Team */
+  .team-section {
+    padding: 100px 0;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+  }
+  
+  .team-card {
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    text-align: center;
+    transition: all 0.4s ease;
+  }
+  
+  .team-card:hover {
+    border-color: rgba(200, 152, 40, 0.4);
+    transform: translateY(-4px);
+  }
+  
+  .team-photo {
+    margin-bottom: 20px;
+  }
+  
+  .photo-placeholder {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.2) 0%, rgba(200, 152, 40, 0.05) 100%);
+    border: 3px solid rgba(200, 152, 40, 0.3);
+    border-radius: 50%;
+  }
+  
+  .photo-placeholder :global(svg) {
+    color: #C89828;
+  }
+  
+  .team-name {
+    font-size: 20px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .team-bio {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .team-expertise {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .expertise-tag {
+    padding: 6px 12px;
+    background: rgba(200, 152, 40, 0.15);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #C89828;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  /* CTA */
+  .cta-section {
+    padding: 100px 0;
+  }
+  
+  .cta-card {
+    padding: 64px;
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.15) 0%, rgba(200, 152, 40, 0.05) 100%);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 24px;
+    text-align: center;
+  }
+  
+  .cta-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .cta-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 32px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .experiencia-content,
+    .why-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    
+    .experiencia-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .nosotros-hero {
+      padding: 140px 0 60px;
+    }
+    
+    .manifiesto-grid,
+    .stack-grid,
+    .team-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .tech-badges {
+      grid-template-columns: 1fr;
+    }
+    
+    .experiencia-stats {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta-card {
+      padding: 40px 24px;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .cta-buttons .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+</MainLayout>

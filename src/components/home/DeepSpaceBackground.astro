@@ -1,0 +1,356 @@
+---
+/**
+ * DEEP SPACE BACKGROUND
+ * Fondo con profundidad usando colores de marca
+ * Navy: #080818, Dark: #0B0D0E, Gold: #C89828
+ */
+---
+
+<div class="deep-space-bg">
+  <!-- Layer 1: Base gradient -->
+  <div class="space-layer layer-base"></div>
+  
+  <!-- Layer 2: Nebula effect -->
+  <div class="space-layer layer-nebula"></div>
+  
+  <!-- Layer 3: Stars field -->
+  <div class="space-layer layer-stars">
+    <div class="stars-small"></div>
+    <div class="stars-medium"></div>
+    <div class="stars-large"></div>
+  </div>
+  
+  <!-- Layer 4: Gold accents -->
+  <div class="space-layer layer-gold-glow">
+    <div class="gold-orb orb-1"></div>
+    <div class="gold-orb orb-2"></div>
+    <div class="gold-orb orb-3"></div>
+  </div>
+  
+  <!-- Layer 5: Grid overlay (subtle) -->
+  <div class="space-layer layer-grid"></div>
+  
+  <!-- Layer 6: Scanlines (depth) -->
+  <div class="space-layer layer-scanlines"></div>
+</div>
+
+<style>
+  .deep-space-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  .space-layer {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* Layer 1: Base gradient (Navy to Dark) */
+  .layer-base {
+    background: radial-gradient(
+      ellipse at 50% 0%,
+      #080818 0%,
+      #0B0D0E 50%,
+      #060608 100%
+    );
+  }
+
+  /* Layer 2: Nebula effect (Gold fog) */
+  .layer-nebula {
+    background: 
+      radial-gradient(
+        ellipse 800px 600px at 20% 30%,
+        rgba(200, 152, 40, 0.08) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 1000px 700px at 80% 70%,
+        rgba(200, 152, 40, 0.06) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        ellipse 600px 500px at 50% 50%,
+        rgba(8, 8, 24, 0.4) 0%,
+        transparent 60%
+      );
+    animation: nebula-drift 40s ease-in-out infinite alternate;
+  }
+
+  @keyframes nebula-drift {
+    0% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translate(30px, -20px) scale(1.05);
+      opacity: 0.8;
+    }
+    100% {
+      transform: translate(-20px, 30px) scale(0.95);
+      opacity: 0.6;
+    }
+  }
+
+  /* Layer 3: Stars field */
+  .layer-stars {
+    background-color: transparent;
+  }
+
+  /* Small stars */
+  .stars-small {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      radial-gradient(1px 1px at 20% 30%, rgba(255, 255, 255, 0.4), transparent),
+      radial-gradient(1px 1px at 60% 70%, rgba(255, 255, 255, 0.4), transparent),
+      radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.3), transparent),
+      radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.4), transparent),
+      radial-gradient(1px 1px at 90% 60%, rgba(255, 255, 255, 0.3), transparent),
+      radial-gradient(1px 1px at 33% 80%, rgba(255, 255, 255, 0.4), transparent),
+      radial-gradient(1px 1px at 15% 90%, rgba(255, 255, 255, 0.3), transparent),
+      radial-gradient(1px 1px at 70% 40%, rgba(255, 255, 255, 0.4), transparent),
+      radial-gradient(1px 1px at 25% 60%, rgba(255, 255, 255, 0.3), transparent),
+      radial-gradient(1px 1px at 85% 85%, rgba(255, 255, 255, 0.4), transparent);
+    background-size: 300px 300px, 400px 400px, 350px 350px, 450px 450px, 500px 500px,
+                     380px 380px, 420px 420px, 320px 320px, 480px 480px, 360px 360px;
+    background-repeat: repeat;
+    animation: stars-small-twinkle 4s ease-in-out infinite;
+  }
+
+  @keyframes stars-small-twinkle {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  /* Medium stars */
+  .stars-medium {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(2px 2px at 30% 20%, rgba(200, 152, 40, 0.6), transparent),
+      radial-gradient(2px 2px at 70% 50%, rgba(200, 152, 40, 0.5), transparent),
+      radial-gradient(2px 2px at 40% 70%, rgba(255, 255, 255, 0.6), transparent),
+      radial-gradient(2px 2px at 65% 85%, rgba(200, 152, 40, 0.5), transparent),
+      radial-gradient(2px 2px at 10% 40%, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(2px 2px at 90% 30%, rgba(200, 152, 40, 0.6), transparent),
+      radial-gradient(2px 2px at 55% 15%, rgba(255, 255, 255, 0.5), transparent),
+      radial-gradient(2px 2px at 20% 75%, rgba(200, 152, 40, 0.5), transparent);
+    background-size: 500px 500px, 600px 600px, 550px 550px, 650px 650px,
+                     580px 580px, 620px 620px, 560px 560px, 590px 590px;
+    background-repeat: repeat;
+    animation: stars-medium-twinkle 6s ease-in-out infinite;
+  }
+
+  @keyframes stars-medium-twinkle {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.9; }
+  }
+
+  /* Large stars (key stars with glow) */
+  .stars-large {
+    position: absolute;
+    inset: 0;
+  }
+
+  .stars-large::before,
+  .stars-large::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: rgba(200, 152, 40, 0.9);
+    border-radius: 50%;
+    box-shadow: 
+      0 0 10px rgba(200, 152, 40, 0.8),
+      0 0 20px rgba(200, 152, 40, 0.4);
+    animation: stars-large-pulse 3s ease-in-out infinite;
+  }
+
+  .stars-large::before {
+    top: 15%;
+    left: 25%;
+  }
+
+  .stars-large::after {
+    top: 70%;
+    right: 20%;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes stars-large-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    50% {
+      transform: scale(1.5);
+      opacity: 1;
+    }
+  }
+
+  /* Layer 4: Gold glowing orbs (depth) */
+  .layer-gold-glow {
+    pointer-events: none;
+  }
+
+  .gold-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.15;
+    animation: orb-float 30s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 600px;
+    height: 600px;
+    top: -200px;
+    right: -100px;
+    background: radial-gradient(
+      circle,
+      rgba(200, 152, 40, 0.5) 0%,
+      rgba(200, 152, 40, 0.2) 30%,
+      transparent 70%
+    );
+    animation-delay: 0s;
+  }
+
+  .orb-2 {
+    width: 800px;
+    height: 800px;
+    bottom: -300px;
+    left: -200px;
+    background: radial-gradient(
+      circle,
+      rgba(200, 152, 40, 0.4) 0%,
+      rgba(8, 8, 24, 0.3) 30%,
+      transparent 70%
+    );
+    animation-delay: 10s;
+  }
+
+  .orb-3 {
+    width: 500px;
+    height: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(
+      circle,
+      rgba(200, 152, 40, 0.3) 0%,
+      rgba(8, 8, 24, 0.2) 40%,
+      transparent 70%
+    );
+    animation-delay: 20s;
+  }
+
+  @keyframes orb-float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(50px, -50px) scale(1.1);
+    }
+    66% {
+      transform: translate(-30px, 40px) scale(0.9);
+    }
+  }
+
+  /* Layer 5: Subtle grid (depth perspective) */
+  .layer-grid {
+    background-image:
+      linear-gradient(rgba(200, 152, 40, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(200, 152, 40, 0.03) 1px, transparent 1px);
+    background-size: 100px 100px;
+    opacity: 0.3;
+    transform: perspective(500px) rotateX(60deg) scale(2);
+    transform-origin: center bottom;
+    animation: grid-perspective 20s linear infinite;
+  }
+
+  @keyframes grid-perspective {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 0 100px;
+    }
+  }
+
+  /* Layer 6: Scanlines (cinema depth) */
+  .layer-scanlines {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(200, 152, 40, 0.015) 2px,
+      rgba(200, 152, 40, 0.015) 4px
+    );
+    pointer-events: none;
+    animation: scanlines 10s linear infinite;
+  }
+
+  @keyframes scanlines {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(4px);
+    }
+  }
+
+  /* Vignette effect for more depth */
+  .deep-space-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at center,
+      transparent 0%,
+      transparent 50%,
+      rgba(6, 6, 8, 0.4) 100%
+    );
+    pointer-events: none;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .gold-orb {
+      filter: blur(80px);
+    }
+
+    .layer-grid {
+      opacity: 0.2;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .gold-orb {
+      filter: blur(60px);
+    }
+
+    .layer-grid {
+      display: none;
+    }
+
+    .layer-scanlines {
+      opacity: 0.5;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .layer-nebula,
+    .gold-orb,
+    .stars-small,
+    .stars-medium,
+    .stars-large::before,
+    .stars-large::after,
+    .layer-grid,
+    .layer-scanlines {
+      animation: none !important;
+    }
+  }
+</style>

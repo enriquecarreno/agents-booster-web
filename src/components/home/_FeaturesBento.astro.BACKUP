@@ -1,0 +1,652 @@
+---
+/**
+ * FEATURES BENTO V2.1 - SPRINT 2
+ * Copy Rewrite: Beneficios claros y directos
+ * Visual: Mantener animaciones premium
+ */
+
+import { Target, Link2, BarChart3, Brain, MessageCircle, CreditCard, FileText, Globe, Database } from 'lucide-react';
+---
+
+<section class="features-section section-sm">
+  <div class="ab-container">
+    <div class="section-header-compact">
+      <h2 class="section-title">
+        Por qué <span class="text-gradient-gold">funciona de verdad</span>
+      </h2>
+      <p class="section-subtitle">
+        No son chatbots con guiones. Son agentes que ejecutan y resuelven.
+      </p>
+    </div>
+
+    <div class="bento-grid-2x2">
+      
+      <!-- Feature 1: Acciones Reales -->
+      <div class="bento-card" data-feature="actions">
+        <div class="card-header">
+          <div class="card-icon-wrapper">
+            <Target size={40} strokeWidth={2} className="card-icon-lucide" client:load />
+          </div>
+          <h3 class="card-title">Hace el trabajo, no solo responde</h3>
+        </div>
+        <p class="card-description">
+          Actualiza tu CRM, procesa pagos, agenda reuniones, envía emails. Todo automático. Tu equipo solo revisa si quiere.
+        </p>
+        <div class="card-visual">
+          <div class="action-pipeline">
+            <div class="pipeline-step" style="--i: 0">
+              <div class="step-box">
+                <MessageCircle size={24} strokeWidth={2} className="step-icon-lucide" client:load />
+              </div>
+              <div class="step-label">Consulta</div>
+            </div>
+            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-step center-step" style="--i: 1">
+              <div class="step-isotipo">
+                <img src="https://cdn.prod.website-files.com/691966a97522cf30142cebf7/691dc9fa7d96563e7318efb2_iso--gold.png" alt="Agents Booster" class="isotipo-img" />
+              </div>
+              <div class="step-label">Agente</div>
+            </div>
+            <div class="pipeline-arrow">→</div>
+            <div class="pipeline-step" style="--i: 2">
+              <div class="step-box">
+                <CreditCard size={24} strokeWidth={2} className="step-icon-lucide" client:load />
+              </div>
+              <div class="step-label">Resuelto</div>
+            </div>
+          </div>
+        </div>
+        <div class="card-glow glow-blue"></div>
+      </div>
+
+      <!-- Feature 2: Integraciones Nativas -->
+      <div class="bento-card" data-feature="integrations">
+        <div class="card-header">
+          <div class="card-icon-wrapper">
+            <Link2 size={40} strokeWidth={2} className="card-icon-lucide" client:load />
+          </div>
+          <h3 class="card-title">Se conecta a tus sistemas</h3>
+        </div>
+        <p class="card-description">
+          Salesforce, HubSpot, Shopify, WhatsApp, Gmail, y 30+ más. Sin código. Setup en 48 horas, no meses.
+        </p>
+        <div class="card-visual">
+          <div class="integration-hub">
+            <div class="hub-center">
+              <img src="https://cdn.prod.website-files.com/691966a97522cf30142cebf7/691dc9fa7d96563e7318efb2_iso--gold.png" alt="Agents Booster" class="isotipo-img hub-img" />
+            </div>
+            <div class="integration-ring">
+              <div class="integration-dot" style="--angle: 0deg"></div>
+              <div class="integration-dot" style="--angle: 72deg"></div>
+              <div class="integration-dot" style="--angle: 144deg"></div>
+              <div class="integration-dot" style="--angle: 216deg"></div>
+              <div class="integration-dot" style="--angle: 288deg"></div>
+            </div>
+          </div>
+        </div>
+        <div class="card-glow glow-purple"></div>
+      </div>
+
+      <!-- Feature 3: Observabilidad Total -->
+      <div class="bento-card" data-feature="observability">
+        <div class="card-header">
+          <div class="card-icon-wrapper">
+            <BarChart3 size={40} strokeWidth={2} className="card-icon-lucide" client:load />
+          </div>
+          <h3 class="card-title">Ves qué hace en tiempo real</h3>
+        </div>
+        <p class="card-description">
+          Dashboard live de cada acción. Audita decisiones. Control total, cero caja negra.
+        </p>
+        <div class="card-visual">
+          <div class="metrics-live">
+            <div class="metrics-chart">
+              <div class="metric-bar" style="--height: 65%; --delay: 0s"></div>
+              <div class="metric-bar" style="--height: 85%; --delay: 0.1s"></div>
+              <div class="metric-bar" style="--height: 45%; --delay: 0.2s"></div>
+              <div class="metric-bar" style="--height: 95%; --delay: 0.3s"></div>
+              <div class="metric-bar" style="--height: 70%; --delay: 0.4s"></div>
+            </div>
+            <div class="metrics-isotipo">
+              <img src="https://cdn.prod.website-files.com/691966a97522cf30142cebf7/691dc9fa7d96563e7318efb2_iso--gold.png" alt="Agents Booster" class="isotipo-img" />
+            </div>
+          </div>
+        </div>
+        <div class="card-glow glow-green"></div>
+      </div>
+
+      <!-- Feature 4: RAG con Tu Data -->
+      <div class="bento-card" data-feature="rag">
+        <div class="card-header">
+          <div class="card-icon-wrapper">
+            <Brain size={40} strokeWidth={2} className="card-icon-lucide" client:load />
+          </div>
+          <h3 class="card-title">Habla como tu empresa</h3>
+        </div>
+        <p class="card-description">
+          Carga tu catálogo, políticas, FAQs. El agente responde con tu información y tu tono. No inventa.
+        </p>
+        <div class="card-visual">
+          <div class="data-brain">
+            <div class="brain-core">
+              <img src="https://cdn.prod.website-files.com/691966a97522cf30142cebf7/691dc9fa7d96563e7318efb2_iso--gold.png" alt="Agents Booster" class="isotipo-img core-img" />
+            </div>
+            <div class="data-nodes">
+              <div class="data-node" style="--angle: 45deg">
+                <FileText size={20} strokeWidth={2} className="node-icon-lucide" client:load />
+              </div>
+              <div class="data-node" style="--angle: 135deg">
+                <Globe size={20} strokeWidth={2} className="node-icon-lucide" client:load />
+              </div>
+              <div class="data-node" style="--angle: 225deg">
+                <BarChart3 size={20} strokeWidth={2} className="node-icon-lucide" client:load />
+              </div>
+              <div class="data-node" style="--angle: 315deg">
+                <Database size={20} strokeWidth={2} className="node-icon-lucide" client:load />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card-glow glow-gold"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .features-section {
+    background: rgba(8, 8, 24, 0.4);
+    padding: 64px 0 !important;
+  }
+
+  .section-header-compact {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .section-title {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  /* Grid 2x2 */
+  .bento-grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .bento-card {
+    position: relative;
+    min-height: 340px;
+    background: rgba(8, 8, 24, 0.6);
+    border: 1px solid rgba(200, 152, 40, 0.2);
+    border-radius: 20px;
+    padding: 32px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bento-card:hover {
+    background: rgba(8, 8, 24, 0.8);
+    border-color: rgba(200, 152, 40, 0.5);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgba(200, 152, 40, 0.25);
+  }
+
+  .card-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .bento-card:hover .card-glow {
+    opacity: 0.2;
+  }
+
+  .glow-blue { background: rgba(74, 158, 255, 0.8); }
+  .glow-purple { background: rgba(168, 85, 247, 0.8); }
+  .glow-green { background: rgba(0, 255, 136, 0.8); }
+  .glow-gold { background: rgba(200, 152, 40, 1); }
+
+  /* Card Header */
+  .card-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .card-icon-wrapper {
+    flex-shrink: 0;
+  }
+
+  .card-icon-wrapper :global(.card-icon-lucide) {
+    color: #C89828;
+    filter: drop-shadow(0 2px 8px rgba(200, 152, 40, 0.3));
+  }
+
+  .card-title {
+    font-size: 20px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin: 0;
+  }
+
+  .card-description {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 24px;
+  }
+
+  .card-visual {
+    margin-top: auto;
+    padding: 20px 0 0;
+  }
+
+  /* Isotipo Base */
+  .isotipo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  /* ============================================
+  FEATURE 1: Action Pipeline
+  ============================================ */
+  .action-pipeline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .pipeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: pipeline-appear 0.6s ease-out forwards;
+    animation-delay: calc(var(--i) * 0.2s);
+    opacity: 0;
+  }
+
+  @keyframes pipeline-appear {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .step-box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+  }
+
+  .step-box :global(.step-icon-lucide) {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .step-isotipo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(200, 152, 40, 0.15);
+    border: 2px solid rgba(200, 152, 40, 0.4);
+    border-radius: 12px;
+    padding: 8px;
+    animation: isotipo-pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes isotipo-pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(200, 152, 40, 0.4);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px 5px rgba(200, 152, 40, 0.3);
+    }
+  }
+
+  .step-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .center-step .step-label {
+    color: #C89828;
+  }
+
+  .pipeline-arrow {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.3);
+    animation: arrow-pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes arrow-pulse {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.6; }
+  }
+
+  /* ============================================
+  FEATURE 2: Integration Hub
+  ============================================ */
+  .integration-hub {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hub-center {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    background: rgba(200, 152, 40, 0.15);
+    border: 2px solid rgba(200, 152, 40, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    animation: hub-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes hub-pulse {
+    0%, 100% { 
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(200, 152, 40, 0.4);
+    }
+    50% { 
+      transform: scale(1.05);
+      box-shadow: 0 0 30px 8px rgba(200, 152, 40, 0.2);
+    }
+  }
+
+  .hub-img {
+    filter: drop-shadow(0 0 8px rgba(200, 152, 40, 0.6));
+  }
+
+  .integration-ring {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 50%;
+    animation: ring-rotate 20s linear infinite;
+  }
+
+  @keyframes ring-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .integration-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #A855F7;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(168, 85, 247, 0.8);
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-70px);
+  }
+
+  /* ============================================
+  FEATURE 3: Metrics
+  ============================================ */
+  .metrics-live {
+    position: relative;
+  }
+
+  .metrics-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 12px;
+    height: 100px;
+    margin-bottom: 16px;
+  }
+
+  .metric-bar {
+    width: 32px;
+    height: var(--height);
+    background: linear-gradient(180deg, rgba(0, 255, 136, 0.6) 0%, rgba(0, 255, 136, 0.2) 100%);
+    border: 1px solid rgba(0, 255, 136, 0.4);
+    border-radius: 6px 6px 0 0;
+    position: relative;
+    animation: bar-grow 1s ease-out forwards, bar-breathe 3s ease-in-out infinite;
+    animation-delay: var(--delay), calc(var(--delay) + 1s);
+    transform-origin: bottom;
+    transform: scaleY(0);
+  }
+
+  @keyframes bar-grow {
+    to { transform: scaleY(1); }
+  }
+
+  @keyframes bar-breathe {
+    0%, 100% { opacity: 0.7; }
+    50% { opacity: 1; }
+  }
+
+  .metrics-isotipo {
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    padding: 6px;
+    background: rgba(0, 255, 136, 0.1);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    animation: isotipo-fade-in 0.8s ease-out 0.6s forwards;
+    opacity: 0;
+  }
+
+  @keyframes isotipo-fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .metrics-isotipo .isotipo-img {
+    filter: drop-shadow(0 0 8px rgba(0, 255, 136, 0.6));
+  }
+
+  /* ============================================
+  FEATURE 4: Data Brain
+  ============================================ */
+  .data-brain {
+    position: relative;
+    width: 100%;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .brain-core {
+    width: 70px;
+    height: 70px;
+    padding: 12px;
+    background: rgba(200, 152, 40, 0.15);
+    border: 2px solid rgba(200, 152, 40, 0.4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: brain-pulse 3s ease-in-out infinite;
+    z-index: 2;
+  }
+
+  @keyframes brain-pulse {
+    0%, 100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(200, 152, 40, 0.4);
+    }
+    50% {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px 10px rgba(200, 152, 40, 0.2);
+    }
+  }
+
+  .core-img {
+    filter: drop-shadow(0 0 10px rgba(200, 152, 40, 0.8));
+  }
+
+  .data-nodes {
+    position: absolute;
+    width: 140px;
+    height: 140px;
+    animation: nodes-rotate 20s linear infinite;
+  }
+
+  @keyframes nodes-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .data-node {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: 0.7;
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-70px) rotate(calc(var(--angle) * -1));
+  }
+
+  .data-node :global(.node-icon-lucide) {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .bento-grid-2x2 {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .bento-card {
+      min-height: 300px;
+      padding: 28px 24px;
+    }
+
+    .card-icon-wrapper :global(.card-icon-lucide) {
+      width: 36px;
+      height: 36px;
+    }
+
+    .card-title {
+      font-size: 18px;
+    }
+
+    .card-description {
+      font-size: 14px;
+    }
+
+    .metrics-chart {
+      height: 80px;
+      gap: 8px;
+    }
+
+    .metric-bar {
+      width: 28px;
+    }
+
+    .metrics-isotipo {
+      width: 32px;
+      height: 32px;
+    }
+
+    .integration-hub,
+    .data-brain {
+      height: 120px;
+    }
+
+    .step-box,
+    .step-isotipo {
+      width: 40px;
+      height: 40px;
+    }
+
+    .step-box :global(.step-icon-lucide) {
+      width: 20px;
+      height: 20px;
+    }
+
+    .hub-center {
+      width: 50px;
+      height: 50px;
+    }
+
+    .brain-core {
+      width: 60px;
+      height: 60px;
+    }
+
+    .integration-ring,
+    .data-nodes {
+      width: 120px;
+      height: 120px;
+    }
+
+    .integration-dot {
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-60px);
+    }
+
+    .data-node {
+      transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-60px) rotate(calc(var(--angle) * -1));
+    }
+
+    .data-node :global(.node-icon-lucide) {
+      width: 18px;
+      height: 18px;
+    }
+  }
+</style>

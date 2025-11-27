@@ -1,0 +1,455 @@
+/* DASHBOARD ANIMATION - V2 SIMPLIFICADO */
+
+.container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  background: linear-gradient(135deg, #080818 0%, #0d0d1f 100%);
+  border-radius: 24px;
+  border: 1px solid rgba(200, 152, 40, 0.2);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ISOTIPO BACKDROP */
+.backdrop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 350px;
+  height: 350px;
+  opacity: 0.06;
+  z-index: 1;
+  animation: pulseBackdrop 8s ease-in-out infinite;
+}
+
+.isotipoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: blur(3px);
+}
+
+@keyframes pulseBackdrop {
+  0%, 100% {
+    opacity: 0.06;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.10;
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+
+/* GRID OVERLAY */
+.gridOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image: 
+    repeating-linear-gradient(90deg, rgba(200, 152, 40, 0.03) 0px, transparent 1px, transparent 80px),
+    repeating-linear-gradient(0deg, rgba(200, 152, 40, 0.03) 0px, transparent 1px, transparent 80px);
+  opacity: 0.5;
+  animation: gridPulse 4s ease-in-out infinite;
+}
+
+@keyframes gridPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.5; }
+}
+
+/* CARDS GRID */
+.cardsGrid {
+  position: relative;
+  z-index: 3;
+  width: 100%;
+  height: 100%;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* CARD BASE */
+.card {
+  background: rgba(8, 8, 24, 0.85);
+  border: 1px solid rgba(200, 152, 40, 0.25);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  border-color: rgba(200, 152, 40, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(200, 152, 40, 0.15);
+}
+
+/* CARD HEADER */
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(200, 152, 40, 0.15);
+}
+
+.cardIcon {
+  font-size: 28px;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(200, 152, 40, 0.4));
+}
+
+.cardLabel {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* METRIC VALUE */
+.metricValue {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.number {
+  font-size: 56px;
+  font-weight: 900;
+  background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.badge {
+  font-size: 16px;
+  font-weight: 700;
+  color: #00FF88;
+  background: rgba(0, 255, 136, 0.15);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+/* MINI CHART */
+.miniChart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 70px;
+}
+
+.bar {
+  flex: 1;
+  background: linear-gradient(180deg, rgba(200, 152, 40, 0.9) 0%, rgba(200, 152, 40, 0.4) 100%);
+  border-radius: 4px 4px 0 0;
+  animation: barGrow 1.2s ease-out forwards;
+  transform-origin: bottom;
+}
+
+@keyframes barGrow {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* ACTIVITY LIST */
+.activityList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(200, 152, 40, 0.08);
+  border-radius: 8px;
+  animation: slideIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.activityItem:nth-child(1) { animation-delay: 0.3s; }
+.activityItem:nth-child(2) { animation-delay: 0.5s; }
+.activityItem:nth-child(3) { animation-delay: 0.7s; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background: #00FF88;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.7);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
+  }
+}
+
+.activityText {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* PROGRESS LIST */
+.progressList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.progressItem {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progressHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.progressPercent {
+  color: #C89828;
+  font-weight: 700;
+}
+
+.progressTrack {
+  height: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 100px;
+  overflow: hidden;
+  position: relative;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #C89828 0%, #F4D56E 100%);
+  border-radius: 100px;
+  box-shadow: 0 0 12px rgba(200, 152, 40, 0.5);
+  animation: fillProgress 1.8s ease-out forwards;
+  transform-origin: left;
+}
+
+@keyframes fillProgress {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* AGENTS GRID */
+.agentsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.agentItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: rgba(200, 152, 40, 0.08);
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+  animation: popIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.agentItem:nth-child(1) { animation-delay: 0.2s; }
+.agentItem:nth-child(2) { animation-delay: 0.3s; }
+.agentItem:nth-child(3) { animation-delay: 0.4s; }
+.agentItem:nth-child(4) { animation-delay: 0.5s; }
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.agentDot {
+  width: 10px;
+  height: 10px;
+  background: #00FF88;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 12px rgba(0, 255, 136, 0.7);
+  animation: pulseAgent 2.5s ease-in-out infinite;
+}
+
+@keyframes pulseAgent {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* PARTICLES */
+.particles {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(200, 152, 40, 1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatParticle 4s ease-in-out infinite;
+  opacity: 0;
+}
+
+@keyframes floatParticle {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  25% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-25px);
+  }
+  75% {
+    opacity: 0.8;
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .container {
+    height: 550px;
+  }
+
+  .cardsGrid {
+    padding: 24px;
+    gap: 20px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .number {
+    font-size: 48px;
+  }
+
+  .miniChart {
+    height: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: auto;
+    min-height: 800px;
+  }
+
+  .cardsGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .cardIcon {
+    font-size: 24px;
+  }
+
+  .number {
+    font-size: 40px;
+  }
+
+  .miniChart {
+    height: 50px;
+  }
+
+  .backdrop {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* REDUCED MOTION */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .activityItem,
+  .agentItem,
+  .bar,
+  .progressFill,
+  .dot,
+  .agentDot,
+  .particle,
+  .backdrop,
+  .gridOverlay {
+    animation: none !important;
+  }
+
+  .card {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .activityItem,
+  .agentItem {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+
+  .bar {
+    transform: scaleY(1);
+  }
+
+  .progressFill {
+    transform: scaleX(1);
+  }
+}

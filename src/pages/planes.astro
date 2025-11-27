@@ -1,0 +1,1351 @@
+---
+/**
+ * PÁGINA DE PLANES V4.5 - CARRITO FLOTANTE VISIBLE
+ * Carrito como overlay flotante que NO afecta el layout del contenido
+ */
+
+import MainLayout from '../layouts/Main.astro';
+import Navbar from '../components/global/Navbar.astro';
+import Footer from '../components/global/Footer.astro';
+import { StickyCart } from '../components/pricing/StickyCart';
+import { DollarSign, Package, Settings, MessageCircle, Gift } from 'lucide-react';
+
+// DATOS OFICIALES
+const salesAgent = {
+  id: 'ventas',
+  icon: DollarSign,
+  name: 'Agente de Ventas',
+  tagline: 'Tu vendedor 24/7 que nunca duerme. Atiende clientes, cotiza, procesa pedidos y actualiza tu CRM automáticamente.',
+  levels: [
+    {
+      id: 'entrepreneur',
+      name: 'Entrepreneur Kit',
+      tagline: 'Para emprendedores y negocios pequeños',
+      price: 49,
+      setup: 150,
+      interactions: '500',
+      popular: false,
+      features: [
+        '1 canal de atención',
+        'Catálogo de hasta 50 productos',
+        'Integración con Google Sheets',
+        'Soporte por email',
+        'Dashboard básico',
+      ],
+      addons: [
+        { id: 'conv-500', name: '+500 conversaciones', price: 9, setup: 0, type: 'stackable' },
+        { id: 'canal-extra', name: 'Canal adicional', price: 10, setup: 50, type: 'stackable' },
+        { id: 'data-basic', name: 'Data Connector Basic', price: 19, setup: 100, type: 'single' },
+        { id: 'data-payments', name: 'Data Connector Payments', price: 19, setup: 150, type: 'single' },
+      ]
+    },
+    {
+      id: 'run',
+      name: 'Run',
+      tagline: 'Para negocios en crecimiento',
+      price: 299,
+      setup: 700,
+      interactions: '2,000',
+      popular: false,
+      features: [
+        'Multi-canal (hasta 3)',
+        'Catálogo ilimitado',
+        'Links de pago integrados',
+        'CRM básico incluido',
+        'Reportes semanales',
+      ],
+      addons: [
+        { id: 'conv-500', name: '+500 conversaciones', price: 9, setup: 0, type: 'stackable' },
+        { id: 'conv-2000', name: '+2,000 conversaciones', price: 29, setup: 0, type: 'stackable' },
+        { id: 'canal-extra', name: 'Canal adicional', price: 10, setup: 50, type: 'stackable' },
+        { id: 'data-payments', name: 'Data Connector Payments', price: 19, setup: 150, type: 'single' },
+      ]
+    },
+    {
+      id: 'grow',
+      name: 'Grow',
+      tagline: 'Para empresas escalando rápido',
+      price: 699,
+      setup: 1500,
+      interactions: '5,000',
+      popular: true,
+      features: [
+        'CRM completo integrado',
+        'Inventario en tiempo real',
+        'Cálculo automático de envíos',
+        'Dashboards personalizados',
+        'Soporte prioritario',
+      ],
+      addons: [
+        { id: 'conv-500', name: '+500 conversaciones', price: 9, setup: 0, type: 'stackable' },
+        { id: 'conv-2000', name: '+2,000 conversaciones', price: 29, setup: 0, type: 'stackable' },
+      ]
+    },
+    {
+      id: 'command',
+      name: 'Command',
+      tagline: 'Para operaciones de alto volumen',
+      price: 1399,
+      setup: 2800,
+      interactions: '10,000',
+      popular: false,
+      features: [
+        'Detección de fraude IA',
+        'Multi-bodega',
+        'SLA 99.9% uptime',
+        'Soporte 24/7',
+        'Account manager dedicado',
+      ],
+      addons: [
+        { id: 'conv-2000', name: '+2,000 conversaciones', price: 29, setup: 0, type: 'stackable' },
+      ]
+    }
+  ]
+};
+
+const operationsAgent = {
+  id: 'operaciones',
+  icon: Package,
+  name: 'Agente de Operaciones',
+  tagline: 'Tu copiloto operativo que nunca falla. Gestiona inventario, forecast de demanda, y optimiza tu cadena de suministro.',
+  levels: [
+    {
+      id: 'core',
+      name: 'Core',
+      tagline: 'Fundamentos de operaciones inteligentes',
+      price: 429,
+      setup: 900,
+      interactions: '10,000',
+      popular: false,
+      features: [
+        'Forecast básico de demanda',
+        'Alertas de stock crítico',
+        'Dashboard semanal',
+        '1 integración ERP',
+        'Soporte por email',
+      ],
+      addons: [
+        { id: 'alertas-extra', name: 'Canal de alertas adicional', price: 15, setup: 50, type: 'stackable' },
+      ]
+    },
+    {
+      id: 'growth',
+      name: 'Growth',
+      tagline: 'Optimización avanzada de la cadena',
+      price: 949,
+      setup: 2000,
+      interactions: '50,000',
+      popular: true,
+      features: [
+        'Safety Stock automático',
+        'Integración ERP profunda',
+        'Alertas multi-canal (Slack, Email, SMS)',
+        'Reportes avanzados',
+        'Soporte prioritario',
+      ],
+      addons: [
+        { id: 'alertas-extra', name: 'Canal de alertas adicional', price: 15, setup: 50, type: 'stackable' },
+        { id: 'warehouse-pack', name: 'Warehouse Pack', price: 79, setup: 400, type: 'single' },
+        { id: 'supplier-automation', name: 'Supplier Automation', price: 149, setup: 800, type: 'single' },
+      ]
+    },
+    {
+      id: 'elite',
+      name: 'Elite',
+      tagline: 'Operaciones enterprise-grade',
+      price: 1799,
+      setup: 3600,
+      interactions: '250,000',
+      popular: false,
+      features: [
+        'MRP multi-nivel',
+        'Planeación de capacidad finita',
+        'Multi-bodega avanzado',
+        'Órdenes automáticas a proveedores',
+        'Soporte 24/7 + Account Manager',
+      ],
+      addons: [
+        { id: 'alertas-extra', name: 'Canal de alertas adicional', price: 15, setup: 50, type: 'stackable' },
+        { id: 'warehouse-pack', name: 'Warehouse Pack', price: 79, setup: 400, type: 'single' },
+        { id: 'supplier-automation', name: 'Supplier Automation', price: 149, setup: 800, type: 'single' },
+      ]
+    }
+  ]
+};
+
+const customAgent = {
+  id: 'personalizado',
+  icon: Settings,
+  name: 'Agente Personalizado',
+  tagline: 'Construimos el agente que necesitas. 100% a tu medida para cualquier proceso específico de tu negocio.',
+  levels: [
+    {
+      id: 'custom',
+      name: 'Agente a Medida',
+      tagline: 'Cotización personalizada según tu proyecto',
+      price: null,
+      setup: null,
+      interactions: 'Ilimitado',
+      popular: false,
+      features: [
+        'Análisis de tu proceso específico',
+        'Diseño de solución personalizada',
+        'Integraciones a medida',
+        'Machine Learning custom (si aplica)',
+        'Soporte dedicado',
+        'Roadmap conjunto',
+      ],
+      addons: []
+    }
+  ]
+};
+
+const agents = [salesAgent, operationsAgent, customAgent];
+---
+
+<MainLayout 
+  title="Planes y Precios - Agents Booster" 
+  description="Configura tus agentes. Implementación gratis por tiempo limitado. Cotización en minutos."
+>
+  <Navbar />
+  
+  <div class="pricing-page">
+    <!-- Hero Section -->
+    <section class="pricing-hero">
+      <div class="ab-container">
+        <div class="hero-content">
+          <span class="hero-badge">
+            <Gift className="inline w-4 h-4 mr-1" />
+            Implementación GRATIS por tiempo limitado (ahorra hasta $10K)
+          </span>
+          
+          <h1 class="hero-title">
+            Configura tu Equipo de Agentes.<br />
+            Cotización en minutos.
+          </h1>
+          
+          <p class="hero-subtitle">
+            Selecciona los agentes que necesitas, personaliza con add-ons, y obtén tu cotización al instante.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Billing Toggle -->
+    <section class="billing-section">
+      <div class="ab-container">
+        <div class="billing-toggle" id="billingToggle">
+          <button class="billing-option active" data-cycle="monthly">
+            <span class="option-label">Mensual</span>
+            <span class="option-desc">Sin compromiso</span>
+          </button>
+          <button class="billing-option" data-cycle="annual">
+            <span class="option-label">Anual</span>
+            <span class="option-desc">Ahorra 20%</span>
+            <span class="savings-badge">-20%</span>
+          </button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Main Content: Contenido centrado -->
+    <section class="pricing-main">
+      <div class="ab-container">
+        
+        <!-- Tabs -->
+        <div class="agent-tabs" id="agentTabs">
+          {agents.map((agent, index) => (
+            <button 
+              class={`agent-tab ${index === 0 ? 'active' : ''}`}
+              data-agent={agent.id}
+            >
+              <agent.icon className="tab-icon" size={26} />
+              <span class="tab-name">{agent.name}</span>
+            </button>
+          ))}
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="tab-content" id="tabContent">
+          {agents.map((agent, agentIndex) => (
+            <div 
+              class={`tab-pane ${agentIndex === 0 ? 'active' : ''}`}
+              data-agent={agent.id}
+            >
+              <div class="agent-intro">
+                <div class="agent-intro-icon">
+                  <agent.icon size={64} />
+                </div>
+                <div class="agent-intro-text">
+                  <h2 class="agent-intro-title">{agent.name}</h2>
+                  <p class="agent-intro-tagline">{agent.tagline}</p>
+                </div>
+              </div>
+              
+              <!-- Levels Grid - UNIFORM HEIGHT -->
+              <div class="levels-grid">
+                {agent.levels.map((level) => (
+                  <div 
+                    class={`level-card ${level.popular ? 'level-card-popular' : ''}`}
+                    data-agent-id={agent.id}
+                    data-level-id={level.id}
+                  >
+                    {level.popular && (
+                      <div class="popular-badge">BEST SELLER</div>
+                    )}
+                    
+                    <div class="level-header">
+                      <h3 class="level-name">{level.name}</h3>
+                      <p class="level-tagline">{level.tagline}</p>
+                    </div>
+                    
+                    {level.price !== null ? (
+                      <div class="level-pricing">
+                        <div class="price-display">
+                          <span class="price-currency">$</span>
+                          <span 
+                            class="price-amount" 
+                            data-monthly={level.price}
+                            data-annual={Math.round(level.price * 0.8)}
+                          >
+                            {level.price}
+                          </span>
+                          <span class="price-period">/mes</span>
+                        </div>
+                        
+                        <div class="setup-display">
+                          <span>Setup:</span>
+                          <span class="setup-crossed">${level.setup}</span>
+                          <span class="setup-free">GRATIS</span>
+                        </div>
+                        
+                        <div class="interactions-display">
+                          Hasta {level.interactions} interacciones/mes
+                        </div>
+                      </div>
+                    ) : (
+                      <div class="level-pricing level-pricing-custom">
+                        <div class="price-custom">
+                          <MessageCircle className="custom-icon" size={36} />
+                          <span class="custom-text">Cotización personalizada</span>
+                        </div>
+                        <p class="custom-desc">
+                          Conversemos sobre tu proyecto específico
+                        </p>
+                      </div>
+                    )}
+                    
+                    <ul class="level-features">
+                      {level.features.map((feature) => (
+                        <li>
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"></polyline>
+                          </svg>
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    {level.addons.length > 0 && (
+                      <div class="level-addons">
+                        <div class="addons-header">
+                          <Gift className="addons-icon" size={16} />
+                          <span class="addons-title">Add-ons Disponibles</span>
+                        </div>
+                        
+                        {level.addons.map((addon) => (
+                          <div class="addon-item" data-addon-type={addon.type}>
+                            <label class="addon-checkbox">
+                              <input 
+                                type="checkbox"
+                                class="addon-input"
+                                data-addon-id={addon.id}
+                                data-addon-name={addon.name}
+                                data-addon-price={addon.price}
+                                data-addon-setup={addon.setup}
+                                data-addon-type={addon.type}
+                              />
+                              <div class="addon-info">
+                                <span class="addon-name">{addon.name}</span>
+                                <span class="addon-price">
+                                  +${addon.price}/mes
+                                  {addon.setup > 0 && <span class="addon-setup-note"> (+${addon.setup} setup)</span>}
+                                </span>
+                              </div>
+                            </label>
+                            
+                            {addon.type === 'stackable' && (
+                              <div class="addon-quantity">
+                                <button class="qty-btn qty-minus" data-addon-id={addon.id}>−</button>
+                                <span class="qty-display" data-addon-id={addon.id}>0</span>
+                                <button class="qty-btn qty-plus" data-addon-id={addon.id}>+</button>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    
+                    <button 
+                      class="level-cta"
+                      data-agent-id={agent.id}
+                      data-agent-name={agent.name}
+                      data-level-id={level.id}
+                      data-level-name={level.name}
+                      data-level-price={level.price || 0}
+                      data-level-setup={level.setup || 0}
+                    >
+                      {level.price !== null ? (
+                        <>
+                          <span>Agregar al Carrito</span>
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                          </svg>
+                        </>
+                      ) : (
+                        <>
+                          <span>Solicitar Cotización</span>
+                          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"></path>
+                          </svg>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="faq-section">
+      <div class="ab-container">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>¿Puedo combinar múltiples agentes?</h3>
+            <p>¡Sí! Puedes agregar al carrito tantos agentes como necesites. El configurador calculará el precio total automáticamente.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>¿Qué son los add-ons?</h3>
+            <p>Son complementos opcionales para cada agente. Algunos se pueden agregar múltiples veces (como canales o conversaciones), otros son únicos (como conectores).</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>¿Puedo cambiar de nivel después?</h3>
+            <p>Sí, totalmente. Puedes subir o bajar de nivel en cualquier momento sin penalizaciones.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>¿Cómo funciona el Agente Personalizado?</h3>
+            <p>Es 100% a medida. Solicitas cotización, agendamos una llamada para entender tu proceso, y diseñamos una solución específica para ti.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>¿La implementación es realmente gratis?</h3>
+            <p>Sí, por tiempo limitado estamos regalando todo el setup técnico (normalmente $150-$10K). Solo pagas la mensualidad elegida.</p>
+          </div>
+          
+          <div class="faq-item">
+            <h3>¿Necesito ayuda para elegir?</h3>
+            <p>¡Claro! Habla con <a href="/demo">Diego, nuestro Agente de Ventas</a>. Te hará preguntas y te recomendará la mejor configuración.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  
+  <!-- Carrito Flotante (FUERA del flow, absolute positioned) -->
+  <aside class="floating-cart" id="floatingCart">
+    <StickyCart client:only="react" billingCycle="monthly" />
+  </aside>
+  
+  <Footer />
+</MainLayout>
+
+<style>
+  /* ============================================
+     PRICING PAGE V4.5 - CARRITO FLOTANTE OVERLAY
+     Contenido centrado + carrito absolutamente posicionado
+     ============================================ */
+  
+  .pricing-page {
+    background: linear-gradient(180deg, #0B0D0E 0%, #080818 50%, #0B0D0E 100%);
+    min-height: 100vh;
+  }
+  
+  /* Hero */
+  .pricing-hero {
+    padding: 160px 0 60px;
+    text-align: center;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 24px;
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.2) 0%, rgba(200, 152, 40, 0.1) 100%);
+    border: 2px solid rgba(200, 152, 40, 0.4);
+    border-radius: 100px;
+    color: #F4D56E;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 28px;
+    box-shadow: 0 0 30px rgba(200, 152, 40, 0.15);
+  }
+  
+  .hero-title {
+    font-size: clamp(36px, 5vw, 52px);
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #FFFFFF 0%, rgba(255, 255, 255, 0.85) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+  }
+  
+  /* Billing Toggle */
+  .billing-section {
+    padding: 40px 0 60px;
+  }
+  
+  .billing-toggle {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .billing-option {
+    flex: 1;
+    padding: 18px 28px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .billing-option:hover {
+    background: rgba(255, 255, 255, 0.04);
+  }
+  
+  .billing-option.active {
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.15) 0%, rgba(200, 152, 40, 0.08) 100%);
+    border-color: rgba(200, 152, 40, 0.5);
+    box-shadow: 0 0 25px rgba(200, 152, 40, 0.2);
+  }
+  
+  .option-label {
+    font-size: 17px;
+    font-weight: 800;
+    color: #FFFFFF;
+  }
+  
+  .option-desc {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .savings-badge {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    color: #080818;
+    font-size: 12px;
+    font-weight: 900;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(200, 152, 40, 0.4);
+  }
+  
+  /* Main Content - SIN GRID, contenido centrado normal */
+  .pricing-main {
+    padding: 0 0 100px;
+  }
+  
+  /* Tabs */
+  .agent-tabs {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 48px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .agent-tab {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 28px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 16px 16px 0 0;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 16px;
+    font-weight: 700;
+  }
+  
+  .agent-tab:hover {
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.85);
+    transform: translateY(-2px);
+  }
+  
+  .agent-tab.active {
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.15) 0%, rgba(200, 152, 40, 0.08) 100%);
+    border-color: rgba(200, 152, 40, 0.5);
+    color: #F4D56E;
+    box-shadow: 0 4px 16px rgba(200, 152, 40, 0.15);
+  }
+  
+  /* Tab Pane */
+  .tab-pane {
+    display: none;
+  }
+  
+  .tab-pane.active {
+    display: block;
+    animation: fadeInUp 0.5s ease;
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* Agent Intro */
+  .agent-intro {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+    padding: 40px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .agent-intro-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #C89828;
+    filter: drop-shadow(0 4px 12px rgba(200, 152, 40, 0.3));
+  }
+  
+  .agent-intro-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+  }
+  
+  .agent-intro-tagline {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.7;
+  }
+  
+  /* Levels Grid - ALTURA UNIFORME */
+  .levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+  
+  /* Level Card - FLEXBOX */
+  .level-card {
+    position: relative;
+    padding: 28px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .level-card:hover {
+    border-color: rgba(200, 152, 40, 0.4);
+    transform: translateY(-6px);
+    box-shadow: 0 16px 48px rgba(200, 152, 40, 0.2);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.03) 100%);
+  }
+  
+  .level-card-popular {
+    border-color: rgba(200, 152, 40, 0.5);
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.08) 0%, rgba(200, 152, 40, 0.02) 100%);
+    box-shadow: 0 8px 32px rgba(200, 152, 40, 0.25);
+  }
+  
+  .popular-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px 16px;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    color: #080818;
+    font-size: 11px;
+    font-weight: 900;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    box-shadow: 0 4px 16px rgba(200, 152, 40, 0.5);
+  }
+  
+  .level-header {
+    margin-bottom: 20px;
+  }
+  
+  .level-name {
+    font-size: 20px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+  
+  .level-tagline {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.5;
+  }
+  
+  /* Pricing Display */
+  .level-pricing {
+    margin-bottom: 20px;
+  }
+  
+  .price-display {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 12px;
+  }
+  
+  .price-currency {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    margin-right: 4px;
+  }
+  
+  .price-amount {
+    font-size: 40px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    transition: opacity 0.2s ease;
+  }
+  
+  .price-period {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-left: 4px;
+  }
+  
+  .setup-display {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(200, 152, 40, 0.1);
+    border: 2px solid rgba(200, 152, 40, 0.25);
+    border-radius: 8px;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+  
+  .setup-crossed {
+    color: rgba(255, 255, 255, 0.4);
+    text-decoration: line-through;
+    font-weight: 600;
+  }
+  
+  .setup-free {
+    color: #00FF88;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+  }
+  
+  .interactions-display {
+    text-align: center;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 600;
+  }
+  
+  /* Custom Pricing */
+  .level-pricing-custom {
+    text-align: center;
+    padding: 16px;
+  }
+  
+  .price-custom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    color: #C89828;
+  }
+  
+  .custom-text {
+    font-size: 18px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .custom-desc {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.65);
+    margin: 0;
+  }
+  
+  /* Features List */
+  .level-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+  
+  .level-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+  }
+  
+  .level-features svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+    color: #00FF88;
+    filter: drop-shadow(0 2px 8px rgba(0, 255, 136, 0.3));
+  }
+  
+  /* Addons Section */
+  .level-addons {
+    padding-top: 16px;
+    border-top: 2px solid rgba(255, 255, 255, 0.08);
+    margin-bottom: 16px;
+  }
+  
+  .addons-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 10px;
+  }
+  
+  .addon-item {
+    margin-bottom: 6px;
+  }
+  
+  .addon-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .addon-checkbox:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(200, 152, 40, 0.25);
+  }
+  
+  .addon-input:checked + .addon-info {
+    color: #F4D56E;
+  }
+  
+  .addon-input:checked ~ .addon-info .addon-price {
+    color: #C89828;
+  }
+  
+  .addon-input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: #C89828;
+  }
+  
+  .addon-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  
+  .addon-name {
+    font-size: 12px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .addon-price {
+    font-size: 11px;
+    color: #C89828;
+    font-weight: 700;
+  }
+  
+  .addon-setup-note {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+  }
+  
+  /* Quantity Controls */
+  .addon-quantity {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    padding-left: 26px;
+  }
+  
+  .qty-btn {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 6px;
+    color: #C89828;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .qty-btn:hover {
+    background: rgba(200, 152, 40, 0.15);
+    border-color: rgba(200, 152, 40, 0.5);
+    transform: scale(1.05);
+  }
+  
+  .qty-display {
+    min-width: 32px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: #F4D56E;
+  }
+  
+  /* CTA Button */
+  .level-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    color: #080818;
+    font-size: 14px;
+    font-weight: 800;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    box-shadow: 0 6px 20px rgba(200, 152, 40, 0.35);
+    margin-top: auto;
+  }
+  
+  .level-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(200, 152, 40, 0.5);
+  }
+  
+  /* ============================================
+     CARRITO FLOTANTE - ABSOLUTE POSITIONED
+     ============================================ */
+  
+  .floating-cart {
+    position: fixed;
+    top: 140px;
+    right: 40px;
+    width: 400px;
+    z-index: 1000;
+    animation: slideInFromRight 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Asegurar que sea visible */
+    pointer-events: all;
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  @keyframes slideInFromRight {
+    from {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* FAQ Section */
+  .faq-section {
+    padding: 100px 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 100%);
+  }
+  
+  .section-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 56px;
+  }
+  
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 28px;
+  }
+  
+  .faq-item {
+    padding: 32px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .faq-item:hover {
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  }
+  
+  .faq-item h3 {
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 14px;
+  }
+  
+  .faq-item p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin: 0;
+  }
+  
+  .faq-item a {
+    color: #C89828;
+    font-weight: 700;
+    text-decoration: underline;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1400px) {
+    .floating-cart {
+      right: 20px;
+      width: 360px;
+    }
+  }
+  
+  @media (max-width: 1200px) {
+    .floating-cart {
+      position: relative;
+      top: 0;
+      right: 0;
+      width: 100%;
+      max-width: 600px;
+      margin: 48px auto;
+      animation: none;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .pricing-hero {
+      padding: 140px 0 40px;
+    }
+    
+    .hero-badge {
+      font-size: 12px;
+      padding: 8px 18px;
+    }
+    
+    .agent-tabs {
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .agent-tab {
+      width: 100%;
+      justify-content: center;
+      border-radius: 16px;
+    }
+    
+    .agent-intro {
+      flex-direction: column;
+      padding: 24px;
+    }
+    
+    .levels-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .floating-cart {
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      border-radius: 20px 20px 0 0;
+    }
+  }
+</style>
+
+<script>
+  // Billing Cycle Toggle
+  const billingToggle = document.getElementById('billingToggle');
+  const priceAmounts = document.querySelectorAll('.price-amount');
+  let currentCycle: 'monthly' | 'annual' = 'monthly';
+  
+  if (billingToggle) {
+    billingToggle.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      const button = target.closest('.billing-option') as HTMLButtonElement;
+      
+      if (button) {
+        const cycle = button.dataset.cycle as 'monthly' | 'annual';
+        currentCycle = cycle;
+        
+        billingToggle.querySelectorAll('.billing-option').forEach(b => b.classList.remove('active'));
+        button.classList.add('active');
+        
+        priceAmounts.forEach(amount => {
+          const monthly = parseInt(amount.dataset.monthly || '0');
+          const annual = parseInt(amount.dataset.annual || '0');
+          const newPrice = cycle === 'annual' ? annual : monthly;
+          
+          amount.style.opacity = '0';
+          setTimeout(() => {
+            amount.textContent = newPrice.toString();
+            amount.style.opacity = '1';
+          }, 150);
+        });
+        
+        window.dispatchEvent(new CustomEvent('billingCycleChange', { detail: { cycle } }));
+      }
+    });
+  }
+  
+  // Agent Tabs
+  const tabButtons = document.querySelectorAll('.agent-tab');
+  const tabPanes = document.querySelectorAll('.tab-pane');
+  
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const agentId = (button as HTMLElement).dataset.agent;
+      
+      tabButtons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+      
+      tabPanes.forEach(pane => {
+        if ((pane as HTMLElement).dataset.agent === agentId) {
+          pane.classList.add('active');
+        } else {
+          pane.classList.remove('active');
+        }
+      });
+    });
+  });
+  
+  // Quantity Controls for Stackable Add-ons
+  const qtyButtons = document.querySelectorAll('.qty-btn');
+  
+  qtyButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const btn = button as HTMLButtonElement;
+      const addonId = btn.dataset.addonId;
+      const isPlus = btn.classList.contains('qty-plus');
+      const card = btn.closest('.level-card');
+      
+      if (card && addonId) {
+        const display = card.querySelector(`.qty-display[data-addon-id="${addonId}"]`) as HTMLElement;
+        const checkbox = card.querySelector(`.addon-input[data-addon-id="${addonId}"]`) as HTMLInputElement;
+        
+        let currentQty = parseInt(display.textContent || '0');
+        
+        if (isPlus) {
+          currentQty++;
+          if (!checkbox.checked) checkbox.checked = true;
+        } else {
+          currentQty = Math.max(0, currentQty - 1);
+          if (currentQty === 0) checkbox.checked = false;
+        }
+        
+        display.textContent = currentQty.toString();
+      }
+    });
+  });
+  
+  // Add to Cart with visual feedback
+  const ctaButtons = document.querySelectorAll('.level-cta');
+  
+  ctaButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const btn = button as HTMLButtonElement;
+      const agentId = btn.dataset.agentId;
+      const agentName = btn.dataset.agentName;
+      const levelId = btn.dataset.levelId;
+      const levelName = btn.dataset.levelName;
+      const levelPrice = parseInt(btn.dataset.levelPrice || '0');
+      const levelSetup = parseInt(btn.dataset.levelSetup || '0');
+      
+      if (levelPrice === 0) {
+        window.location.href = '/contacto?agent=personalizado';
+        return;
+      }
+      
+      const card = button.closest('.level-card');
+      const selectedAddons: any[] = [];
+      
+      if (card) {
+        const addonInputs = card.querySelectorAll('.addon-input:checked');
+        addonInputs.forEach(input => {
+          const inp = input as HTMLInputElement;
+          const addonId = inp.dataset.addonId;
+          const addonType = inp.dataset.addonType;
+          
+          let quantity = 1;
+          
+          if (addonType === 'stackable') {
+            const qtyDisplay = card.querySelector(`.qty-display[data-addon-id="${addonId}"]`) as HTMLElement;
+            quantity = parseInt(qtyDisplay?.textContent || '1');
+          }
+          
+          for (let i = 0; i < quantity; i++) {
+            selectedAddons.push({
+              packId: `${addonId}-${i}`,
+              packName: inp.dataset.addonName,
+              price: parseInt(inp.dataset.addonPrice || '0'),
+              setup: parseInt(inp.dataset.addonSetup || '0'),
+            });
+          }
+        });
+      }
+      
+      // Dispatch event
+      console.log('🛒 Adding to cart:', {
+        agentId,
+        agentName,
+        levelId,
+        levelName,
+        basePrice: levelPrice,
+        setup: levelSetup,
+        expansionPacks: selectedAddons,
+      });
+      
+      window.dispatchEvent(new CustomEvent('addToCart', {
+        detail: {
+          agentId,
+          agentName,
+          agentIcon: 'icon',
+          levelId,
+          levelName,
+          basePrice: levelPrice,
+          setup: levelSetup,
+          expansionPacks: selectedAddons,
+        }
+      }));
+      
+      // Visual feedback
+      button.textContent = '✓ Agregado';
+      button.style.background = 'linear-gradient(135deg, #00FF88 0%, #00CC70 100%)';
+      
+      // Animate floating cart
+      const cart = document.getElementById('floatingCart');
+      if (cart) {
+        cart.style.transform = 'scale(1.05) translateX(-10px)';
+        cart.style.transition = 'all 0.3s ease';
+        setTimeout(() => {
+          cart.style.transform = 'scale(1) translateX(0)';
+        }, 300);
+      }
+      
+      setTimeout(() => {
+        button.innerHTML = `
+          <span>Agregar al Carrito</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"></circle>
+            <circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        `;
+        button.style.background = 'linear-gradient(135deg, #C89828 0%, #E0B84E 100%)';
+      }, 1500);
+    });
+  });
+</script>
+</MainLayout>

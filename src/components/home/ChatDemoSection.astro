@@ -1,0 +1,363 @@
+---
+/**
+ * CHAT DEMO SECTION
+ * Muestra el agente de ventas en acción
+ * Link a /demo para hablar con agente real
+ */
+
+import ChatDemoAnimated from './ChatDemoAnimated';
+import { Zap, Link2, DollarSign, MessageSquare } from 'lucide-react';
+import { baseUrl } from '../../lib/base-url';
+---
+
+<section class="chat-demo-section section-sm">
+  <div class="ab-container">
+    
+    <!-- Header -->
+    <div class="section-header">
+      <div class="demo-badge">
+        <Zap size={18} strokeWidth={2.5} />
+        <span>Ver Agente en Acción</span>
+      </div>
+      <h2 class="section-title">
+        Así trabaja un <span class="text-gradient-gold">agente real</span>
+      </h2>
+      <p class="section-subtitle">
+        De la pregunta a la venta cerrada en 60 segundos. Sin intervención humana.
+      </p>
+    </div>
+
+    <!-- Chat Demo Component (React) -->
+    <div class="demo-wrapper">
+      <ChatDemoAnimated client:only="react" />
+    </div>
+
+    <!-- CTA Principal: Hablar con agente real -->
+    <div class="demo-main-cta">
+      <div class="cta-content">
+        <div class="cta-icon">
+          <MessageSquare size={32} strokeWidth={2.5} />
+        </div>
+        <div class="cta-text-content">
+          <h3>¿Quieres hablar con un agente real?</h3>
+          <p>Prueba nuestro agente en vivo. Hazle preguntas sobre nuestros productos y servicios.</p>
+        </div>
+        <a href={`${baseUrl}/demo`} class="btn btn-primary btn-lg">
+          Hablar con agente ahora
+          <Zap size={20} strokeWidth={2.5} />
+        </a>
+      </div>
+    </div>
+
+    <!-- Features Grid Below Demo -->
+    <div class="demo-features">
+      <div class="demo-feature">
+        <div class="feature-icon">
+          <Zap size={24} strokeWidth={2.5} />
+        </div>
+        <div class="feature-content">
+          <h4>Respuesta instantánea</h4>
+          <p>El agente responde al instante, 24/7, sin delays ni esperas.</p>
+        </div>
+      </div>
+
+      <div class="demo-feature">
+        <div class="feature-icon">
+          <Link2 size={24} strokeWidth={2.5} />
+        </div>
+        <div class="feature-content">
+          <h4>Conectado a sistemas reales</h4>
+          <p>Consulta inventario, actualiza CRM, procesa pagos automáticamente.</p>
+        </div>
+      </div>
+
+      <div class="demo-feature">
+        <div class="feature-icon">
+          <DollarSign size={24} strokeWidth={2.5} />
+        </div>
+        <div class="feature-content">
+          <h4>Cierra ventas completas</h4>
+          <p>No solo responde. Completa transacciones de punta a punta.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Secundario -->
+    <div class="demo-secondary-cta">
+      <p class="cta-note">
+        ¿Quieres ver cómo funciona con tus sistemas? <a href={`${baseUrl}/contacto`}>Agendar demo personalizado →</a>
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .chat-demo-section {
+    background: linear-gradient(180deg, #0d0d1f 0%, #080818 50%, #0d0d1f 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .chat-demo-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 1200px;
+    background: radial-gradient(circle, rgba(200, 152, 40, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Header */
+  .section-header {
+    text-align: center;
+    margin-bottom: 56px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .demo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 18px;
+    background: rgba(200, 152, 40, 0.15);
+    border: 1px solid rgba(200, 152, 40, 0.4);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #C89828;
+    margin-bottom: 24px;
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(200, 152, 40, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 8px rgba(200, 152, 40, 0);
+    }
+  }
+
+  .section-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .section-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Demo Wrapper */
+  .demo-wrapper {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 48px;
+  }
+
+  /* Main CTA (Hablar con agente) */
+  .demo-main-cta {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 56px;
+  }
+
+  .cta-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 32px 40px;
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.15) 0%, rgba(200, 152, 40, 0.05) 100%);
+    border: 2px solid rgba(200, 152, 40, 0.4);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+  }
+
+  .cta-content:hover {
+    border-color: rgba(200, 152, 40, 0.6);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(200, 152, 40, 0.2);
+  }
+
+  .cta-icon {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    border-radius: 16px;
+    color: #080818;
+    box-shadow: 0 4px 16px rgba(200, 152, 40, 0.4);
+  }
+
+  .cta-text-content {
+    flex: 1;
+  }
+
+  .cta-text-content h3 {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+
+  .cta-text-content p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  /* Features Grid */
+  .demo-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    margin-bottom: 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .demo-feature {
+    display: flex;
+    gap: 16px;
+    padding: 24px;
+    background: rgba(8, 8, 24, 0.6);
+    border: 1px solid rgba(200, 152, 40, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .demo-feature:hover {
+    background: rgba(8, 8, 24, 0.8);
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateY(-4px);
+  }
+
+  .feature-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(200, 152, 40, 0.15);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 12px;
+    color: #C89828;
+  }
+
+  .feature-content {
+    flex: 1;
+  }
+
+  .feature-content h4 {
+    font-size: 17px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 6px;
+  }
+
+  .feature-content p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* Secondary CTA */
+  .demo-secondary-cta {
+    text-align: center;
+    padding: 24px 32px;
+    background: rgba(200, 152, 40, 0.04);
+    border: 1px solid rgba(200, 152, 40, 0.15);
+    border-radius: 16px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-note {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  .cta-note a {
+    color: #C89828;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .cta-note a:hover {
+    color: #FFD700;
+    text-decoration: underline;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .section-header {
+      margin-bottom: 40px;
+    }
+
+    .demo-wrapper {
+      margin-bottom: 40px;
+    }
+
+    .demo-main-cta {
+      margin-bottom: 40px;
+    }
+
+    .cta-content {
+      flex-direction: column;
+      text-align: center;
+      padding: 28px 24px;
+      gap: 20px;
+    }
+
+    .cta-icon {
+      width: 56px;
+      height: 56px;
+    }
+
+    .cta-text-content h3 {
+      font-size: 20px;
+    }
+
+    .cta-text-content p {
+      font-size: 15px;
+    }
+
+    .demo-features {
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .demo-feature {
+      padding: 20px;
+    }
+
+    .demo-secondary-cta {
+      padding: 20px 24px;
+    }
+
+    .cta-note {
+      font-size: 14px;
+    }
+  }
+</style>

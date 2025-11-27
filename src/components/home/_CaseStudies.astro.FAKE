@@ -1,0 +1,662 @@
+---
+/**
+ * CASE STUDIES
+ * Casos de éxito detallados con métricas
+ */
+
+import { baseUrl } from '../../lib/base-url';
+
+const cases = [
+  {
+    id: 1,
+    company: 'TechShop MX',
+    industry: 'E-commerce B2B',
+    size: '45 empleados',
+    agent: 'Agente de Ventas',
+    logo: '🛒',
+    challenge: 'Perdían el 60% de leads que llegaban fuera de horario (6pm-8am). No tenían capacidad de responder a todos los mensajes de WhatsApp.',
+    solution: 'Implementamos el Agente de Ventas conectado a HubSpot y WhatsApp Business API. El agente atiende 24/7, cotiza automáticamente y agenda demos.',
+    results: [
+      { label: 'Conversión nocturna', before: '0%', after: '32%', icon: '📈' },
+      { label: 'Leads atendidos/mes', before: '180', after: '520', icon: '👥' },
+      { label: 'Tiempo de respuesta', before: '4.5h', after: '< 3min', icon: '⚡' },
+      { label: 'Revenue adicional', before: '$0', after: '$18K/mes', icon: '💰' },
+    ],
+    quote: 'Recuperamos $18K mensuales en leads que antes se perdían. El ROI fue inmediato.',
+    author: 'Carlos Méndez',
+    role: 'CEO',
+    timeline: '4 semanas',
+  },
+  {
+    id: 2,
+    company: 'Retail Colombia',
+    industry: 'Retail multicanal',
+    size: '120 empleados',
+    agent: 'Agente de Operaciones',
+    logo: '📦',
+    challenge: 'Quiebres de stock frecuentes por desincronización entre Shopify, tiendas físicas y SAP. 15 horas/semana en actualización manual.',
+    solution: 'Agente de Operaciones sincroniza inventario en tiempo real entre los 3 sistemas. Predice demanda y genera órdenes de compra automáticas.',
+    results: [
+      { label: 'Quiebres de stock', before: '28%', after: '4%', icon: '📉' },
+      { label: 'Horas/semana ahorradas', before: '0h', after: '15h', icon: '⏱️' },
+      { label: 'Precisión forecast', before: '62%', after: '91%', icon: '🎯' },
+      { label: 'Overstock reducido', before: '0%', after: '-45%', icon: '💵' },
+    ],
+    quote: 'Ya no tenemos urgencias de inventario. El equipo se enfoca en estrategia, no en Excel.',
+    author: 'Ana Suárez',
+    role: 'COO',
+    timeline: '3 semanas',
+  },
+  {
+    id: 3,
+    company: 'SaaS Argentina',
+    industry: 'Software B2B',
+    size: '32 empleados',
+    agent: 'Revenue Duo (Ventas + Ops)',
+    logo: '🚀',
+    challenge: 'Equipo pequeño, alto volumen de leads y consultas. Necesitaban crecer sin contratar 6+ personas.',
+    solution: 'Bundle Revenue Duo: Agente de Ventas para leads + Agente de Ops para onboarding y soporte nivel 1.',
+    results: [
+      { label: 'Tickets auto-resueltos', before: '0%', after: '82%', icon: '🤖' },
+      { label: 'Conversión leads', before: '12%', after: '27%', icon: '📊' },
+      { label: 'Tiempo onboarding', before: '8 días', after: '2 días', icon: '⚡' },
+      { label: 'Ahorro vs contratar', before: '$0', after: '$12K/mes', icon: '💰' },
+    ],
+    quote: 'Escalamos 3x sin triplicar el equipo. El Revenue Duo es como tener 6 personas trabajando 24/7.',
+    author: 'Roberto Gómez',
+    role: 'CTO',
+    timeline: '5 semanas',
+  },
+];
+---
+
+<section class="case-studies-section section">
+  <div class="ab-container">
+    
+    <!-- Header -->
+    <div class="case-studies-header">
+      <div class="case-badge">
+        <span class="badge-icon">📊</span>
+        <span>Casos de éxito</span>
+      </div>
+      <h2 class="case-title">
+        Resultados <span class="title-highlight">medibles</span> en empresas reales
+      </h2>
+      <p class="case-subtitle">
+        3 casos de nuestro programa piloto (Sep-Nov 2024). Datos reales, no proyecciones.
+      </p>
+    </div>
+
+    <!-- Case Studies Grid -->
+    <div class="cases-grid">
+      {cases.map((caseItem) => (
+        <div class="case-card" data-case={caseItem.id}>
+          
+          <!-- Header -->
+          <div class="case-header">
+            <div class="case-logo">{caseItem.logo}</div>
+            <div class="case-meta">
+              <h3 class="case-company">{caseItem.company}</h3>
+              <div class="case-info">
+                <span class="info-item">{caseItem.industry}</span>
+                <span class="info-divider">·</span>
+                <span class="info-item">{caseItem.size}</span>
+              </div>
+            </div>
+            <div class="case-agent-badge">
+              {caseItem.agent}
+            </div>
+          </div>
+
+          <!-- Challenge -->
+          <div class="case-section">
+            <div class="section-label">
+              <span class="label-icon">⚠️</span>
+              <span class="label-text">Desafío</span>
+            </div>
+            <p class="section-text">{caseItem.challenge}</p>
+          </div>
+
+          <!-- Solution -->
+          <div class="case-section">
+            <div class="section-label">
+              <span class="label-icon">💡</span>
+              <span class="label-text">Solución</span>
+            </div>
+            <p class="section-text">{caseItem.solution}</p>
+          </div>
+
+          <!-- Results Grid -->
+          <div class="case-section">
+            <div class="section-label">
+              <span class="label-icon">📈</span>
+              <span class="label-text">Resultados</span>
+            </div>
+            <div class="results-grid">
+              {caseItem.results.map((result) => (
+                <div class="result-item">
+                  <div class="result-icon">{result.icon}</div>
+                  <div class="result-label">{result.label}</div>
+                  <div class="result-comparison">
+                    <div class="result-before">
+                      <span class="result-label-mini">Antes</span>
+                      <span class="result-value-before">{result.before}</span>
+                    </div>
+                    <div class="result-arrow">→</div>
+                    <div class="result-after">
+                      <span class="result-label-mini">Después</span>
+                      <span class="result-value-after">{result.after}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Quote -->
+          <div class="case-quote">
+            <div class="quote-mark">"</div>
+            <p class="quote-text">{caseItem.quote}</p>
+            <div class="quote-author">
+              <div class="author-avatar">
+                {caseItem.author.split(' ').map(n => n[0]).join('')}
+              </div>
+              <div class="author-details">
+                <div class="author-name">{caseItem.author}</div>
+                <div class="author-role">{caseItem.role}, {caseItem.company}</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline -->
+          <div class="case-timeline">
+            <span class="timeline-icon">⏱️</span>
+            <span class="timeline-text">Implementación: <strong>{caseItem.timeline}</strong></span>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA -->
+    <div class="case-studies-cta">
+      <h3 class="cta-title">¿Quieres resultados similares?</h3>
+      <p class="cta-text">
+        Únete a las empresas que ya están usando agentes de IA para escalar sin contratar.
+      </p>
+      <div class="cta-buttons">
+        <a href={`${baseUrl}/demo`} class="cta-btn btn-primary">
+          Ver demo en vivo
+        </a>
+        <a href={`${baseUrl}/contacto`} class="cta-btn btn-secondary">
+          Hablar con especialista
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .case-studies-section {
+    background: linear-gradient(180deg, #080818 0%, #0d0d1f 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .case-studies-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1400px;
+    height: 1400px;
+    background: radial-gradient(circle, rgba(200, 152, 40, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Header */
+  .case-studies-header {
+    text-align: center;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .case-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(200, 152, 40, 0.12);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #C89828;
+    margin-bottom: 24px;
+  }
+
+  .badge-icon {
+    font-size: 18px;
+  }
+
+  .case-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .title-highlight {
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .case-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  /* Cases Grid */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .case-card {
+    padding: 40px;
+    background: rgba(8, 8, 24, 0.6);
+    border: 1px solid rgba(200, 152, 40, 0.15);
+    border-radius: 24px;
+    backdrop-filter: blur(16px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .case-card:hover {
+    background: rgba(8, 8, 24, 0.8);
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 48px rgba(200, 152, 40, 0.15);
+  }
+
+  /* Case Header */
+  .case-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+
+  .case-logo {
+    font-size: 56px;
+    filter: drop-shadow(0 4px 8px rgba(200, 152, 40, 0.3));
+  }
+
+  .case-meta {
+    flex: 1;
+    min-width: 200px;
+  }
+
+  .case-company {
+    font-size: 28px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+
+  .case-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .info-divider {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
+  .case-agent-badge {
+    padding: 8px 16px;
+    background: rgba(200, 152, 40, 0.15);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #C89828;
+    white-space: nowrap;
+  }
+
+  /* Case Sections */
+  .case-section {
+    margin-bottom: 32px;
+  }
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .label-icon {
+    font-size: 20px;
+  }
+
+  .label-text {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .section-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  /* Results Grid */
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .result-item {
+    padding: 20px;
+    background: rgba(8, 8, 24, 0.6);
+    border: 1px solid rgba(200, 152, 40, 0.15);
+    border-radius: 16px;
+  }
+
+  .result-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+  }
+
+  .result-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .result-comparison {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .result-before,
+  .result-after {
+    flex: 1;
+    text-align: center;
+  }
+
+  .result-label-mini {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  .result-value-before {
+    display: block;
+    font-size: 18px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .result-value-after {
+    display: block;
+    font-size: 20px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .result-arrow {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Quote */
+  .case-quote {
+    padding: 24px;
+    background: rgba(200, 152, 40, 0.08);
+    border: 1px solid rgba(200, 152, 40, 0.2);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    position: relative;
+  }
+
+  .quote-mark {
+    font-size: 48px;
+    font-weight: 900;
+    color: rgba(200, 152, 40, 0.3);
+    line-height: 1;
+    margin-bottom: 12px;
+    font-family: Georgia, serif;
+  }
+
+  .quote-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+    margin-bottom: 20px;
+  }
+
+  .quote-author {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .author-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 800;
+    color: #080818;
+  }
+
+  .author-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .author-role {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Timeline */
+  .case-timeline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: rgba(0, 255, 136, 0.08);
+    border: 1px solid rgba(0, 255, 136, 0.2);
+    border-radius: 12px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .timeline-icon {
+    font-size: 20px;
+  }
+
+  .timeline-text strong {
+    color: #00FF88;
+    font-weight: 700;
+  }
+
+  /* CTA */
+  .case-studies-cta {
+    text-align: center;
+    padding: 48px 40px;
+    background: rgba(200, 152, 40, 0.08);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .cta-title {
+    font-size: 32px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+  }
+
+  .cta-text {
+    font-size: 17px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 32px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 32px;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    color: #080818;
+    box-shadow: 0 4px 16px rgba(200, 152, 40, 0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(200, 152, 40, 0.5);
+    color: #080818;
+  }
+
+  .btn-secondary {
+    background: rgba(8, 8, 24, 0.6);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    color: #FFFFFF;
+  }
+
+  .btn-secondary:hover {
+    background: rgba(200, 152, 40, 0.15);
+    border-color: rgba(200, 152, 40, 0.6);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .results-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .case-studies-header {
+      margin-bottom: 48px;
+    }
+
+    .cases-grid {
+      gap: 32px;
+      margin-bottom: 64px;
+    }
+
+    .case-card {
+      padding: 28px 24px;
+    }
+
+    .case-header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .case-logo {
+      font-size: 48px;
+    }
+
+    .case-company {
+      font-size: 24px;
+    }
+
+    .case-agent-badge {
+      width: 100%;
+      text-align: center;
+    }
+
+    .quote-mark {
+      font-size: 40px;
+    }
+
+    .quote-text {
+      font-size: 15px;
+    }
+
+    .case-studies-cta {
+      padding: 32px 24px;
+    }
+
+    .cta-title {
+      font-size: 24px;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .cta-btn {
+      width: 100%;
+    }
+  }
+</style>

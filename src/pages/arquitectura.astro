@@ -1,0 +1,1109 @@
+---
+/**
+ * PÁGINA ARQUITECTURA MULTITENANT V2
+ * FASE 3: Lucide Icons implementados
+ */
+
+import MainLayout from '../layouts/Main.astro';
+import Navbar from '../components/global/Navbar.astro';
+import Footer from '../components/global/Footer.astro';
+import { 
+  Building2, X, Check, DollarSign, Snail, Wrench, AlertTriangle,
+  Gem, Zap, Rocket, Target, Lock, TrendingUp, Globe, Database,
+  BarChart3, Scale, Settings, Cloud, ArrowRight
+} from 'lucide-react';
+---
+
+<MainLayout 
+  title="Arquitectura Multitenant - Agents Booster" 
+  description="Arquitectura enterprise-grade escalable, segura y optimizada. Calidad Fortune 500 a precio LATAM."
+>
+  <Navbar />
+  
+  <div class="arquitectura-page">
+    
+    <!-- Hero -->
+    <section class="arq-hero">
+      <div class="ab-container">
+        <div class="breadcrumbs">
+          <a href="/">Inicio</a>
+          <span class="separator">→</span>
+          <span class="current">Arquitectura</span>
+        </div>
+        
+        <div class="hero-content">
+          <span class="hero-badge">
+            <Building2 size={16} strokeWidth={2.5} client:load />
+            <span>Enterprise-Grade</span>
+          </span>
+          
+          <h1 class="hero-title">
+            Arquitectura Multitenant<br />
+            <span class="text-gradient-gold">Enterprise para PYMEs</span>
+          </h1>
+          
+          <p class="hero-lead">
+            La misma arquitectura que usan empresas Fortune 500, ahora accesible para tu negocio. 
+            <strong>Escalabilidad ilimitada</strong>, <strong>seguridad por diseño</strong>, 
+            y <strong>costos optimizados</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- ¿Qué es Multitenant? -->
+    <section class="explicacion-section">
+      <div class="ab-container">
+        <div class="section-header">
+          <h2 class="section-title">¿Qué es Arquitectura Multitenant?</h2>
+          <p class="section-subtitle">
+            Y por qué es superior a soluciones single-tenant
+          </p>
+        </div>
+        
+        <div class="comparison-grid">
+          
+          <!-- Single-tenant -->
+          <div class="comparison-card comparison-old">
+            <div class="comparison-badge badge-old">
+              <X size={14} strokeWidth={3} client:load />
+              <span>Single-Tenant</span>
+            </div>
+            <h3 class="comparison-title">Soluciones Tradicionales</h3>
+            
+            <div class="comparison-diagram">
+              <div class="diagram-box">
+                <div class="tenant-box">Cliente A</div>
+                <div class="server-box">Servidor dedicado</div>
+                <div class="db-box">Base de datos</div>
+              </div>
+              <div class="diagram-box">
+                <div class="tenant-box">Cliente B</div>
+                <div class="server-box">Servidor dedicado</div>
+                <div class="db-box">Base de datos</div>
+              </div>
+              <div class="diagram-box">
+                <div class="tenant-box">Cliente C</div>
+                <div class="server-box">Servidor dedicado</div>
+                <div class="db-box">Base de datos</div>
+              </div>
+            </div>
+            
+            <div class="comparison-problems">
+              <div class="problem-item">
+                <DollarSign size={20} strokeWidth={2} className="problem-icon" client:load />
+                <span>Costos altos (infraestructura por cliente)</span>
+              </div>
+              <div class="problem-item">
+                <Snail size={20} strokeWidth={2} className="problem-icon" client:load />
+                <span>Escalamiento manual y lento</span>
+              </div>
+              <div class="problem-item">
+                <Wrench size={20} strokeWidth={2} className="problem-icon" client:load />
+                <span>Updates complejos y riesgosos</span>
+              </div>
+              <div class="problem-item">
+                <AlertTriangle size={20} strokeWidth={2} className="problem-icon" client:load />
+                <span>Recursos desperdiciados</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Multi-tenant -->
+          <div class="comparison-card comparison-new">
+            <div class="comparison-badge badge-new">
+              <Check size={14} strokeWidth={3} client:load />
+              <span>Multi-Tenant</span>
+            </div>
+            <h3 class="comparison-title">Agents Booster</h3>
+            
+            <div class="comparison-diagram">
+              <div class="diagram-unified">
+                <div class="tenants-row">
+                  <div class="tenant-box-small">Cliente A</div>
+                  <div class="tenant-box-small">Cliente B</div>
+                  <div class="tenant-box-small">Cliente C</div>
+                  <div class="tenant-box-small">+100 más</div>
+                </div>
+                <div class="isolation-layer">Capa de Aislamiento</div>
+                <div class="shared-infra">
+                  <div class="infra-item">Auto-Scaling</div>
+                  <div class="infra-item">Load Balancer</div>
+                  <div class="infra-item">Cache Distribuido</div>
+                </div>
+                <div class="db-layer">Base de Datos Optimizada</div>
+              </div>
+            </div>
+            
+            <div class="comparison-benefits">
+              <div class="benefit-item">
+                <Gem size={20} strokeWidth={2} className="benefit-icon" client:load />
+                <span><strong>Costos 10x menores</strong> (infraestructura compartida)</span>
+              </div>
+              <div class="benefit-item">
+                <Zap size={20} strokeWidth={2} className="benefit-icon" client:load />
+                <span><strong>Escalamiento automático</strong> en segundos</span>
+              </div>
+              <div class="benefit-item">
+                <Rocket size={20} strokeWidth={2} className="benefit-icon" client:load />
+                <span><strong>Updates instantáneos</strong> sin downtime</span>
+              </div>
+              <div class="benefit-item">
+                <Target size={20} strokeWidth={2} className="benefit-icon" client:load />
+                <span><strong>Recursos optimizados</strong> 24/7</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- Componentes Clave -->
+    <section class="componentes-section">
+      <div class="ab-container">
+        <div class="section-header">
+          <h2 class="section-title">Componentes Clave de Nuestra Arquitectura</h2>
+        </div>
+        
+        <div class="componentes-grid">
+          
+          <!-- Tenant Isolation -->
+          <div class="componente-card">
+            <div class="componente-icon-wrapper">
+              <Lock size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="componente-title">Tenant Isolation</h3>
+            <p class="componente-description">
+              Tus datos están <strong>completamente aislados</strong> de otros clientes 
+              a nivel de base de datos, aplicación y red.
+            </p>
+            <ul class="componente-features">
+              <li>Database-level partitioning</li>
+              <li>Application-level isolation</li>
+              <li>Network segmentation</li>
+              <li>Access control per tenant</li>
+            </ul>
+            <div class="componente-result">
+              <strong>Resultado:</strong> Seguridad y privacidad garantizadas
+            </div>
+          </div>
+          
+          <!-- Auto-Scaling -->
+          <div class="componente-card">
+            <div class="componente-icon-wrapper">
+              <TrendingUp size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="componente-title">Auto-Scaling</h3>
+            <p class="componente-description">
+              La infraestructura <strong>escala automáticamente</strong> según demanda. 
+              Black Friday o domingo, siempre responde rápido.
+            </p>
+            <ul class="componente-features">
+              <li>Horizontal pod autoscaling (Kubernetes)</li>
+              <li>Load balancing inteligente</li>
+              <li>Resource optimization 24/7</li>
+              <li>Cost efficiency garantizada</li>
+            </ul>
+            <div class="componente-result">
+              <strong>Resultado:</strong> Performance consistente, costos predecibles
+            </div>
+          </div>
+          
+          <!-- Cache Distribuido -->
+          <div class="componente-card">
+            <div class="componente-icon-wrapper">
+              <Zap size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="componente-title">Cache Distribuido</h3>
+            <p class="componente-description">
+              Datos frecuentes en <strong>cache Redis</strong>. Respuestas en milisegundos, 
+              no segundos.
+            </p>
+            <ul class="componente-features">
+              <li>Redis ElastiCache (AWS)</li>
+              <li>Query optimization automática</li>
+              <li>CDN global (CloudFlare)</li>
+              <li>Edge computing</li>
+            </ul>
+            <div class="componente-result">
+              <strong>Resultado:</strong> Latency &lt;500ms p95 garantizado
+            </div>
+          </div>
+          
+          <!-- Multi-Region -->
+          <div class="componente-card">
+            <div class="componente-icon-wrapper">
+              <Globe size={48} strokeWidth={2} client:load />
+            </div>
+            <h3 class="componente-title">Multi-Region Deployment</h3>
+            <p class="componente-description">
+              Desplegado en <strong>múltiples regiones AWS</strong>. Si una región falla, 
+              otra toma el control automáticamente.
+            </p>
+            <ul class="componente-features">
+              <li>US-East, US-West, SA-East</li>
+              <li>Failover automático &lt;60s</li>
+              <li>Data replication en tiempo real</li>
+              <li>99.9% SLA garantizado</li>
+            </ul>
+            <div class="componente-result">
+              <strong>Resultado:</strong> Reliability enterprise-grade
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- Beneficios para el Cliente -->
+    <section class="beneficios-section">
+      <div class="ab-container">
+        <div class="section-header">
+          <h2 class="section-title">¿Qué Significa Esto para Tu Negocio?</h2>
+          <p class="section-subtitle">
+            Beneficios tangibles que impactan tu bottom line
+          </p>
+        </div>
+        
+        <div class="beneficios-grid">
+          
+          <div class="beneficio-card">
+            <div class="beneficio-number">01</div>
+            <h3 class="beneficio-title">Costos Optimizados</h3>
+            <p class="beneficio-text">
+              Al compartir infraestructura entre múltiples clientes (con aislamiento completo), 
+              tus costos son <strong>10x menores</strong> que soluciones single-tenant.
+            </p>
+            <div class="beneficio-stat">
+              <span class="stat-big">-90%</span>
+              <span class="stat-label">vs. infraestructura dedicada</span>
+            </div>
+          </div>
+          
+          <div class="beneficio-card">
+            <div class="beneficio-number">02</div>
+            <h3 class="beneficio-title">Velocidad Garantizada</h3>
+            <p class="beneficio-text">
+              Cache distribuido y CDN global aseguran que tus agentes respondan en 
+              <strong>&lt;500ms</strong>, sin importar el tráfico.
+            </p>
+            <div class="beneficio-stat">
+              <span class="stat-big">&lt;500ms</span>
+              <span class="stat-label">latency p95 garantizada</span>
+            </div>
+          </div>
+          
+          <div class="beneficio-card">
+            <div class="beneficio-number">03</div>
+            <h3 class="beneficio-title">Escalabilidad Ilimitada</h3>
+            <p class="beneficio-text">
+              Tu negocio crece 10x este mes? No problem. Auto-scaling maneja picos de tráfico 
+              sin intervención manual ni downtime.
+            </p>
+            <div class="beneficio-stat">
+              <span class="stat-big">∞</span>
+              <span class="stat-label">escalabilidad horizontal</span>
+            </div>
+          </div>
+          
+          <div class="beneficio-card">
+            <div class="beneficio-number">04</div>
+            <h3 class="beneficio-title">Updates Sin Fricción</h3>
+            <p class="beneficio-text">
+              Mejoras y features nuevos se despliegan <strong>sin downtime</strong>. 
+              Siempre tienes la última versión sin hacer nada.
+            </p>
+            <div class="beneficio-stat">
+              <span class="stat-big">0 min</span>
+              <span class="stat-label">downtime en updates</span>
+            </div>
+          </div>
+          
+          <div class="beneficio-card">
+            <div class="beneficio-number">05</div>
+            <h3 class="beneficio-title">Seguridad Compartida</h3>
+            <p class="beneficio-text">
+              Todos los clientes se benefician de mejoras de seguridad inmediatamente. 
+              Un cliente encuentra un bug? Todos quedan protegidos.
+            </p>
+            <div class="beneficio-stat">
+              <span class="stat-big">24/7</span>
+              <span class="stat-label">monitoring + security updates</span>
+            </div>
+          </div>
+          
+          <div class="beneficio-card">
+            <div class="beneficio-number">06</div>
+            <h3 class="beneficio-title">Reliability Enterprise</h3>
+            <p class="beneficio-text">
+              Multi-region, failover automático, backups continuos. 
+              Tu operación nunca para, incluso si AWS falla.
+            </p>
+            <div class="beneficio-stat">
+              <span class="stat-big">99.9%</span>
+              <span class="stat-label">uptime garantizado</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- Stack Técnico -->
+    <section class="stack-section">
+      <div class="ab-container">
+        <div class="section-header">
+          <h2 class="section-title">Stack Tecnológico</h2>
+          <p class="section-subtitle">
+            Tecnología probada en producción a escala global
+          </p>
+        </div>
+        
+        <div class="stack-diagram">
+          
+          <!-- Layer 1: Frontend/Edge -->
+          <div class="stack-layer">
+            <div class="layer-title">
+              <span class="layer-icon-wrapper">
+                <Globe size={24} strokeWidth={2} client:load />
+              </span>
+              <span>Edge Layer</span>
+            </div>
+            <div class="layer-techs">
+              <div class="tech-tag">CloudFlare CDN</div>
+              <div class="tech-tag">Edge Workers</div>
+              <div class="tech-tag">DDoS Protection</div>
+            </div>
+          </div>
+          
+          <!-- Layer 2: Load Balancing -->
+          <div class="stack-layer">
+            <div class="layer-title">
+              <span class="layer-icon-wrapper">
+                <Scale size={24} strokeWidth={2} client:load />
+              </span>
+              <span>Load Balancing</span>
+            </div>
+            <div class="layer-techs">
+              <div class="tech-tag">AWS ALB</div>
+              <div class="tech-tag">Health Checks</div>
+              <div class="tech-tag">Auto-Scaling</div>
+            </div>
+          </div>
+          
+          <!-- Layer 3: Application -->
+          <div class="stack-layer">
+            <div class="layer-title">
+              <span class="layer-icon-wrapper">
+                <Settings size={24} strokeWidth={2} client:load />
+              </span>
+              <span>Application Layer</span>
+            </div>
+            <div class="layer-techs">
+              <div class="tech-tag">Kubernetes (EKS)</div>
+              <div class="tech-tag">Docker Containers</div>
+              <div class="tech-tag">Horizontal Scaling</div>
+            </div>
+          </div>
+          
+          <!-- Layer 4: Cache -->
+          <div class="stack-layer">
+            <div class="layer-title">
+              <span class="layer-icon-wrapper">
+                <Zap size={24} strokeWidth={2} client:load />
+              </span>
+              <span>Cache Layer</span>
+            </div>
+            <div class="layer-techs">
+              <div class="tech-tag">Redis (ElastiCache)</div>
+              <div class="tech-tag">Session Store</div>
+              <div class="tech-tag">Query Cache</div>
+            </div>
+          </div>
+          
+          <!-- Layer 5: Database -->
+          <div class="stack-layer">
+            <div class="layer-title">
+              <span class="layer-icon-wrapper">
+                <Database size={24} strokeWidth={2} client:load />
+              </span>
+              <span>Data Layer</span>
+            </div>
+            <div class="layer-techs">
+              <div class="tech-tag">PostgreSQL (Aurora)</div>
+              <div class="tech-tag">Multi-AZ Replication</div>
+              <div class="tech-tag">Automated Backups</div>
+            </div>
+          </div>
+          
+          <!-- Layer 6: Monitoring -->
+          <div class="stack-layer">
+            <div class="layer-title">
+              <span class="layer-icon-wrapper">
+                <BarChart3 size={24} strokeWidth={2} client:load />
+              </span>
+              <span>Observability</span>
+            </div>
+            <div class="layer-techs">
+              <div class="tech-tag">Datadog</div>
+              <div class="tech-tag">Sentry</div>
+              <div class="tech-tag">CloudWatch</div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- CTA Final -->
+    <section class="cta-section">
+      <div class="ab-container">
+        <div class="cta-card">
+          <h2 class="cta-title">¿Quieres Ver la Arquitectura en Acción?</h2>
+          <p class="cta-description">
+            Agenda una demo técnica donde te mostramos cómo funciona nuestra arquitectura, 
+            cómo se integra con tus sistemas, y cómo garantizamos performance y seguridad.
+          </p>
+          <div class="cta-buttons">
+            <a href="/demo" class="btn btn-primary btn-lg">
+              <span>Agendar Demo Técnica</span>
+              <ArrowRight size={20} strokeWidth={2.5} client:load />
+            </a>
+            <a href="/seguridad" class="btn btn-secondary btn-lg">
+              <span>Ver Seguridad</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+  
+  <Footer />
+</MainLayout>
+
+<style>
+  /* ============================================
+     ARQUITECTURA PAGE V2
+     Con Lucide Icons
+     ============================================ */
+  
+  .arquitectura-page {
+    background: linear-gradient(180deg, #0B0D0E 0%, #080818 50%, #0B0D0E 100%);
+    min-height: 100vh;
+  }
+  
+  /* Breadcrumbs */
+  .breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    margin-bottom: 32px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  .breadcrumbs a {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+  }
+  
+  .breadcrumbs a:hover {
+    color: #C89828;
+  }
+  
+  .breadcrumbs .separator {
+    color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .breadcrumbs .current {
+    color: #C89828;
+    font-weight: 600;
+  }
+  
+  /* Hero */
+  .arq-hero {
+    padding: 160px 0 80px;
+  }
+  
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 24px;
+    background: rgba(200, 152, 40, 0.15);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    color: #F4D56E;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 28px;
+  }
+  
+  .hero-badge :global(svg) {
+    color: #C89828;
+  }
+  
+  .hero-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 900;
+    color: #FFFFFF;
+    line-height: 1.15;
+    margin-bottom: 24px;
+  }
+  
+  .hero-lead {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+  }
+  
+  .hero-lead strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  /* Section Headers */
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 64px;
+  }
+  
+  .section-title {
+    font-size: clamp(32px, 4vw, 42px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .section-subtitle {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+  }
+  
+  /* Explicación / Comparison */
+  .explicacion-section {
+    padding: 100px 0;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  
+  .comparison-card {
+    padding: 40px;
+    border-radius: 24px;
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    position: relative;
+  }
+  
+  .comparison-old {
+    background: rgba(255, 107, 107, 0.05);
+    border-color: rgba(255, 107, 107, 0.2);
+  }
+  
+  .comparison-new {
+    background: rgba(0, 255, 136, 0.05);
+    border-color: rgba(0, 255, 136, 0.2);
+  }
+  
+  .comparison-badge {
+    position: absolute;
+    top: -12px;
+    left: 40px;
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .badge-old {
+    background: #FF6B6B;
+    color: #080818;
+  }
+  
+  .badge-new {
+    background: #00FF88;
+    color: #080818;
+  }
+  
+  .comparison-title {
+    font-size: 24px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 24px;
+    margin-top: 8px;
+  }
+  
+  .comparison-diagram {
+    margin-bottom: 24px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    min-height: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+  }
+  
+  .diagram-box {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .tenant-box,
+  .server-box,
+  .db-box {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .tenant-box {
+    background: rgba(200, 152, 40, 0.2);
+    border: 2px solid rgba(200, 152, 40, 0.4);
+    color: #F4D56E;
+  }
+  
+  .server-box {
+    background: rgba(74, 158, 255, 0.2);
+    border: 2px solid rgba(74, 158, 255, 0.4);
+    color: #4A9EFF;
+  }
+  
+  .db-box {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .diagram-unified {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .tenants-row {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .tenant-box-small {
+    padding: 8px 12px;
+    background: rgba(200, 152, 40, 0.2);
+    border: 2px solid rgba(200, 152, 40, 0.4);
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #F4D56E;
+  }
+  
+  .isolation-layer {
+    padding: 12px;
+    background: rgba(0, 255, 136, 0.15);
+    border: 2px solid rgba(0, 255, 136, 0.3);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #00FF88;
+  }
+  
+  .shared-infra {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+  
+  .infra-item {
+    padding: 10px 16px;
+    background: rgba(74, 158, 255, 0.2);
+    border: 2px solid rgba(74, 158, 255, 0.4);
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #4A9EFF;
+  }
+  
+  .db-layer {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .comparison-problems,
+  .comparison-benefits {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .problem-item,
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  .problem-item {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .problem-item :global(.problem-icon) {
+    flex-shrink: 0;
+    color: #FF6B6B;
+  }
+  
+  .benefit-item {
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .benefit-item :global(.benefit-icon) {
+    flex-shrink: 0;
+    color: #00FF88;
+  }
+  
+  .benefit-item strong {
+    color: #00FF88;
+    font-weight: 700;
+  }
+  
+  /* Componentes */
+  .componentes-section {
+    padding: 100px 0;
+  }
+  
+  .componentes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+  }
+  
+  .componente-card {
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    transition: all 0.4s ease;
+  }
+  
+  .componente-card:hover {
+    border-color: rgba(200, 152, 40, 0.4);
+    transform: translateY(-4px);
+  }
+  
+  .componente-icon-wrapper {
+    margin-bottom: 20px;
+  }
+  
+  .componente-icon-wrapper :global(svg) {
+    color: #C89828;
+    filter: drop-shadow(0 4px 8px rgba(200, 152, 40, 0.3));
+  }
+  
+  .componente-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .componente-description {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  
+  .componente-description strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  .componente-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .componente-features li {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.7);
+    padding-left: 20px;
+    position: relative;
+  }
+  
+  .componente-features li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #C89828;
+    font-weight: 700;
+  }
+  
+  .componente-result {
+    padding: 16px;
+    background: rgba(200, 152, 40, 0.1);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 12px;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.9);
+  }
+  
+  .componente-result strong {
+    color: #C89828;
+    font-weight: 700;
+  }
+  
+  /* Beneficios */
+  .beneficios-section {
+    padding: 100px 0;
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 32px;
+  }
+  
+  .beneficio-card {
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    position: relative;
+  }
+  
+  .beneficio-number {
+    position: absolute;
+    top: -16px;
+    left: 40px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 900;
+    color: #080818;
+  }
+  
+  .beneficio-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    margin-top: 8px;
+  }
+  
+  .beneficio-text {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  
+  .beneficio-text strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+  
+  .beneficio-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 20px;
+    background: rgba(200, 152, 40, 0.1);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .stat-big {
+    font-size: 40px;
+    font-weight: 900;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 600;
+  }
+  
+  /* Stack Diagram */
+  .stack-section {
+    padding: 100px 0;
+  }
+  
+  .stack-diagram {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .stack-layer {
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+  }
+  
+  .layer-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    font-weight: 800;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .layer-icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .layer-icon-wrapper :global(svg) {
+    color: #C89828;
+    filter: drop-shadow(0 2px 4px rgba(200, 152, 40, 0.3));
+  }
+  
+  .layer-techs {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  
+  .tech-tag {
+    padding: 10px 16px;
+    background: rgba(200, 152, 40, 0.15);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #C89828;
+  }
+  
+  /* CTA */
+  .cta-section {
+    padding: 100px 0;
+  }
+  
+  .cta-card {
+    padding: 64px;
+    background: linear-gradient(135deg, rgba(200, 152, 40, 0.15) 0%, rgba(200, 152, 40, 0.05) 100%);
+    border: 2px solid rgba(200, 152, 40, 0.3);
+    border-radius: 24px;
+    text-align: center;
+  }
+  
+  .cta-title {
+    font-size: 36px;
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+  }
+  
+  .cta-description {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 32px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .beneficios-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .arq-hero {
+      padding: 140px 0 60px;
+    }
+    
+    .componentes-grid,
+    .beneficios-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .cta-card {
+      padding: 40px 24px;
+    }
+    
+    .cta-buttons {
+      flex-direction: column;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    
+    .cta-buttons .btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .infra-item {
+      font-size: 10px;
+      padding: 8px 12px;
+    }
+  }
+</style>
+</MainLayout>

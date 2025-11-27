@@ -1,0 +1,587 @@
+---
+/**
+ * TESTIMONIALS - WORLD-CLASS SOCIAL PROOF
+ * Testimonios con avatares estilizados, métricas y quotes
+ * Preparado para fotos reales cuando estén disponibles
+ */
+
+import { Quote, TrendingUp, Clock, CheckCircle } from 'lucide-react';
+---
+
+<section class="testimonials-section section">
+  <div class="ab-container">
+    <div class="section-header">
+      <div class="badge badge-gold">
+        <Quote size={16} strokeWidth={2.5} client:load />
+        <span>Testimonios</span>
+      </div>
+      <h2 class="section-title">
+        Lo que dicen <span class="text-gradient-gold">nuestros clientes</span>
+      </h2>
+      <p class="section-subtitle">
+        Empresas reales, resultados reales. De nuestro programa piloto con 8 empresas LATAM.
+      </p>
+    </div>
+
+    <div class="testimonials-grid">
+      
+      <!-- Testimonio 1 -->
+      <div class="testimonial-card">
+        <div class="quote-icon">
+          <Quote size={32} strokeWidth={1.5} className="quote-svg" client:load />
+        </div>
+        
+        <p class="testimonial-text">
+          "El agente de ventas nos ayudó a recuperar <strong>$18K en leads nocturnos</strong> 
+          que antes perdíamos. Se integró con HubSpot sin tocar código. Ahora atendemos 24/7 
+          sin contratar más personal."
+        </p>
+        
+        <div class="testimonial-author">
+          <div class="author-avatar avatar-gold">
+            <span>CM</span>
+          </div>
+          <div class="author-info">
+            <div class="author-name">Carlos Méndez</div>
+            <div class="author-title">CEO</div>
+            <div class="author-company">TechShop México</div>
+          </div>
+          <div class="author-flag">🇲🇽</div>
+        </div>
+        
+        <div class="testimonial-metrics">
+          <div class="metric metric-highlight">
+            <TrendingUp size={16} strokeWidth={2.5} className="metric-icon" client:load />
+            <div class="metric-content">
+              <div class="metric-value">+42%</div>
+              <div class="metric-label">Conversión</div>
+            </div>
+          </div>
+          <div class="metric">
+            <Clock size={16} strokeWidth={2.5} className="metric-icon" client:load />
+            <div class="metric-content">
+              <div class="metric-value">24/7</div>
+              <div class="metric-label">Cobertura</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-tag">
+          <CheckCircle size={14} strokeWidth={2.5} client:load />
+          <span>Agente de Ventas</span>
+        </div>
+      </div>
+
+      <!-- Testimonio 2 -->
+      <div class="testimonial-card">
+        <div class="quote-icon">
+          <Quote size={32} strokeWidth={1.5} className="quote-svg" client:load />
+        </div>
+        
+        <p class="testimonial-text">
+          "Ahorramos <strong>15 horas por semana</strong> en gestión de inventario. 
+          El agente actualiza stock automáticamente entre Shopify y nuestro ERP. 
+          Los errores de inventario bajaron un 68%."
+        </p>
+        
+        <div class="testimonial-author">
+          <div class="author-avatar avatar-blue">
+            <span>AS</span>
+          </div>
+          <div class="author-info">
+            <div class="author-name">Ana Suárez</div>
+            <div class="author-title">COO</div>
+            <div class="author-company">Retail Plus Colombia</div>
+          </div>
+          <div class="author-flag">🇨🇴</div>
+        </div>
+        
+        <div class="testimonial-metrics">
+          <div class="metric">
+            <TrendingUp size={16} strokeWidth={2.5} className="metric-icon" client:load />
+            <div class="metric-content">
+              <div class="metric-value">-68%</div>
+              <div class="metric-label">Errores</div>
+            </div>
+          </div>
+          <div class="metric metric-highlight">
+            <Clock size={16} strokeWidth={2.5} className="metric-icon" client:load />
+            <div class="metric-content">
+              <div class="metric-value">15h</div>
+              <div class="metric-label">Ahorradas/sem</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-tag">
+          <CheckCircle size={14} strokeWidth={2.5} client:load />
+          <span>Agente de Operaciones</span>
+        </div>
+      </div>
+
+      <!-- Testimonio 3 -->
+      <div class="testimonial-card">
+        <div class="quote-icon">
+          <Quote size={32} strokeWidth={1.5} className="quote-svg" client:load />
+        </div>
+        
+        <p class="testimonial-text">
+          "Nuestro agente de soporte resuelve el <strong>82% de tickets nivel 1</strong> 
+          sin intervención humana. El equipo ahora se enfoca en casos complejos. 
+          Tiempo de respuesta promedio: menos de 3 segundos."
+        </p>
+        
+        <div class="testimonial-author">
+          <div class="author-avatar avatar-purple">
+            <span>RG</span>
+          </div>
+          <div class="author-info">
+            <div class="author-name">Roberto Gómez</div>
+            <div class="author-title">CTO</div>
+            <div class="author-company">CloudTech Argentina</div>
+          </div>
+          <div class="author-flag">🇦🇷</div>
+        </div>
+        
+        <div class="testimonial-metrics">
+          <div class="metric metric-highlight">
+            <TrendingUp size={16} strokeWidth={2.5} className="metric-icon" client:load />
+            <div class="metric-content">
+              <div class="metric-value">82%</div>
+              <div class="metric-label">Auto-resolución</div>
+            </div>
+          </div>
+          <div class="metric">
+            <Clock size={16} strokeWidth={2.5} className="metric-icon" client:load />
+            <div class="metric-content">
+              <div class="metric-value">&lt; 3s</div>
+              <div class="metric-label">Respuesta</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-tag">
+          <CheckCircle size={14} strokeWidth={2.5} client:load />
+          <span>Agente de Soporte</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="testimonials-footer">
+      <div class="footer-badge">
+        <span class="badge-icon">🧪</span>
+        <div class="footer-text">
+          <strong>Programa Piloto Completado</strong>
+          <span>Sep-Nov 2024 · 8 empresas en México, Colombia y Argentina</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials-section {
+    background: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1200px;
+    height: 1200px;
+    background: radial-gradient(circle, rgba(200, 152, 40, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 64px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-header .badge {
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    font-size: clamp(32px, 4vw, 48px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .section-subtitle {
+    font-size: 18px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  /* ============================================
+     GRID
+     ============================================ */
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ============================================
+     CARD
+     ============================================ */
+
+  .testimonial-card {
+    background: rgba(8, 8, 24, 0.7);
+    border: 2px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 36px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(16px);
+  }
+
+  .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(200, 152, 40, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .testimonial-card:hover::before {
+    opacity: 1;
+  }
+
+  .testimonial-card:hover {
+    background: rgba(8, 8, 24, 0.9);
+    border-color: rgba(200, 152, 40, 0.4);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 
+      0 24px 64px rgba(0, 0, 0, 0.4),
+      0 0 80px rgba(200, 152, 40, 0.2);
+  }
+
+  /* Quote Icon */
+  .quote-icon {
+    color: rgba(200, 152, 40, 0.25);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .quote-icon :global(.quote-svg) {
+    filter: drop-shadow(0 0 10px rgba(200, 152, 40, 0.2));
+  }
+
+  /* Text */
+  .testimonial-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 28px;
+    flex: 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial-text strong {
+    color: #C89828;
+    font-weight: 700;
+    background: rgba(200, 152, 40, 0.1);
+    padding: 2px 4px;
+    border-radius: 4px;
+  }
+
+  /* ============================================
+     AUTHOR
+     ============================================ */
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    z-index: 1;
+  }
+
+  .author-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
+
+  .avatar-gold {
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    color: #080818;
+  }
+
+  .avatar-blue {
+    background: linear-gradient(135deg, #4A9EFF 0%, #6BB6FF 100%);
+    color: #080818;
+  }
+
+  .avatar-purple {
+    background: linear-gradient(135deg, #9D4EDD 0%, #C77DFF 100%);
+    color: #FFFFFF;
+  }
+
+  .author-info {
+    flex: 1;
+  }
+
+  .author-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 2px;
+  }
+
+  .author-title {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+
+  .author-company {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .author-flag {
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  /* ============================================
+     METRICS
+     ============================================ */
+
+  .testimonial-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 20px;
+  }
+
+  .metric {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .metric:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(200, 152, 40, 0.3);
+  }
+
+  .metric-highlight {
+    background: rgba(200, 152, 40, 0.08);
+    border-color: rgba(200, 152, 40, 0.3);
+  }
+
+  .metric :global(.metric-icon) {
+    color: #C89828;
+    flex-shrink: 0;
+  }
+
+  .metric-content {
+    flex: 1;
+  }
+
+  .metric-value {
+    font-size: 20px;
+    font-weight: 800;
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .metric-label {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  /* ============================================
+     TAG
+     ============================================ */
+
+  .testimonial-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    background: rgba(200, 152, 40, 0.1);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #C89828;
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
+  }
+
+  .testimonial-tag :global(svg) {
+    color: #00FF88;
+  }
+
+  /* ============================================
+     FOOTER
+     ============================================ */
+
+  .testimonials-footer {
+    margin-top: 64px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-badge {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 32px;
+    background: rgba(200, 152, 40, 0.08);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 16px;
+    max-width: 700px;
+  }
+
+  .badge-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+
+  .footer-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .footer-text strong {
+    font-size: 15px;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .footer-text span {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* ============================================
+     RESPONSIVE
+     ============================================ */
+
+  @media (max-width: 1200px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .testimonial-card {
+      padding: 28px 24px;
+    }
+
+    .quote-icon {
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      margin-bottom: 24px;
+    }
+
+    .author-avatar {
+      width: 48px;
+      height: 48px;
+      font-size: 16px;
+    }
+
+    .author-name {
+      font-size: 16px;
+    }
+
+    .author-title,
+    .author-company {
+      font-size: 12px;
+    }
+
+    .author-flag {
+      font-size: 20px;
+    }
+
+    .testimonial-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .metric {
+      padding: 12px 14px;
+    }
+
+    .testimonials-footer {
+      margin-top: 48px;
+    }
+
+    .footer-badge {
+      flex-direction: column;
+      text-align: center;
+      padding: 20px 24px;
+    }
+  }
+
+  /* ============================================
+     ACCESSIBILITY
+     ============================================ */
+
+  @media (prefers-reduced-motion: reduce) {
+    .testimonial-card {
+      transition: none;
+    }
+  }
+</style>

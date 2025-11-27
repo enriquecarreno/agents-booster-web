@@ -1,0 +1,167 @@
+---
+/**
+ * MAIN LAYOUT - COSMIC EDITION V4
+ * Layout principal con SEO mejorado + Widget Diego
+ */
+
+import '../../generated/fonts.css';
+import '../../generated/webflow.css';
+import '../styles/global.css';
+import '../styles/cosmic-theme.css';
+import '../styles/pricing.css';
+import '../site-components/global.css';
+import StickyCTA from '../components/global/StickyCTA.astro';
+import SEOHead from '../components/global/SEOHead.astro';
+import { baseUrl } from '../lib/base-url';
+
+interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  schema?: object;
+  noindex?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  ogImage,
+  schema,
+  noindex = false
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Component con metadata completa -->
+    <SEOHead
+      title={title}
+      description={description}
+      canonical={canonicalURL.toString()}
+      image={ogImage}
+      schema={schema}
+      noindex={noindex}
+    />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin />
+    <link rel="preconnect" href="https://app.agentsbooster.com" crossorigin />
+    
+    <!-- Performance optimizations -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://cdn.prod.website-files.com" />
+    <link rel="dns-prefetch" href="https://app.agentsbooster.com" />
+  </head>
+  <body class="cosmic-body">
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+    
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <!-- Sticky CTA Mobile -->
+    <StickyCTA />
+    
+    <!-- Analytics placeholder -->
+    <script>
+      // Google Analytics 4 - Agregar tracking ID en producción
+      // window.dataLayer = window.dataLayer || [];
+      // function gtag(){dataLayer.push(arguments);}
+      // gtag('js', new Date());
+      // gtag('config', 'G-XXXXXXXXXX');
+      
+      // Track scroll depth
+      // let maxScroll = 0;
+      // window.addEventListener('scroll', () => {
+      //   const scrollPercent = Math.round((window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100);
+      //   if (scrollPercent > maxScroll) {
+      //     maxScroll = scrollPercent;
+      //     if (maxScroll % 25 === 0) {
+      //       gtag('event', 'scroll_depth', { depth: maxScroll });
+      //     }
+      //   }
+      // });
+    </script>
+    
+    <!-- Hotjar / Microsoft Clarity placeholder -->
+    <!-- <script type="text/javascript">
+      (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script> -->
+
+    <!-- Diego Widget - Agents Booster -->
+    <script is:inline>
+      window.AgentsBoosterConfig = {
+        apiUrl: "https://app.agentsbooster.com/api/sales/chat",
+        agent: "sales",
+        kb: "agentsbooster__sales"
+      };
+    </script>
+    
+    <!-- Widget Script - Intenta cargar del backend primero, fallback a temporal -->
+    <script is:inline>
+      (function() {
+        const backendScript = document.createElement('script');
+        backendScript.src = 'https://app.agentsbooster.com/static/ab-widget-sales.js';
+        backendScript.defer = true;
+        
+        // Si falla, cargar versión temporal
+        backendScript.onerror = function() {
+          console.log('📦 Usando widget temporal (backend no disponible aún)');
+          const tempScript = document.createElement('script');
+          tempScript.src = '/widget-temp.js';
+          tempScript.defer = true;
+          document.body.appendChild(tempScript);
+        };
+        
+        backendScript.onload = function() {
+          console.log('✅ Widget del backend cargado exitosamente');
+        };
+        
+        document.body.appendChild(backendScript);
+      })();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Cosmic Body */
+  .cosmic-body {
+    background: #080818;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Performance: GPU acceleration for transforms */
+  .gpu-accelerated,
+  [class*="animate-"],
+  [class*="transition-"] {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Lazy load images */
+  img[loading="lazy"] {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Smooth scroll with offset for fixed header */
+  html {
+    scroll-padding-top: 80px;
+  }
+</style>

@@ -1,0 +1,318 @@
+---
+/**
+ * TRUST BADGES - AGENTS BOOSTER
+ * Seguridad, compliance y confianza
+ */
+---
+
+<section class="trust-section">
+  <div class="ab-container">
+    
+    <!-- Title -->
+    <div class="trust-header">
+      <h2 class="trust-title">
+        Seguridad y <span class="title-highlight">Compliance</span> Enterprise
+      </h2>
+      <p class="trust-subtitle">
+        Protegemos tus datos con los más altos estándares de la industria
+      </p>
+    </div>
+
+    <!-- Badges Grid -->
+    <div class="trust-grid">
+      
+      <!-- Multi-tenant Seguro -->
+      <div class="trust-card">
+        <div class="trust-icon">🔒</div>
+        <h3 class="trust-card-title">Multi-tenant Seguro</h3>
+        <p class="trust-card-text">
+          Arquitectura aislada por cliente. Tus datos nunca se mezclan con otros.
+        </p>
+        <div class="trust-badge verified">✓ Implementado</div>
+      </div>
+
+      <!-- Trazabilidad -->
+      <div class="trust-card">
+        <div class="trust-icon">📊</div>
+        <h3 class="trust-card-title">100% Trazable</h3>
+        <p class="trust-card-text">
+          Cada acción del agente se registra. Auditorías completas disponibles.
+        </p>
+        <div class="trust-badge verified">✓ Implementado</div>
+      </div>
+
+      <!-- Encriptación -->
+      <div class="trust-card">
+        <div class="trust-icon">🛡️</div>
+        <h3 class="trust-card-title">Encriptación End-to-End</h3>
+        <p class="trust-card-text">
+          Datos en tránsito y en reposo protegidos con AES-256.
+        </p>
+        <div class="trust-badge verified">✓ Implementado</div>
+      </div>
+
+      <!-- SOC 2 -->
+      <div class="trust-card">
+        <div class="trust-icon">📋</div>
+        <h3 class="trust-card-title">SOC 2 Type II</h3>
+        <p class="trust-card-text">
+          Certificación en proceso. Controles de seguridad auditados.
+        </p>
+        <div class="trust-badge progress">⏳ En progreso</div>
+      </div>
+
+      <!-- GDPR -->
+      <div class="trust-card">
+        <div class="trust-icon">🇪🇺</div>
+        <h3 class="trust-card-title">GDPR Compliant</h3>
+        <p class="trust-card-text">
+          Cumplimiento total con regulaciones europeas de protección de datos.
+        </p>
+        <div class="trust-badge verified">✓ Certificado</div>
+      </div>
+
+      <!-- Uptime SLA -->
+      <div class="trust-card">
+        <div class="trust-icon">⚡</div>
+        <h3 class="trust-card-title">99.9% Uptime SLA</h3>
+        <p class="trust-card-text">
+          Disponibilidad garantizada. Infraestructura redundante y monitoreada 24/7.
+        </p>
+        <div class="trust-badge verified">✓ Garantizado</div>
+      </div>
+
+    </div>
+
+    <!-- CTA Security Page -->
+    <div class="trust-cta">
+      <p class="trust-cta-text">
+        ¿Necesitas más detalles sobre seguridad y compliance?
+      </p>
+      <a href="/seguridad" class="trust-cta-button">
+        <span>Ver página de seguridad completa</span>
+        <span class="cta-arrow">→</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .trust-section {
+    background: #080818;
+    padding: 96px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .trust-section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(200, 152, 40, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Header */
+  .trust-header {
+    text-align: center;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .trust-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .title-highlight {
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .trust-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Grid */
+  .trust-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .trust-card {
+    padding: 32px;
+    background: rgba(8, 8, 24, 0.6);
+    border: 1px solid rgba(200, 152, 40, 0.15);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .trust-card:hover {
+    background: rgba(8, 8, 24, 0.8);
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(200, 152, 40, 0.15);
+  }
+
+  .trust-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 8px rgba(200, 152, 40, 0.3));
+  }
+
+  .trust-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 12px;
+  }
+
+  .trust-card-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 20px;
+    flex: 1;
+  }
+
+  .trust-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .trust-badge.verified {
+    background: rgba(0, 255, 136, 0.15);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+    color: #00FF88;
+  }
+
+  .trust-badge.progress {
+    background: rgba(74, 158, 255, 0.15);
+    border: 1px solid rgba(74, 158, 255, 0.3);
+    color: #4A9EFF;
+  }
+
+  /* CTA */
+  .trust-cta {
+    text-align: center;
+    padding: 40px;
+    background: rgba(200, 152, 40, 0.08);
+    border: 1px solid rgba(200, 152, 40, 0.2);
+    border-radius: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .trust-cta-text {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+  }
+
+  .trust-cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    color: #080818;
+    font-size: 16px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 20px rgba(200, 152, 40, 0.4);
+  }
+
+  .trust-cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(200, 152, 40, 0.6);
+    color: #080818;
+  }
+
+  .cta-arrow {
+    transition: transform 0.3s ease;
+  }
+
+  .trust-cta-button:hover .cta-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .trust-section {
+      padding: 64px 0;
+    }
+
+    .trust-header {
+      margin-bottom: 48px;
+    }
+
+    .trust-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .trust-card {
+      padding: 28px 24px;
+    }
+
+    .trust-icon {
+      font-size: 40px;
+    }
+
+    .trust-card-title {
+      font-size: 18px;
+    }
+
+    .trust-card-text {
+      font-size: 14px;
+    }
+
+    .trust-cta {
+      padding: 32px 24px;
+    }
+
+    .trust-cta-text {
+      font-size: 16px;
+    }
+
+    .trust-cta-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

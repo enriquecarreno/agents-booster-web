@@ -1,0 +1,323 @@
+---
+/**
+ * DEMO SHOWCASE V3 - CON DASHBOARD ANIMATION
+ * Muestra visualización abstracta del dashboard en acción
+ */
+
+import { baseUrl } from '../../lib/base-url';
+import DashboardAnimation from './DashboardAnimation';
+import { Film, Zap, Link2, Target, BarChart3, ArrowRight } from 'lucide-react';
+---
+
+<section class="demo-showcase section">
+  <div class="ab-container">
+    
+    <!-- Header -->
+    <div class="demo-header">
+      <div class="demo-badge">
+        <Film size={18} strokeWidth={2.5} className="badge-icon-lucide" client:load />
+        <span>Dashboard en vivo</span>
+      </div>
+      <h2 class="demo-title">
+        Tu equipo, <span class="title-highlight">trabajando en piloto automático</span>
+      </h2>
+      <p class="demo-subtitle">
+        Dashboard en tiempo real. Ves cada acción del agente: leads calificados, emails enviados, tareas completadas. Todo trazable, todo automático.
+      </p>
+    </div>
+
+    <!-- Dashboard Animation -->
+    <div class="demo-container">
+      <DashboardAnimation variant="sales" client:only="react" />
+    </div>
+
+    <!-- CTA para ver demo completa -->
+    <div class="demo-cta">
+      <a href={`${baseUrl}/demo`} class="btn-demo-full">
+        Agendar demo personalizada (15 min)
+        <ArrowRight size={18} strokeWidth={2.5} className="arrow-lucide" client:load />
+      </a>
+      <p class="demo-note">
+        Sin compromiso. Te mostramos el dashboard con tus datos reales.
+      </p>
+    </div>
+
+    <!-- Features Below Demo -->
+    <div class="demo-features">
+      <div class="demo-feature">
+        <div class="feature-icon-wrapper">
+          <Zap size={32} strokeWidth={2} className="feature-icon-lucide" client:load />
+        </div>
+        <div class="feature-content">
+          <h3 class="feature-title">Tiempo Real, Sin Demoras</h3>
+          <p class="feature-text">Ves cada acción del agente en el momento en que sucede. Notificaciones instantáneas.</p>
+        </div>
+      </div>
+
+      <div class="demo-feature">
+        <div class="feature-icon-wrapper">
+          <Link2 size={32} strokeWidth={2} className="feature-icon-lucide" client:load />
+        </div>
+        <div class="feature-content">
+          <h3 class="feature-title">Integrado a tus Sistemas</h3>
+          <p class="feature-text">CRM, inventario, pagos, ERP. El agente lee y escribe datos automáticamente.</p>
+        </div>
+      </div>
+
+      <div class="demo-feature">
+        <div class="feature-icon-wrapper">
+          <Target size={32} strokeWidth={2} className="feature-icon-lucide" client:load />
+        </div>
+        <div class="feature-content">
+          <h3 class="feature-title">Objetivos Visuales</h3>
+          <p class="feature-text">Sabes si vas bien o mal. Métricas de ventas, leads, respuestas actualizadas en vivo.</p>
+        </div>
+      </div>
+
+      <div class="demo-feature">
+        <div class="feature-icon-wrapper">
+          <BarChart3 size={32} strokeWidth={2} className="feature-icon-lucide" client:load />
+        </div>
+        <div class="feature-content">
+          <h3 class="feature-title">Todo Trazable</h3>
+          <p class="feature-text">Cada acción registrada. Sabes exactamente qué hizo el agente y por qué.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .demo-showcase {
+    background: linear-gradient(180deg, #080818 0%, #0d0d1f 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .demo-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(200, 152, 40, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Header */
+  .demo-header {
+    text-align: center;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .demo-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 20px;
+    background: rgba(200, 152, 40, 0.12);
+    border: 1px solid rgba(200, 152, 40, 0.3);
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #C89828;
+    margin-bottom: 24px;
+  }
+
+  .demo-badge :global(.badge-icon-lucide) {
+    color: #C89828;
+    flex-shrink: 0;
+  }
+
+  .demo-title {
+    font-size: clamp(32px, 5vw, 48px);
+    font-weight: 900;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+
+  .title-highlight {
+    background: linear-gradient(135deg, #C89828 0%, #F4D56E 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .demo-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* Demo Container */
+  .demo-container {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 40px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* CTA Demo */
+  .demo-cta {
+    text-align: center;
+    margin-bottom: 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-demo-full {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 36px;
+    background: linear-gradient(135deg, #C89828 0%, #E0B84E 100%);
+    color: #080818;
+    font-size: 17px;
+    font-weight: 700;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(200, 152, 40, 0.4);
+  }
+
+  .btn-demo-full:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(200, 152, 40, 0.6);
+    color: #080818;
+  }
+
+  .btn-demo-full :global(.arrow-lucide) {
+    color: #080818;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .btn-demo-full:hover :global(.arrow-lucide) {
+    transform: translateX(4px);
+  }
+
+  .demo-note {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 12px;
+  }
+
+  /* Features Grid */
+  .demo-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .demo-feature {
+    display: flex;
+    gap: 16px;
+    padding: 24px;
+    background: rgba(8, 8, 24, 0.6);
+    border: 1px solid rgba(200, 152, 40, 0.15);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .demo-feature:hover {
+    background: rgba(8, 8, 24, 0.8);
+    border-color: rgba(200, 152, 40, 0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(200, 152, 40, 0.15);
+  }
+
+  .feature-icon-wrapper {
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(200, 152, 40, 0.1);
+    border-radius: 12px;
+    border: 1px solid rgba(200, 152, 40, 0.2);
+  }
+
+  .feature-icon-wrapper :global(.feature-icon-lucide) {
+    color: #C89828;
+    filter: drop-shadow(0 2px 8px rgba(200, 152, 40, 0.3));
+  }
+
+  .feature-content {
+    flex: 1;
+  }
+
+  .feature-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+  }
+
+  .feature-text {
+    font-size: 15px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .demo-header {
+      margin-bottom: 48px;
+    }
+
+    .demo-container {
+      margin-bottom: 32px;
+    }
+
+    .demo-cta {
+      margin-bottom: 48px;
+    }
+
+    .demo-features {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .demo-feature {
+      padding: 20px;
+    }
+
+    .feature-icon-wrapper {
+      width: 48px;
+      height: 48px;
+    }
+
+    .feature-icon-wrapper :global(.feature-icon-lucide) {
+      width: 28px;
+      height: 28px;
+    }
+
+    .feature-title {
+      font-size: 16px;
+    }
+
+    .feature-text {
+      font-size: 14px;
+    }
+
+    .btn-demo-full {
+      padding: 16px 28px;
+      font-size: 16px;
+    }
+  }
+</style>
